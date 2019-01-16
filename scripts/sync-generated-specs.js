@@ -9,6 +9,9 @@ set('-v');
 
 var syncPaymentSources = function()
 {
+  // TODO: move the others and place klarna alphabetically
+  // TODO: may as well chuck giropay in here too
+  // TODO: use prod urls, syncPaymentSource('Klarna', 'https://internal.api2.checkout.com/klarna-internal/relations/gw/pay', '14');
   syncPaymentRequest('Klarna', 'http://qa-gateway-internal.cko.lon/klarna-internal/relations/gw/pay', '14');
   syncPaymentResponse('Klarna', 'http://qa-gateway-internal.cko.lon/klarna-internal/relations/gw/pay', '10');
 }

@@ -16,6 +16,7 @@ discriminator:
     qiwi: '#/components/schemas/11_PaymentRequestQiwiSource'
     safetypay: '#/components/schemas/12_PaymentRequestSafetyPaySource'
     sofort: '#/components/schemas/13_PaymentRequestSofortSource'
+    klarna: '#/components/schemas/14_PaymentRequestKlarnaSource'
 required:
   - type
 properties:

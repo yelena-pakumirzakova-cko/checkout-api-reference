@@ -13,6 +13,7 @@ discriminator:
     qiwi: '#/components/schemas/07_PaymentResponseQiwiSource'
     safetypay: '#/components/schemas/08_PaymentResponseSafetyPaySource'
     sofort: '#/components/schemas/09_PaymentResponseSofortSource'
+    klarna: '#/components/schemas/10_PaymentResponseKlarnaSource'
 
 required:
   - type
