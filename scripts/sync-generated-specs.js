@@ -12,7 +12,6 @@ var syncPaymentSources = function()
   // TODO: place klarna alphabetically
   // TODO: use prod urls, e.g. syncPaymentSource('Klarna', 'https://internal.api2.checkout.com/klarna-internal/relations/gw/pay', '14');
   syncPaymentRequest('Giropay', 'http://sb-gateway-internal.cko.lon/giropay-internal/relations/gw/pay', '08');
-  //Note: this seems to be missing from the specs
   syncPaymentResponse('Giropay', 'http://sb-gateway-internal.cko.lon/giropay-internal/relations/gw/payment', '04');
   syncPaymentRequest('Ideal', 'http://dev-gateway-internal.cko.lon/ideal-internal-api/relations/gw/pay', '09');
   syncPaymentResponse('Ideal', 'http://dev-gateway-internal.cko.lon/ideal-internal-api/relations/gw/payment', '05');
