@@ -9,11 +9,15 @@ set('-v');
 
 var syncPaymentSources = function()
 {
-  // TODO: move the others and place klarna alphabetically
-  // TODO: may as well chuck giropay in here too
-  // TODO: use prod urls, syncPaymentSource('Klarna', 'https://internal.api2.checkout.com/klarna-internal/relations/gw/pay', '14');
+  // TODO: place klarna alphabetically
+  // TODO: use prod urls, e.g. syncPaymentSource('Klarna', 'https://internal.api2.checkout.com/klarna-internal/relations/gw/pay', '14');
+  syncPaymentRequest('Giropay', 'http://sb-gateway-internal.cko.lon/giropay-internal/relations/gw/pay', '08');
+  //Note: this seems to be missing from the specs
+  syncPaymentResponse('Giropay', 'http://sb-gateway-internal.cko.lon/giropay-internal/relations/gw/payment', '04');
+  syncPaymentRequest('Ideal', 'http://dev-gateway-internal.cko.lon/ideal-internal-api/relations/gw/pay', '09');
+  syncPaymentResponse('Ideal', 'http://dev-gateway-internal.cko.lon/ideal-internal-api/relations/gw/payment', '05');
   syncPaymentRequest('Klarna', 'http://qa-gateway-internal.cko.lon/klarna-internal/relations/gw/pay', '14');
-  syncPaymentResponse('Klarna', 'http://qa-gateway-internal.cko.lon/klarna-internal/relations/gw/pay', '10');
+  syncPaymentResponse('Klarna', 'http://qa-gateway-internal.cko.lon/klarna-internal/relations/gw/payment', '10');
 }
 
 var syncPaymentRequest = function(paymentSourceName, paymentSpecUrl, outputFilePrefix) {
@@ -72,9 +76,13 @@ var addDescriptionToKlarnaPassthroughObjects = function(requestData, paymentSour
 
 var getFunctionToBuildPaymentResponse = function(paymentSourceName) {
   return function(responseBody) {
-    var requestData = responseBody.put.responses['201'].content['application/json'].schema.properties.response_data;
-    if (requestData.properties.type) {
-      delete requestData.properties.type;
+    var properties = responseBody.get.responses[200].content['application/json'].schema.properties;
+    var responseDataProperties = null;
+    if (properties) {
+      responseDataProperties = properties.response_data.properties;
+      if (responseDataProperties && responseDataProperties.type) {
+        delete responseDataProperties.type;
+      }
     }
     return {
       type: 'object',
@@ -83,7 +91,7 @@ var getFunctionToBuildPaymentResponse = function(paymentSourceName) {
           $ref: '#/components/schemas/PaymentResponseSource',
         }, {
           type: 'object',
-          properties: requestData.properties
+          properties: responseDataProperties
         }
       ]
     };
