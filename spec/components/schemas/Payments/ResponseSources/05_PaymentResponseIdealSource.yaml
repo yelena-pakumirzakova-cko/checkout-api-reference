@@ -21,6 +21,6 @@ allOf:
         maxLength: 34
         type: string
         description: "The IBAN of the Consumer Bank account used for payment.  If governing law prevents Issuers outside the Netherlands  from disclosing this information, field may be omitted.\n"
-      accountHolder:
+      account_holder:
         type: string
         description: "Name of the Consumer according to the name of the account used for payment.  In the exceptional case that the consumerName cannot be retrieved by the Issuer,  this is filled with 'N/A'.  If governing law prevents Issuers outside the Netherlands from disclosing this information, field may be omitted.\n"
