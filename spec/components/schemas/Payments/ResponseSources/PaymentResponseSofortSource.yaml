@@ -2,3 +2,14 @@ type: object
 description: A Sofort payment source
 allOf:
   - $ref: "#/components/schemas/PaymentResponseSource"
+  -
+    type: object
+    properties:
+      bic:
+        maxLength: 11
+        type: string
+        description: "BIC (8 or 11-digits) BIC of the bank where the Consumer account is held. "
+      iban:
+        maxLength: 34
+        type: string
+        description: "The IBAN of the Consumer Bank account used for payment."
