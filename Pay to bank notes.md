@@ -67,3 +67,6 @@ Scenario 3: Different payout currency, amount in destination currency
 
 In short, the root `currency` field is always the destination currency unless a `destination.currency` is provided. This allows for conversions.
 
+- Seems like much of the details in the destination are really `recipient` fields. Perhaps we should move them there although we need to decide what gets stored in the Vault instrument alongside the bank details.
+
+- Destination reference - this is what appears on the recipient's statement. Should this not be included in billing descriptor?

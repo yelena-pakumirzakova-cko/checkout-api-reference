@@ -7,6 +7,45 @@ allOf:
   - $ref: "#/components/schemas/PaymentRequestDestination"
   - type: object
     properties:
+      payout:
+        type: object
+        description: Payout details to be discussed
+        properties:
+          # called desired value date
+          desired_payout_date:
+            type: string
+            format: date
+            description: The date (in ISO 8601 format) on which the recipient's account will be credited
+          desired_payout_behavior:
+            type: string
+            enum: 
+              - pay_later
+              - pay_earlier
+              - cancel
+            default: pay_later
+            example: pay_later
+            description: The behavior if the desired payout date is not achievable
+          charge_bearer: # is there a better name for this?
+            type: string
+            enum:
+              - OUR
+              - SHA
+              - BEN
+            description: Who should be charged the payout fee
+          repair:
+            type: boolean
+            description: Determines if the payment details can be modified to prevent payment return
+            example: false
+          purpose: # what is the purpose of this field. Who will use it/see it/report on it?
+            type: string
+            description: An optional description of the payout purpose, for example Insurance claim or Remittance.
+          scheme: # should this not be a discriminator for some of the fields below?
+            type: string
+            description: The preferred payment scheme or network the bank transfer will be sent through
+            enum:
+              - swift
+              - local
+              - instant
       country:
         type: string
         minLength: 2
