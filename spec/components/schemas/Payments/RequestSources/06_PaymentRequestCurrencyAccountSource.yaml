@@ -1,5 +1,7 @@
 type: object
 description: A currency account source
+required:
+  - id
 allOf:
   - $ref: "#/components/schemas/PaymentRequestSource"
   - type: object

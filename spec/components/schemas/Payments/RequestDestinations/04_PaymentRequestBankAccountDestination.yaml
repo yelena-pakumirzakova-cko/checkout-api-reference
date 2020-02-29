@@ -1,0 +1,105 @@
+type: object
+description: A card payment destination
+required:
+  - type
+  - country
+allOf:
+  - $ref: "#/components/schemas/PaymentRequestDestination"
+  - type: object
+    properties:
+      country:
+        type: string
+        minLength: 2
+        maxLength: 2
+        description: The two-letter ISO 2 code of the destination bank account country
+        example: GB
+      account_number:
+        type: string
+        description: The payout destination owner's account number
+        example: 032180000118359719
+      # Seems unnecessary since there is only one value
+      # account_type:
+      #   type: string
+      #   description: The payout destination owner's account type. Set this to bank_account.
+      swift:
+        type: string
+        description: The payout destination SWIFT BIC
+        example: BNMXMXMM
+      branch_code:
+        type: string
+        description: The payout destination branch code
+      bank_code:
+        type: string
+        description: The payout destination bank code
+      iban:
+        type: string
+        description: The payout destination IBAN (International Bank Account Number)
+      bban:
+        type: string
+        description: The payout destination BBAN (Basic Bank Account Number)
+      
+      # can we use a discriminator for some of these fields/conditional logic?
+      # These feel like they should be recipient fields 
+      account_holder_type:
+        type: string
+        enum:
+          - indvidual
+          - corporation
+        description: The type of account holder
+      first_name:
+        type: string
+        description: | 
+          The payout destination owner's first name
+          Must be provided if `last_name` is provided
+        example: Jane
+      last_name:
+        type: string
+        description: | 
+          The payout destination owner's last name
+          Must be provided if `first_name` is provided
+        example: Doe
+      company_name:
+        type: string
+        description: | 
+          The payout destination owner's company name
+          Must be provided if `first_name` and `last_name` are not provided
+      email:
+        type: string
+        format: email
+        description: The payout destination owner's email address
+        example: jdoe@example.com
+      address:
+        description: The payout destination owner's address
+        allOf:
+          - $ref: '#/components/schemas/Address'
+      phone:
+        description: The payout destination owner's phone number
+        allOf:
+          - $ref: '#/components/schemas/PhoneNumber'
+      dob:
+        type: string
+        format: date
+        description: The payout destination owner's date of birth
+      residential_status:
+        type: string
+        description: The payout destination owner's residential status
+
+
+      identification:
+        type: object
+        description: The payout destination owner's identification details
+        properties:
+          type:
+            type: string
+            description: The type of identification
+            # should be an enum, what are the types we support?
+          number:
+            type: string
+            description: The identification number
+          issuing_country:
+            type: string
+            minLength: 2
+            maxLength: 2
+            description: The two-letter ISO 2 code of the country that issued the identification
+            example: GB
+
