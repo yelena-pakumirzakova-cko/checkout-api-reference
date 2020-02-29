@@ -9,6 +9,7 @@ It should not be necessary to specify the source currency as this will always be
 
 Scenario 1: Same source and destination currency
 
+```
 {
     "amount": 10000,
     "currency": "GBP"
@@ -25,9 +26,11 @@ Scenario 1: Same source and destination currency
         "country": "MX"
     }
 }
+```
 
 Scenario 2: Different payout currency, amount in source currency
 
+```
 {
     "amount": 10000,
     "currency": "GBP",
@@ -45,9 +48,11 @@ Scenario 2: Different payout currency, amount in source currency
         "country": "MX"
     }
 }
+```
 
 Scenario 3: Different payout currency, amount in destination currency
 
+```
 {
     "amount": 10000,
     "currency": "USD",
@@ -64,6 +69,7 @@ Scenario 3: Different payout currency, amount in destination currency
         "country": "MX"
     }
 }
+```
 
 In short, the root `currency` field is always the destination currency unless a `destination.currency` is provided. This allows for conversions.
 
