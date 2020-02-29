@@ -70,3 +70,5 @@ In short, the root `currency` field is always the destination currency unless a 
 - Seems like much of the details in the destination are really `recipient` fields. Perhaps we should move them there although we need to decide what gets stored in the Vault instrument alongside the bank details.
 
 - Destination reference - this is what appears on the recipient's statement. Should this not be included in billing descriptor?
+- For sender, how do we differentiate the required fields for AFTs vs Bank account?
+- What is the purpose of sender reference? Why is this required? In general, discussion around references for bank payouts

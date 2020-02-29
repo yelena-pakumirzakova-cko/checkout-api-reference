@@ -1,0 +1,30 @@
+type: object
+description: Information about the sender of the payment's funds
+properties:
+  first_name:
+    type: string
+    description: | 
+      The sender's first name  
+      Must be provided if `last_name` is provided
+    example: "John"
+  last_name:
+    type: string
+    description: | 
+      The sender's last name  
+      Must be provided if `first_name` is provided
+    example: "Jones"
+  company_name: # think we should have a sender type (individual/corporation) here
+    type: string
+    description: | 
+      The sender's company name  
+      Must be provided if `first_name` and `last_name` are not provided
+    example: "Jones"
+  address:
+    description: The sender's address
+    allOf:
+      - $ref: '#/components/schemas/Address'
+  # other card fields
+  account_number:
+    type: string
+    description: The sender's account number 
+    example: "424242424242424242"

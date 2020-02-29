@@ -107,6 +107,8 @@ properties:
     description: The IP address used to make the payment. Required for some risk checks
     allOf:
       - $ref: '#/components/schemas/IPAddress'
+  sender:
+    $ref: '#/components/schemas/PaymentSender'
   recipient:
     $ref: '#/components/schemas/PaymentRecipient'
   processing:
