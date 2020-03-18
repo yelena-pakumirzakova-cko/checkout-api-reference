@@ -18,6 +18,10 @@ get:
         pattern: "^(pay|sid)_(\\w{26})$"
       required: true
       description: The payment or payment session identifier
+  security: 
+    - OAuth: 
+      - gateway
+    - ApiKey: []
   responses:
     '200':
       description: Payment retrieved successfully

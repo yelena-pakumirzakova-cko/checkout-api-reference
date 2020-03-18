@@ -16,7 +16,10 @@ post:
         type: string
       required: false
       description: An optional idempotency key for safely retrying payment requests
-
+  security: 
+      - OAuth: 
+        - gateway
+      - ApiKey: []
   requestBody:
     content:
       application/json:

@@ -14,6 +14,10 @@ post:
         pattern: "^(pay)_(\\w{26})$"
       required: true
       description: The payment identifier
+  security: 
+    - OAuth: 
+      - gateway
+    - ApiKey: []
   requestBody:
     content:
       application/json:

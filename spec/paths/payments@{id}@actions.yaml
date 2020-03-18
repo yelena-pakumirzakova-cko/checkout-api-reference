@@ -12,6 +12,10 @@ get:
         pattern: "^(pay)_(\\w{26})$"
       required: true
       description: The payment identifier
+  security: 
+    - OAuth: 
+      - gateway
+    - ApiKey: []
   responses:
     '200':
       description: Payment actions retrieved successfully

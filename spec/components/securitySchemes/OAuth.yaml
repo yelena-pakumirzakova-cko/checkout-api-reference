@@ -1,0 +1,45 @@
+type: oauth2
+description: |
+  For server-to-server communication we support the OAuth 2.0, client-credentials flow. 
+  To authenticate you will be provided a set of Accesskey credentials: An Accesskey ID and an Accesskey secret. 
+  You can then request an access token via the token URL below. 
+  You must authenticate using Basic authentication providing you Accesskey ID and Secret as username and password respectively:
+
+  ```cURL
+  curl --location --request POST 'https://access.checkout.com/connect/token' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --header 'Authorization: Basic dGVzdC1hY2Nlc3Mta2V5LWlkOnRlc3QtYWNjZXNzLWtleS1zZWNyZXQ=' \
+  --data-urlencode 'grant_type=client_credentials' \
+  --data-urlencode 'scope=gateway'
+  ```
+
+  The token server will return a Bearer `access_token` in JWT format that can then be provided in the `Authorization`
+  header of your API requests:
+
+  ```cURL
+  curl --location --request POST 'https://api.checkout.com/payments' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: Bearer {{AccessToken}}' \
+  --data-raw '{
+    "amount": 10000,
+    "currency": "USD",
+    "reference": "Visa-USD-Test",
+    ...
+  }'
+  ```
+
+  The access token will expire and you will need to request a new one. Use one of our SDKs that handle this automatically.
+
+  Depending on the Environment against which you're making your requests against you'll need to request the token from a different Authorization Server.
+
+  | Environment   |      Authorization Server                          |
+  |---------------|:--------------------------------------------------:|
+  | Sandbox       |  https://access.sandbox.checkout.com/connect/token |
+  | Production    |  https://access.checkout.com/connect/token         |
+
+flows:
+  clientCredentials:
+    tokenUrl: See table above
+    scopes:
+      gateway: Process payments

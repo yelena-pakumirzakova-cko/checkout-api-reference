@@ -5,7 +5,9 @@ post:
   description: |
     Add a reusable payment source, like a <a href="https://docs.checkout.com/docs/sepa-direct-debit" target="blank">SEPA Direct Debit</a>, that you can later use to make one or more payments.
     Payment sources are linked to a specific customer and cannot be shared between customers.
-
+  security: 
+    - OAuth: 
+      - gateway
   requestBody:
     content:
       application/json:
