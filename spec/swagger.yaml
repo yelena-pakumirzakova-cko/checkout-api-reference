@@ -41,6 +41,9 @@ servers:
   - url: https://api.sandbox.checkout.com
     description: Sandbox API
 tags:
+  - name:  Access Token
+    description: | 
+      
   - name: Payments
     description: Process and manage payments from a variety of sources and to various destinations all within one integration.
   - name: Sources
