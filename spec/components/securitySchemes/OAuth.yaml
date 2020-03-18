@@ -5,7 +5,7 @@ description: |
   You can then request an access token via the token URL below. 
   You must authenticate using Basic authentication providing you Accesskey ID and Secret as username and password respectively:
 
-  ```cURL
+  ```
   curl --location --request POST 'https://access.checkout.com/connect/token' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --header 'Authorization: Basic dGVzdC1hY2Nlc3Mta2V5LWlkOnRlc3QtYWNjZXNzLWtleS1zZWNyZXQ=' \
@@ -16,7 +16,7 @@ description: |
   The token server will return a Bearer `access_token` in JWT format that can then be provided in the `Authorization`
   header of your API requests:
 
-  ```cURL
+  ```
   curl --location --request POST 'https://api.checkout.com/payments' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
