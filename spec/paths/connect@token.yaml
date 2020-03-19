@@ -4,12 +4,12 @@ servers:
   - url: https://access.sandbox.checkout.com
     description: Sandbox API
 post:
-  summary: Issue an Access Token
+  summary: Request an access token
   tags: 
-    - Access Token
+    - Access token
   responses:
     '200':
-      description: Ok - A successful Access Token Response as per [RFC6749](https://tools.ietf.org/html/rfc6749#section-4.4.3)
+      description: OK - A successful access token response as per [RFC6749](https://tools.ietf.org/html/rfc6749#section-4.4.3)
       content:
         application/json:
           schema:
@@ -26,7 +26,7 @@ post:
                 example: 3600
 
     '400':
-      description: Bad request - An unsuccessful Access Token Response as per [RFC6749](https://tools.ietf.org/html/rfc6749#section-4.4.3)
+      description: Bad request - An unsuccessful access token response as per [RFC6749](https://tools.ietf.org/html/rfc6749#section-4.4.3)
       content:
         application/json:
           schema:
@@ -55,7 +55,7 @@ post:
               example: client_credentials
             client_id:
               type: string
-              description: "Checkout's Accesskey Id"
+              description: "Access key ID"
             client_secret:
               type: string
               description: "Checkout's Accesskey Secret"

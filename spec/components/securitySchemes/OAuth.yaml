@@ -13,7 +13,7 @@ description: |
   --data-urlencode 'scope=gateway'
   ```
 
-  The token server will return a Bearer `access_token` in JWT format that can then be provided in the `Authorization`
+  The token server will return a Bearer `access_token` in JSON Web Token (JWT) format which you should use in the `Authorization`
   header of your API requests:
 
   ```
