@@ -148,6 +148,16 @@ code, .evgDyP, .sc-cHGsZl.sc-jbKcbu.bMfIUD {
   font-size: 12px!important;
 }
 
+.flfxUM pre {
+  background: var(--S10)!important;
+  border: 0!important;
+}
+
+.flfxUM pre code {
+  background-color: transparent!important;
+  border: 0!important;
+}
+
 .http-verb {
   border-radius: 3px;
 }
@@ -335,7 +345,7 @@ i.k4h4y9-4.jGkewb {
 }
 
 i.sc-gqPbQI.hQYSSu {
-  margin-right: 5px!important:
+  margin-right: 5px!important;
 }
 
 .sc-cLQEGU.kYDFzp {
@@ -414,7 +424,7 @@ span.token.punctuation {
 }
 
 .react-tabs__tab {
-  color: var(--S1000)!important);
+  color: var(--S1000)!important;
 }
 
 ul>li.react-tabs__tab, ul>li.tab-success, ul>li.tab-error {
