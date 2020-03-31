@@ -47,7 +47,12 @@ properties:
   authorization_type:
     type: string
     description: The authorization type
-    example: "Incremental"
+    enum:
+      - Final
+      - Estimated
+      - Incremental
+    default: Final
+    Example: Estimated 
   reference:
     type: string
     description: Your reference for the action

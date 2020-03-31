@@ -177,6 +177,11 @@ properties:
         allOf:
           - $ref: '#/components/schemas/Link'
         description: A link to the payment's associated actions
+      authorize:
+        type: object
+        allOf:
+          - $ref: '#/components/schemas/Link'
+        description: A link to increment the authorization, where applicable
       void:
         type: object
         allOf:
@@ -197,5 +202,7 @@ properties:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44"
       actions:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/actions"
+      authorize:
+        href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/authorize"
       refund:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/refund"
