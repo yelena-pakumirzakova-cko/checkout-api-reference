@@ -203,6 +203,6 @@ properties:
       actions:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/actions"
       authorize:
-        href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/authorize"
+        href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/authorizations"
       refund:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/refund"
