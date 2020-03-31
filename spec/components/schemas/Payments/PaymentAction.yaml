@@ -44,6 +44,10 @@ properties:
     type: string
     description: The Gateway response summary
     example: "Approved"
+  authorization_type:
+    type: string
+    description: The authorization type
+    example: "Incremental"
   reference:
     type: string
     description: Your reference for the action

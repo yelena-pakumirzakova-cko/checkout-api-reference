@@ -3,12 +3,9 @@ properties:
   amount:
     type: integer
     description: |
-      The amount to capture. If not specified, the full payment amount will be captured
+      The amount to increase the authorization by. Omit the amount or provide a value of `0` to extend the authorization validity period (Mastercard-only)
     minimum: 0
     example: 6540
-  capture_type:
-    type: string
-    description: The type of capture. If set to `final`, the remaining available to capture balance will be voided
   reference:
     type: string
     description: A reference you can later use to identify this capture request

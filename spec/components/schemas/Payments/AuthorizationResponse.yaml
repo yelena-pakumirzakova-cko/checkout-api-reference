@@ -1,7 +1,6 @@
 type: object
-description: Payment Response
+description: Authorization Response
 required:
-  - id
   - action_id
   - amount
   - currency
@@ -11,10 +10,6 @@ required:
   - processed_on
   - _links
 properties:
-  id:
-    description: The payment's unique identifier
-    allOf:
-      - $ref: '#/components/schemas/PaymentId'
   action_id:
     description: The unique identifier for the action performed against this payment
     allOf:
@@ -38,11 +33,7 @@ properties:
     description: The status of the payment
     enum:
       - Authorized
-      - Pending
-      - Card Verified
-      - Captured
       - Declined
-      - Paid
     example: Authorized
   auth_code:
     type: string
@@ -58,39 +49,7 @@ properties:
     example: "Approved"
   expires_on:
     type: string
-    description: The imestamp (ISO 8601 code) for when the authorization's validity period expires
-  3ds:
-    type: object
-    description: Provides 3D Secure enrollment status if the payment was downgraded to non-3D Secure
-    allOf:
-      - $ref: '#/components/schemas/3dsEnrollmentData'
-    example:
-      downgraded: true
-      enrolled: N
-  risk:
-    type: object
-    description: Returns the payment's risk assessment results
-    properties:
-      flagged:
-        type: boolean
-        description: Whether or not the payment was flagged by a risk check
-        default: false
-        example: true
-  source:
-    description: The source of the payment
-    type: object
-    allOf:
-      - $ref: '#/components/schemas/PaymentResponseSource'
-  #destination:
-    #description: The destination of the payment
-    #type: object
-    #allOf:
-     # - $ref: '#/components/schemas/PaymentResponseDestination'
-  customer:
-    type: object
-    description: The customer associated with the payment, if provided in the request
-    allOf:
-      - $ref: '#/components/schemas/PaymentResponseCustomer'
+    description: The imestamp (ISO 8601 code) for when the authorization's validity period ends
   balances:
     type: object
     description: The payment balances
