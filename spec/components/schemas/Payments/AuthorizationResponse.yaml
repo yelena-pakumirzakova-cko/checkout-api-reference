@@ -26,7 +26,7 @@ properties:
     minLength: 3
   approved:
     type: boolean
-    description: Whether or not the authorization or capture was successful
+    description: Whether or not the authorization was successful
     example: true
   status:
     type: string

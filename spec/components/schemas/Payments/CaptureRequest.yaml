@@ -8,7 +8,7 @@ properties:
     example: 6540
   capture_type:
     type: string
-    description: The type of capture. If set to `Final`, the remaining available to capture balance will be voided 
+    description: The type of capture. If set to `Final`, the remaining available-to-capture balance will be voided 
     enum:
       - NonFinal
       - Final
