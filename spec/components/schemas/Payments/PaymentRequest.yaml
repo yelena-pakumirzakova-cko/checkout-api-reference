@@ -39,6 +39,9 @@ properties:
   authorization_type:
     type: string
     description: The authorization type
+    enum:
+      - Final
+      - Estimated
     default: Final
     Example: Estimated 
   capture:
@@ -47,11 +50,9 @@ properties:
     default: true
     example: true
   capture_on:
-
     description: |
       A timestamp (ISO 8601 code) that determines when the payment should be captured.
       Providing this field will automatically set `capture` to true
-
     allOf:
       - $ref: '#/components/schemas/Timestamp'
   customer:
