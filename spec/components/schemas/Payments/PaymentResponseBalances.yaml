@@ -22,7 +22,7 @@ properties:
   available_to_capture:
     type: integer
     description: The total amount that is still available for capture
-    example: 0
+    example: 6540
   total_refunded:
     type: integer
     description: The total amount that has been refunded
