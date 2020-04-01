@@ -1,6 +1,7 @@
 type: object
 required:
   - currency
+  - processing_channel_id
 properties:
   source:
     $ref: '#/components/schemas/PaymentRequestSource'
@@ -91,6 +92,10 @@ properties:
           - $ref: '#/components/schemas/PhoneNumber'
   3ds:
     $ref: '#/components/schemas/3dsRequest'
+  processing_channel_id:
+    type: string
+    description: The processing channel to be used for the payment
+    example: "mer_q4dbxom5jbgudnjzjpz7j2z6uq"
   previous_payment_id:
     type: string
     description: |
