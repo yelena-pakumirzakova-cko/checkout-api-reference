@@ -58,7 +58,7 @@ properties:
     example: "Approved"
   expires_on:
     type: string
-    description: The imestamp (ISO 8601 code) for when the authorization's validity period expires
+    description: The timestamp (ISO 8601 code) for when the authorization's validity period expires
   3ds:
     type: object
     description: Provides 3D Secure enrollment status if the payment was downgraded to non-3D Secure

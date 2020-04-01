@@ -49,7 +49,7 @@ properties:
     example: "Approved"
   expires_on:
     type: string
-    description: The imestamp (ISO 8601 code) for when the authorization's validity period ends
+    description: The timestamp (ISO 8601 code) for when the authorization's validity period ends
   balances:
     type: object
     description: The payment balances
