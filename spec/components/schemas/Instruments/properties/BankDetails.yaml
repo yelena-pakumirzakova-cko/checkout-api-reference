@@ -16,11 +16,6 @@ properties:
     type: string
     example: '6443'
 
-  bank_code:
-    description: Code that identifies the bank
-    type: string
-    example: 123-456
-
   address:
     allOf: 
       - $ref: "#/components/schemas/Address"

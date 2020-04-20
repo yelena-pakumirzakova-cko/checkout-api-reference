@@ -9,9 +9,9 @@ properties:
   email:
     type: string
     format: email
-    description: An optional email address to associate with the customer
+    description: The customer's email address
     example: "jokershere@gmail.com"
   name:
     type: string
-    description: The customer's name. This will only set the name for *new* customers
+    description: The customer's name
     example: "Jack Napier"
