@@ -3,6 +3,8 @@ description: Store bank account details
 allOf:
   - $ref: "#/components/schemas/StoreInstrumentRequest"
   - type: object
+required:
+  - currency
 properties:
   type:
     description: The type of instrument
