@@ -1,22 +1,24 @@
 type: object
-description: An existing payment source
+description: An existing payment instrument
 required:
   - id
-  - first_name
-  - last_name
 allOf:
   - $ref: "#/components/schemas/PaymentRequestDestination"
   - type: object
     properties:
       id:
         type: string
-        description: The payment source identifier (e.g., a card source identifier)
+        description: The payment instrument identifier (e.g., a card source identifier)
         example: src_wmlfc3zyhqzehihu7giusaaawu
       first_name:
         type: string
-        description: The payout destination owner's first name
+        description: | 
+          The payout destination owner's first name.
+          Overrides the stored value if present.
         example: John
       last_name:
         type: string
-        description: The payout destination owner's last name
+        description: | 
+          The payout destination owner's last name.
+          Overrides the stored value if present.
         example: Smith

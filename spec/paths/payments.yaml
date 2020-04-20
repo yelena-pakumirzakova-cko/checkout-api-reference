@@ -21,9 +21,7 @@ post:
     content:
       application/json:
         schema:
-          oneOf:
-            - $ref: '#/components/schemas/PaymentRequest'
-            - $ref: '#/components/schemas/Payout'
+            $ref: '#/components/schemas/PaymentRequest'
         example:
           source:
             type: token

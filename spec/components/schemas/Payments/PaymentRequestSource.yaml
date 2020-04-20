@@ -8,6 +8,7 @@ discriminator:
     card: '#/components/schemas/03_PaymentRequestCardSource'
     customer: '#/components/schemas/04_PaymentRequestCustomerSource'
     network_token: '#/components/schemas/05_PaymentRequestNetworkTokenSource'
+    currency_account: '#/components/schemas/06_PaymentRequestCurrencyAccountSource'
     alipay: '#/components/schemas/PaymentRequestAlipaySource'
     benefitpay: '#/components/schemas/PaymentRequestBenefitPaySource'
     baloto: '#/components/schemas/PaymentRequestBalotoSource'
