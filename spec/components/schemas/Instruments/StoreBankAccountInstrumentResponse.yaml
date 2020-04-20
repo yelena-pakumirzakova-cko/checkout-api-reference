@@ -4,7 +4,6 @@ allOf:
   - $ref: '#/components/schemas/StoreInstrumentResponse'
 required:
   - fingerprint
-  - is_new
   - created_on
 properties:
   type:
@@ -16,23 +15,10 @@ properties:
     description: A token that can uniquely identify this card across all customers and can be shared with merchants.
     pattern: ^([a-z0-9]{26})$
     example: vnsdrvikkvre3dtrjjvlm5du4q
-  is_new:
-    description: Indicates if the instrument was created or if it is an existing one
-    type: boolean
-    example: true
   created_on:
     description: When this instrument was first stored
     type: string
     format: datetime
     example: "2020-01-01 11:11:11"
   customer:
-    type: object
-    allOf:
-      - $ref: '#/components/schemas/CustomerResponse'
-    required:
-      - is_new
-    properties:
-      is_new:
-        description: Indicates if the instrument was created or if it is an existing one
-        type: boolean
-        example: true
+    $ref: '#/components/schemas/CustomerResponse'
