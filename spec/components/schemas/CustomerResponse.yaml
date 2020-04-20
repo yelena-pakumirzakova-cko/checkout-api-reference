@@ -1,5 +1,5 @@
 type: object
-description: The customer to which this payment is linked
+description: Stored customer details
 required:
   - id
 properties:

@@ -1,0 +1,75 @@
+type: object
+description: The account holder details
+properties:
+  account_holder_type:
+    description: The type of bank account holder
+    type: string
+    enum:
+      - individual
+      - corporate
+      - government
+    example: individual
+
+  first_name:
+    description: |
+      The bank account holder's first name. 
+      Required if `account_holder_type` is `individual`.
+    type: string
+    example: "John"
+
+  last_name:
+    description: | 
+      The bank account holder's last name.
+      Required if `account_holder_type` is `individual`.
+    type: string
+    example: "Smith"
+
+  company_name:
+    description: | 
+      The legal name of a registered company that holds the account.
+      Required if `account_holder_type` is `corporate`.
+    type: string
+    example: Test company
+
+  # tax_id:
+  #   description: The instrument owner's tax number
+  #   type: string
+  #   example: "123456"
+
+  date_of_birth:
+    description: The account holder's date of birth in `YYYY-MM-DD` format
+    type: string
+    format: date
+    example: "1986-01-01"
+
+  country_of_birth:
+    description: The two-letter ISO country code of the account holder's country of birth
+    type: string
+    example: US
+
+  residential_status:
+    description: The instrument owner's residential status
+    type: string
+    enum:
+      - resident
+      - non_resident
+    example: resident
+
+  billing_address:
+    allOf:
+      - $ref: "#/components/schemas/Address"
+    description: The billing address of the account holder
+
+  phone:
+    allOf:
+      - $ref: "#/components/schemas/Phone"
+    description: The phone number of the account holder
+
+  identification:
+    $ref: "#/components/schemas/AccountHolderIdentification"
+
+  email:
+    description: The account holder's email address
+    type: string
+    format: email
+    example: test.user@checkout.com

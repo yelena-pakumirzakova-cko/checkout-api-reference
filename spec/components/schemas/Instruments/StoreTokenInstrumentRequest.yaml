@@ -1,13 +1,13 @@
 type: object
+description: Store a previously tokenized instrument
+allOf:
+  - $ref: '#/components/schemas/StoreInstrumentRequest'
 required:
-  - type
   - token
 properties:
   type:
     type: string
     description: The instrument type
-    pattern: token
-    example: token
   token:
     type: string
     description: The Checkout.com token

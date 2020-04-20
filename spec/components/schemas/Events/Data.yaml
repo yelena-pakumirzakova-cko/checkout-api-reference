@@ -71,7 +71,7 @@ properties:
     type: object
     description: The customer to which this payment is linked
     allOf:
-      - $ref: '#/components/schemas/PaymentResponseCustomer'
+      - $ref: '#/components/schemas/CustomerResponse'
   processed_on:
     description: The date/time the payment was processed
     allOf:

@@ -1,0 +1,27 @@
+type: object
+description: Details of the bank
+properties:
+  name:
+    description: The bank's name
+    type: string
+    example: Lloyds TSB
+
+  branch:
+    description: The bank branch's name
+    type: string
+    example: Bournemouth
+
+  branch_code:
+    description: Code that identifies the bank branch
+    type: string
+    example: 6443
+
+  bank_code:
+    description: Code that identifies the bank
+    type: string
+    example: 123-456
+
+  address:
+    allOf: 
+      - $ref: "#/components/schemas/Address"
+    description: The bank's contact address
