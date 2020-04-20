@@ -22,7 +22,7 @@ properties:
   number:
     description: Number (which can contain letters) that identifies the account
     type: string
-    example: 13654567455
+    example: '13654567455'
 
   iban:
     description: Internationally agreed standard for identifying bank account
@@ -37,17 +37,17 @@ properties:
   swift_bic:
     description: 8 or 11 character code which identifies the bank or bank branch
     type: string
-    example: 37040044
+    example: '37040044'
 
   currency:
     description: The three-letter ISO currency code of the account's currency
     type: string
-    example: USD
+    example: GBP
 
   country:
     description: The two-letter ISO country code of where the account is based
     type: string
-    example: US
+    example: GB
 
   account_holder:
     $ref: "#/components/schemas/AccountHolder"

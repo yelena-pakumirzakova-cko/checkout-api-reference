@@ -31,10 +31,10 @@ properties:
     type: string
     example: Test company
 
-  # tax_id:
-  #   description: The instrument owner's tax number
-  #   type: string
-  #   example: "123456"
+  tax_id:
+    description: The account holder's tax number/reference
+    type: string
+    example: "123456"
 
   date_of_birth:
     description: The account holder's date of birth in `YYYY-MM-DD` format
@@ -45,7 +45,7 @@ properties:
   country_of_birth:
     description: The two-letter ISO country code of the account holder's country of birth
     type: string
-    example: US
+    example: GB
 
   residential_status:
     description: The instrument owner's residential status

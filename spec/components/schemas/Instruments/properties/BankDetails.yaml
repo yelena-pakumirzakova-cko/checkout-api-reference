@@ -14,7 +14,7 @@ properties:
   branch_code:
     description: Code that identifies the bank branch
     type: string
-    example: 6443
+    example: '6443'
 
   bank_code:
     description: Code that identifies the bank
