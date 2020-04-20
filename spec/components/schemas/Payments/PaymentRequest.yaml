@@ -93,6 +93,8 @@ properties:
     $ref: '#/components/schemas/PaymentSender'
   recipient:
     $ref: '#/components/schemas/PaymentRecipient'
+  instruction:
+    $ref: '#/components/schemas/PaymentInstruction'
   processing:
     $ref: '#/components/schemas/ProcessingSettings'
   metadata:

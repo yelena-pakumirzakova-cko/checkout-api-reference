@@ -1,0 +1,37 @@
+type: object
+description: Instruction details for payouts to bank accounts
+properties:
+  purpose:
+    type: string
+    description: An optional description of the payout purpose, for example Insurance claim or Remittance.
+  desired_payout_date:
+    type: string
+    format: date
+    description: The date (in ISO 8601 format) on which the recipient's account will be credited
+  desired_payout_behavior:
+    type: string
+    enum: 
+      - pay_early
+      - pay_later
+      - do_not_pay
+    default: pay_later
+    example: pay_later
+    description: The behavior if the desired payout date is not achievable
+  charge_bearer:
+    type: string
+    enum:
+      - OUR
+      - SHA
+      - BEN
+    description: Who should be charged the payout fee
+  repair:
+    type: boolean
+    description: Determines if the payment details can be modified to prevent payment return
+    example: false
+  scheme:
+    type: string
+    description: The preferred payment scheme or network the bank transfer will be sent through
+    enum:
+      - swift
+      - local
+      - instant
