@@ -4,9 +4,7 @@ properties:
   id:
     type: string
     pattern: "^(cus)_(\\w{26})$"
-    description: |
-      The identifier of an existing customer. If neither customer `id` nor `email` is provided, then 
-      a new customer will be registered
+    description: The identifier of an existing customer
     example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
   email:
     type: string
