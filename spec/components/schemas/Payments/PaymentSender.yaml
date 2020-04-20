@@ -1,38 +1,25 @@
 type: object
 description: Information about the sender of the payment's funds
+discriminator:
+  propertyName: type
+  mapping:
+    individual: '#/components/schemas/01_IndividualSender'
+    corporate: '#/components/schemas/02_CorporateSender'
+    instrument: '#/components/schemas/03_InstrumentSender'
+required:
+  - type
 properties:
   type:
     type: string
     enum:
       - individual
       - corporate
+      - instrument
     description: The type of sender
-  first_name:
-    type: string
-    description: | 
-      The sender's first name.
-      Must be provided if `type` is `individual`.
-    example: "John"
-  last_name:
-    type: string
-    description: | 
-      The sender's last name.
-      Must be provided if `type` is `individual`.
-    example: "Jones"
-  company_name:
-    type: string
-    description: | 
-      The sender's company name.
-      Must be provided if `type` is `corporate`.
-    example: "New Co"
-  address:
-    description: The sender's address
-    allOf:
-      - $ref: '#/components/schemas/Address'
-  
+
   reference:
     type: string
-    description: The sender's reference for the payout 
+    description: The sender's reference for the payout
   
   # p2c
   account_number:

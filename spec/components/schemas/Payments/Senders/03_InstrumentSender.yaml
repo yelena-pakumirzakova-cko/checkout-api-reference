@@ -1,0 +1,16 @@
+type: object
+description: Store a previously tokenized instrument
+allOf:
+  - $ref: '#/components/schemas/PaymentSender'
+required:
+  - type
+properties:
+  type:
+    type: string
+    description: The sender type
+  id:
+    type: string
+    description: |
+      The instrument ID to be used for sender details.  
+      If not provided, the instrument ID of the payment `destination` will be used.
+    example: src_nwd3m4in3hkuddfpjsaevunhdy
