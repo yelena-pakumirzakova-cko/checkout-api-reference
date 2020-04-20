@@ -1,7 +1,7 @@
 type: object
 description: The account holder details
 properties:
-  account_holder_type:
+  type:
     description: The type of bank account holder
     type: string
     enum:
@@ -13,21 +13,21 @@ properties:
   first_name:
     description: |
       The bank account holder's first name. 
-      Required if `account_holder_type` is `individual`.
+      Required if `type` is `individual`.
     type: string
     example: "John"
 
   last_name:
     description: | 
       The bank account holder's last name.
-      Required if `account_holder_type` is `individual`.
+      Required if `type` is `individual`.
     type: string
     example: "Smith"
 
   company_name:
     description: | 
       The legal name of a registered company that holds the account.
-      Required if `account_holder_type` is `corporate`.
+      Required if `type` is `corporate`.
     type: string
     example: Test company
 
