@@ -1,22 +1,13 @@
 type: object
 description: A currency account source
-required:
-  - id
 allOf:
   - $ref: "#/components/schemas/PaymentRequestSource"
   - type: object
     properties:
-      id:
+      currency:
         type: string
-        pattern: "^(ca)_(\\w{26})$"
-        description: The ID of the source account to be debited
-        example: ca_y3oqhf46pyzuxjbcn2giaqnb44
-      amount:
-        type: integer
         description: |
-          If a `destination` is provided, the `source.amount` indicates the amount in the _source_ currency to be paid out.
-          If omitted, the root `amount` in the _destination_ currency will be used.
+          The three-letter <a href="https://docs.checkout.com/docs/currency-codes" target="blank">ISO currency code</a>
+          used to identify the currency account to be used as the source of funds.
 
-          The amount must be provided in the <a href="https://docs.checkout.com/docs/calculating-the-value" target="blank">minor currency unit</a>.
-        minimum: 1
-        example: 6540
+          If omitted your default currency account will be used.

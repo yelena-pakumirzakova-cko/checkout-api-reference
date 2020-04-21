@@ -13,7 +13,7 @@ properties:
       The exact format <a href="https://docs.checkout.com/docs/calculating-the-value" target="blank">depends on the currency</a>.
       Omit the amount or provide a value of `0` to perform a card verification. 
       
-      If a `destination` is specified the amount will be treated as the payout amount in the provided `currency` unless a `source.amount` is provided.
+      If a `destination` is specified, indicates the payout amount.
     minimum: 0
     example: 6540
   currency:
@@ -21,7 +21,7 @@ properties:
     description: |
       The three-letter <a href="https://docs.checkout.com/docs/currency-codes" target="blank">ISO currency code</a>
 
-      If a `destination` is specified, this is the currency of the payout.
+      If a `destination` is specified, indicates the currency of the payout.
     example: USD
     maxLength: 3
     minLength: 3
