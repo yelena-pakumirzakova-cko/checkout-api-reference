@@ -21,7 +21,7 @@ properties:
     description: |
       The three-letter <a href="https://docs.checkout.com/docs/currency-codes" target="blank">ISO currency code</a>
 
-      If a `destination` is specified, this is the currency to be converted into the destination's configured payout currency.
+      If a `destination` is specified, this is the currency of the payout.
     example: USD
     maxLength: 3
     minLength: 3

@@ -35,3 +35,9 @@ properties:
       - swift
       - local
       - instant
+  quote_id:
+    allOf:
+      - $ref: '#/components/schemas/QuoteId'
+    description: | 
+      The FX quote identifier. 
+      If omitted, and the source and destination currencies differ, the current market exchange rate will be used. 

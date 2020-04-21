@@ -1,0 +1,39 @@
+post:
+  tags:
+    - Forex
+  summary: Request a quote
+  description: |
+    Request a quote between a source and destination currency pair.
+  requestBody:
+    content:
+      application/json:
+        schema:
+            $ref: '#/components/schemas/QuoteRequest'
+  responses:
+    '201':
+      description: Quote created
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/QuoteResponse'
+      headers:
+        Cko-Request-Id:
+          $ref: "#/components/headers/Cko-Request-Id"
+        Cko-Version:
+          $ref: "#/components/headers/Cko-Version"
+    '401':
+      description: Unauthorized
+    '429':
+      description: Too many requests or duplicate request detected
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+    '422':
+      description: Invalid data was sent
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+    '502':
+      description: Bad gateway

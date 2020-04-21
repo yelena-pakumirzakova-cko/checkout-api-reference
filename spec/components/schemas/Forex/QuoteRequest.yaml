@@ -1,0 +1,28 @@
+type: object
+required:
+  - source_currency
+  - destination_currency
+properties:
+  source_currency:
+    type: string
+    description: The source three-letter <a href="https://docs.checkout.com/docs/currency-codes" target="blank">ISO currency code</a>
+    example: GBP
+  source_amount:
+    type: integer
+    description: | 
+      The amount to be converted from the source currency in the minor currency unit.
+      If omitted the `destination_amount` must be provided.
+    example: 30000
+  destination_currency:
+    type: string
+    description: The destination three-letter <a href="https://docs.checkout.com/docs/currency-codes" target="blank">ISO currency code</a>
+    example: USD
+  destination_amount:
+    type: integer
+    description: | 
+      The amount to be converted from the destination currency in the minor currency unit.
+      If omitted the `source_amount` must be provided.
+example:
+  source_currency: GBP
+  source_amount: 30000
+  destination_currency: USD
