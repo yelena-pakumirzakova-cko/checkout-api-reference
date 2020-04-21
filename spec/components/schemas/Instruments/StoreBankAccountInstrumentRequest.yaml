@@ -20,7 +20,7 @@ properties:
       - cash
     example: savings
 
-  number:
+  account_number:
     description: Number (which can contain letters) that identifies the account
     type: string
     example: '13654567455'
