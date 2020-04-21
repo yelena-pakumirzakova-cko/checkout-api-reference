@@ -11,3 +11,11 @@ allOf:
           used to identify the currency account to be used as the source of funds.
 
           If omitted your default currency account will be used.
+      amount:
+        type: integer
+        description: |
+          If specified, indicates the amount in the source currency to be paid out. If omitted, the root `amount` in the _destination_ currency will be used.
+
+          The amount must be provided in the <a href="https://docs.checkout.com/docs/calculating-the-value" target="blank">minor currency unit</a>.
+        minimum: 1
+        example: 6540
