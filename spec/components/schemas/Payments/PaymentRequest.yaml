@@ -9,11 +9,10 @@ properties:
   amount:
     type: integer
     description: |
-      The payment amount.
-      The exact format <a href="https://docs.checkout.com/docs/calculating-the-value" target="blank">depends on the currency</a>.
-      Omit the amount or provide a value of `0` to perform a card verification. 
-      
-      If a `destination` is specified, indicates the payout amount.
+      The payment amount. If a `destination` is specified, indicates the payout amount.
+      Omit the amount or provide a value of `0` to perform a card verification.       
+
+      The amount must be provided in the <a href="https://docs.checkout.com/docs/calculating-the-value" target="blank">minor currency unit</a>.
     minimum: 0
     example: 6540
   currency:
