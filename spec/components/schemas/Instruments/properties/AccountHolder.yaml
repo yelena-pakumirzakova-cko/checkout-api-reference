@@ -2,7 +2,7 @@ type: object
 description: The account holder details
 properties:
   type:
-    description: The type of bank account holder
+    description: The type of account holder
     type: string
     enum:
       - individual
@@ -12,14 +12,14 @@ properties:
 
   first_name:
     description: |
-      The bank account holder's first name. 
+      The account holder's first name. 
       Required if `type` is `individual`.
     type: string
     example: "John"
 
   last_name:
     description: | 
-      The bank account holder's last name.
+      The account holder's last name.
       Required if `type` is `individual`.
     type: string
     example: "Smith"
@@ -48,7 +48,7 @@ properties:
     example: GB
 
   residential_status:
-    description: The instrument owner's residential status
+    description: The account holder's residential status
     type: string
     enum:
       - resident
@@ -56,14 +56,14 @@ properties:
     example: resident
 
   billing_address:
+    description: The billing address of the account holder
     allOf:
       - $ref: "#/components/schemas/Address"
-    description: The billing address of the account holder
 
   phone:
-    allOf:
-      - $ref: "#/components/schemas/Phone"
     description: The phone number of the account holder
+    allOf:
+      - $ref: "#/components/schemas/PhoneNumber"
 
   identification:
     $ref: "#/components/schemas/AccountHolderIdentification"
