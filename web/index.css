@@ -121,6 +121,11 @@ td.sc-kgoBCf.kGwPhO {
   background: white!important;
 }
 
+/* Hide array formatting */
+.sc-hMqMXs.dDdNtD, .sc-kEYyzF.cMefLx {
+  display: none
+}
+
 /* Field names */
 
 td.sc-cSHVUG.sc-chPdSV {
@@ -146,6 +151,16 @@ code, .evgDyP, .sc-cHGsZl.sc-jbKcbu.bMfIUD {
   border-radius: 3px!important;
   color: var(--S500)!important;
   font-size: 12px!important;
+}
+
+.flfxUM pre {
+  background: var(--S10)!important;
+  border: 0!important;
+}
+
+.flfxUM pre code {
+  background-color: transparent!important;
+  border: 0!important;
 }
 
 .http-verb {
@@ -335,7 +350,7 @@ i.k4h4y9-4.jGkewb {
 }
 
 i.sc-gqPbQI.hQYSSu {
-  margin-right: 5px!important:
+  margin-right: 5px!important;
 }
 
 .sc-cLQEGU.kYDFzp {
@@ -357,7 +372,7 @@ label.hover, span.sc-gwVKww.SmuWE.hover {
 
 /* White background */
 
-.dtUibw, .fLUKgj, .api-content.sc-cMhqgX.iniCdN {
+.dtUibw, .fLUKgj, .api-content.sc-cMhqgX.iniCdN {
   background-color: var(--S00)!important;
 }
 
@@ -414,7 +429,7 @@ span.token.punctuation {
 }
 
 .react-tabs__tab {
-  color: var(--S1000)!important);
+  color: var(--S1000)!important;
 }
 
 ul>li.react-tabs__tab, ul>li.tab-success, ul>li.tab-error {

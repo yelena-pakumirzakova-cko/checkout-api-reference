@@ -1,6 +1,10 @@
 post:
   tags:
     - Payments
+  security: 
+    - OAuth: 
+      - gateway
+    - ApiKey: []
   summary: Refund a payment
   description: |
     Refunds a payment if supported by the payment method.

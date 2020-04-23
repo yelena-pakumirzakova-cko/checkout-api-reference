@@ -1,6 +1,10 @@
 post:
   tags:
     - Payments
+  security: 
+    - OAuth: 
+      - gateway
+    - ApiKey: []
   summary: Request a payment or payout
   description: |
     To accept payments from <a href="https://docs.checkout.com/docs/cards" target="blank">cards</a>, <a href="https://docs.checkout.com/docs/wallets" target="blank">digital wallets</a> and many <a href="https://docs.checkout.com/docs/bank-transfers" target="blank">alternative payment methods</a>, specify the `source.type` field, along with the source-specific data.

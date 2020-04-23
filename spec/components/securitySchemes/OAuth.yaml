@@ -1,0 +1,46 @@
+type: oauth2
+description: |
+  For server-to-server communication, we support the OAuth 2.0 client credentials flow.
+  We will provide you with a set of access key credentials – an access key ID and secret – which you can exchange for an access token by calling the 'request an access token' endpoint below. 
+  You will need to authenticate using basic authentication, using your access key ID and access key secret as your username and password:
+
+  ```
+  curl --location --request POST 'https://access.checkout.com/connect/token' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --header 'Authorization: Basic dGVzdC1hY2Nlc3Mta2V5LWlkOnRlc3QtYWNjZXNzLWtleS1zZWNyZXQ=' \
+  --data-urlencode 'grant_type=client_credentials' \
+  --data-urlencode 'scope=gateway'
+  ```
+
+  The token server will return a Bearer `access_token` in JSON Web Token (JWT) format which you should use in the `Authorization`
+  header of your API requests:
+
+  ```
+  curl --location --request POST 'https://api.checkout.com/payments' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: Bearer {{AccessToken}}' \
+  --data-raw '{
+    "amount": 10000,
+    "currency": "USD",
+    "reference": "Visa-USD-Test",
+    ...
+  }'
+  ```
+
+  Your access token will be valid for a length of time (in seconds) indicated by the `expires_in` field in the response. When it expires, you'll need to either request a new one. You can use one of our SDKs to handle this automatically.
+
+  Depending on the Environment against which you're making your requests against you'll need to request the token from a different Authorization Server.
+
+  | Environment   |      Authorization Server                          |
+  |---------------|:--------------------------------------------------:|
+  | Sandbox       |  https://access.sandbox.checkout.com/connect/token |
+  | Production    |  https://access.checkout.com/connect/token         |
+
+flows:
+  clientCredentials:
+    tokenUrl: See table above
+    scopes:
+      vault: Tokenise and store sensitive data
+      gateway: Process payments
+      fx: Foreign exchange services

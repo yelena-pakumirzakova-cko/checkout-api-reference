@@ -1,6 +1,10 @@
 get:
   tags:
     - Payments
+  security: 
+    - OAuth: 
+      - gateway
+    - ApiKey: []
   summary: Get payment actions
   description: |
     Returns all the actions associated with a payment ordered by processing date in descending order (latest first).

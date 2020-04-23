@@ -1,6 +1,9 @@
 post:
   tags:
     - Forex
+  security: 
+    - OAuth: 
+      - fx
   summary: Request a quote
   description: |
     Request a quote between a source and destination currency pair.
