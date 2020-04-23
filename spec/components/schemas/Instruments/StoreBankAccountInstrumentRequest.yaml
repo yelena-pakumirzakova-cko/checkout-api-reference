@@ -30,6 +30,11 @@ properties:
     type: string
     example: 123-456
 
+  branch_code:
+    description: Code that identifies the bank branch
+    type: string
+    example: '6443'
+
   iban:
     description: Internationally agreed standard for identifying bank account
     type: string
