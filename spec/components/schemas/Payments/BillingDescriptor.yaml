@@ -21,4 +21,4 @@ properties:
     type: string
     description: | 
       The reference that should be shown on the statement. 
-      Applies to payouts to bank accounts only.
+      Required for payouts to bank accounts.

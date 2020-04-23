@@ -27,20 +27,25 @@ get:
       name: account-holder-type
       schema:
         type: string
-      enum:
-        - individual
-        - corporate
-        - government
-      required: true
+        enum:
+          - individual
+          - corporate
+          - government
       description: | 
         The type of account holder that will be used to filter the fields returned
     - in: query
-      name: scheme
+      name: payment-network
       schema:
         type: string
-      required: true
+        enum:
+          - local
+          - sepa
+          - fps
+          - ach
+          - fedwire
+          - swift
       description: | 
-        The banking scheme that will be used to filter the fields returned
+        The banking network that will be used to filter the fields returned
   responses:
     '200':
       description: Bank account fields retrieved successfully
