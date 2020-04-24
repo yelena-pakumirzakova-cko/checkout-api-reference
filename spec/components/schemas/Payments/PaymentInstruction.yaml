@@ -4,11 +4,11 @@ properties:
   purpose:
     type: string
     description: An optional description of the payout purpose, for example Insurance claim or Remittance.
-  desired_payout_date:
+  desired_value_data:
     type: string
     format: date
     description: The date (in ISO 8601 format) on which the recipient's account will be credited
-  desired_payout_behavior:
+  desired_value_date_behavior:
     type: string
     enum: 
       - pay_early
