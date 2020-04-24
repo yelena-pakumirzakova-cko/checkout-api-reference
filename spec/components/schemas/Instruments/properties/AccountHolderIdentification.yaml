@@ -2,7 +2,7 @@ type: object
 description: Bank account holder's proof of identification
 properties:
   type:
-    description: The type of identification for the instrument owner
+    description: The type of identification used to identify the account holder
     type: string
     enum: 
       - passport
