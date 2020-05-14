@@ -4,6 +4,7 @@ post:
   security: 
     - OAuth: 
       - gateway
+      - gateway:payment
     - ApiKey: []
   summary: Request a payment or payout
   description: |

@@ -4,6 +4,7 @@ get:
   security: 
     - OAuth: 
       - gateway
+      - gateway:payment-details
     - ApiKey: []
   summary: Get payment actions
   description: |

@@ -4,6 +4,7 @@ post:
   security: 
     - OAuth: 
       - gateway
+      - gateway:payment-captures
     - ApiKey: []
   summary: Capture a payment
   description: |
