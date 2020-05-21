@@ -6,6 +6,13 @@ properties:
       The amount to capture. If not specified, the full payment amount will be captured
     minimum: 0
     example: 6540
+  capture_type:
+    type: string
+    description: The type of capture. If set to `Final`, the remaining available-to-capture balance will be voided 
+    enum:
+      - NonFinal
+      - Final
+    example: Final
   reference:
     type: string
     description: A reference you can later use to identify this capture request

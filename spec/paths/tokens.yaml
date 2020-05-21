@@ -7,7 +7,9 @@ post:
     To create a token, please authenticate using your public key. 
 
     **Please note:** You should only use the `card` type for testing purposes.
-
+  security: 
+    - OAuth: 
+      - gateway
   requestBody:
     content:
       application/json:

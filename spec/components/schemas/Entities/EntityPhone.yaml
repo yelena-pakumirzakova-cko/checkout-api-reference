@@ -1,0 +1,14 @@
+type: object
+properties:
+  country_code:
+    type: string
+    description: 'The international <a href="https://docs.checkout.com/docs/country-codes" target="blank">country calling code</a>. Required for some risk checks'
+    minLength: 1
+    maxLength: 7
+    example: "+44"
+  number:
+    type: string
+    description: "The phone number of the sub-entity. Cannot be only zeros, include country code or start with 0 or 1"
+    minLength: 8
+    maxLength: 16
+    example: 2345678910

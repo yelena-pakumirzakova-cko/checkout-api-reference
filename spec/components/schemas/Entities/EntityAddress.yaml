@@ -1,0 +1,42 @@
+type: object
+properties:
+  address_line1:
+    type: string
+    description: The first line of the address
+    minLength: 5
+    maxLength: 300
+    example: 54 Elisabeth Street
+  address_line2:
+    type: string
+    description: The second line of the address
+    maxLength: 300
+    nullable: true
+    example: null
+  city:
+    type: string
+    description: The city of the address
+    minLength: 2
+    maxLength: 300
+    example: Brighton
+  state:
+    type: string
+    description: "ISO 3166-1 alpha-2 State Code. This field is applicable only when the country is US"
+    minLength: 2
+    maxLength: 2
+    pattern: "[a-zA-Z]{2}"
+    format: ISO 3166-1
+    example: MI
+  postal_code:
+    type: string
+    description: The postcode or zip code of the address
+    minLength: 5
+    maxLength: 16
+    example: W1B 1DY
+  country:
+    type: string
+    description: The two-letter <a href="https://docs.checkout.com/docs/country-codes" target="blank">ISO country code</a> of the address
+    minLength: 2
+    maxLength: 2
+    pattern: "[a-zA-Z]{2}"
+    format: ISO 3166-1
+    example: GB
