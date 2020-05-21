@@ -43,8 +43,8 @@ tags:
   - name: Access
   - name: Payments
     description: Process and manage payments from a variety of sources and to various destinations all within one integration.
-  - name: Sources
-    description: Create a payment source for a customer that you can use for one or more payments.
+  # - name: Sources
+  #   description: Create a payment source for a customer that you can use for one or more payments.
   - name: Tokens
     description: Create a token that represents a card's details (or their tokenized form in a digital wallet) that you can later use to request a payment, without you having to process or store any sensitive information.
   - name: Instruments
