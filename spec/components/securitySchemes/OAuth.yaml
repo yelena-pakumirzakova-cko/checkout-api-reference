@@ -42,6 +42,7 @@ flows:
     tokenUrl: See table above
     scopes:
       vault: Tokenise and store sensitive data
+      "vault:instruments": Create instruments
       gateway: Access to all Gateway resources
       "gateway:payment": Request payments
       "gateway:payment-details": Get payment details
@@ -50,3 +51,4 @@ flows:
       "gateway:payment-captures": Capture payments
       "gateway:payment-refunds": Refund payments
       fx: Foreign exchange services
+      "payouts:bank-details": Get bank details
