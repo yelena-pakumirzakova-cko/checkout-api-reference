@@ -51,4 +51,8 @@ flows:
       "gateway:payment-captures": Capture payments
       "gateway:payment-refunds": Refund payments
       fx: Foreign exchange services
+      disputes: Access to all Disputes resources
+      "disputes:view": View disputes
+      "disputes:provide-evidence": Provide dispute evidence
+      "disputes:accept": Accept disputes
       "payouts:bank-details": Get bank details
