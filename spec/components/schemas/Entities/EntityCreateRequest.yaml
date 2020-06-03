@@ -3,57 +3,59 @@ title: EntityCreateRequest
 properties:
   reference:
     type: string
-    description: "A reference you can later use to identify this sub-entity"
+    description: A reference you can later use to identify this sub-entity
     minLength: 1
     maxLength: 15
     example: superhero1234
   contact_details:
     allOf:
-      - $ref: "#/components/schemas/EntityContactDetails"
+      - $ref: '#/components/schemas/EntityContactDetails'
       - type: object
         properties:
           phone:
-            description: "The phone number of the sub-entity"
+            description: The phone number of the sub-entity
             allOf:
-              - $ref: "#/components/schemas/EntityPhone"
+              - $ref: '#/components/schemas/EntityPhone'
             required:
               - country_code
               - number
+        required:
+          - phone
   profile:
     allOf:
-      - $ref: "#/components/schemas/EntityProfile"
+      - $ref: '#/components/schemas/EntityProfile'
     required:
       - urls
       - mccs
   company:
     allOf:
-      - $ref: "#/components/schemas/EntityCompany"
+      - $ref: '#/components/schemas/EntityCompany'
       - type: object
         properties:
           principal_address:
-            description: "The company's primary location, where business is performed"
+            description: 'The company''s primary location, where business is performed'
             allOf:
-              - $ref: "#/components/schemas/EntityAddress"
+              - $ref: '#/components/schemas/EntityAddress'
             required:
               - address_line1
               - city
               - zip
               - country
           registered_address:
-            description: "The registered address of the company"
+            description: The registered address of the company
             allOf:
-              - $ref: "#/components/schemas/EntityAddress"
+              - $ref: '#/components/schemas/EntityAddress'
             required:
               - address_line1
               - city
               - zip
               - country
           representatives:
-            description: "Information about representatives of this company"
+            description: Information about representatives of this company
             type: array
             items:
               allOf:
-                - $ref: "#/components/schemas/EntityRepresentative"
+                - $ref: '#/components/schemas/EntityRepresentative'
                 - type: object
                   properties:
                     address:
@@ -84,6 +86,6 @@ properties:
       - representatives
 required:
   - reference
-  - phone
+  - contact_details
   - profile
   - company

@@ -1,0 +1,6 @@
+type: array
+title: EntityRepresentatives
+description: Information about representatives of this company
+items:
+  allOf:
+    - $ref: '#/components/schemas/EntityRepresentative'
