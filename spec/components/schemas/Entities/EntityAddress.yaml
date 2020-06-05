@@ -6,14 +6,14 @@ properties:
     description: "The first line of the address"
     minLength: 5
     maxLength: 300
-    example: "Super Hero Masks"
+    example: "90 Tottenham Court Road"
   address_line2:
     type: string
     description: "The second line of the address"
     minLength: 0
     maxLength: 300
     nullable: true
-    example: "90 Tottenham Court Road"
+    example: null
   city:
     type: string
     description: "The address city"
