@@ -51,6 +51,7 @@ properties:
               - zip
               - country
           representatives:
+            title: EntityRepresentatives
             description: Information about representatives of this company
             type: array
             items:

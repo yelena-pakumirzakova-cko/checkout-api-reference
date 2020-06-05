@@ -6,10 +6,10 @@ properties:
     description: "The sub-entity's Business Registration Number such as Commercial Registration, Ministry of Commerce certificate number or equivalent registration number"
     minLength: 2
     maxLength: 16
-    example: "452349600005"
+    example: '452349600005'
   legal_name:
     type: string
-    description: "The legal name of the sub-entity"
+    description: The legal name of the sub-entity
     minLength: 4
     maxLength: 300
     example: Super Hero Masks Inc.
@@ -21,7 +21,10 @@ properties:
     example: Super Hero Masks
   principal_address:
     allOf:
-      - $ref: "#/components/schemas/EntityAddress"
+      - $ref: '#/components/schemas/EntityAddress'
   registered_address:
     allOf:
-      - $ref: "#/components/schemas/EntityAddress"
+      - $ref: '#/components/schemas/EntityAddress'
+  representatives:
+    allOf:
+      - $ref: '#/components/schemas/EntityRepresentatives'
