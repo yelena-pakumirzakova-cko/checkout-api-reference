@@ -56,3 +56,6 @@ flows:
       "disputes:provide-evidence": Provide dispute evidence
       "disputes:accept": Accept disputes
       "payouts:bank-details": Get bank details
+      flow: Access to all Flow resources
+      "flow:workflows": Manage workflows
+      "flow:events": Retrieve events
