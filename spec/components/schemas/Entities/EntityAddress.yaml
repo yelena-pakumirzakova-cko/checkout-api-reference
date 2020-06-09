@@ -30,7 +30,7 @@ properties:
   zip:
     type: string
     description: "The address zip/postal code"
-    minLength: 5
+    minLength: 1
     maxLength: 16
     example: "W1T4TJ"
   country:

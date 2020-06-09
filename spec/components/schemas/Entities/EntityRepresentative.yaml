@@ -20,6 +20,7 @@ properties:
     maxLength: 300
     example: "Doe"
   address:
+    title: EntityRepresentativeAddress
     description: "The representative's address"
     allOf:
       - $ref: "#/components/schemas/EntityAddress"
