@@ -61,13 +61,7 @@ properties:
                   properties:
                     address:
                       required:
-                        - address_line1
-                        - city
-                        - zip
                         - country
-                    identification:
-                      required:
-                        - national_id_number
                     phone:
                       required:
                         - country_code
@@ -76,7 +70,6 @@ properties:
                 - first_name
                 - last_name
                 - address
-                - identification
                 - phone
     required:
       - business_registration_number
