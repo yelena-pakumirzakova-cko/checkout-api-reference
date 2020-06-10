@@ -32,10 +32,10 @@ description: |
 
   Depending on the Environment against which you're making your requests against you'll need to request the token from a different Authorization Server.
 
-  | Environment   |      Authorization Server                          |
-  |---------------|:--------------------------------------------------:|
-  | Sandbox       |  https://access.sandbox.checkout.com/connect/token |
-  | Production    |  https://access.checkout.com/connect/token         |
+  | Environment   |      Authorization Server                            |
+  |---------------|------------------------------------------------------|
+  | Sandbox       |  https://access.sandbox.checkout.com/connect/token   |
+  | Production    |  https://access.checkout.com/connect/token           |
 
 flows:
   clientCredentials:
@@ -50,12 +50,15 @@ flows:
       "gateway:payment-voids": Void payments
       "gateway:payment-captures": Capture payments
       "gateway:payment-refunds": Refund payments
-      fx: Foreign exchange services
+      "fx": Foreign exchange services
+      "payouts:bank-details": Get bank details
+      sessions: Access to all Sessions resources
+      "sessions:app": App-based authentication
+      "sessions:browser": Browser-based authentication
       disputes: Access to all Disputes resources
       "disputes:view": View disputes
       "disputes:provide-evidence": Provide dispute evidence
       "disputes:accept": Accept disputes
-      "payouts:bank-details": Get bank details
       flow: Access to all Flow resources
       "flow:workflows": Manage workflows
       "flow:events": Retrieve events
