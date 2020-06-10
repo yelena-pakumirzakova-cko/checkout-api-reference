@@ -2,5 +2,7 @@ type: array
 title: EntityRepresentatives
 description: Information about representatives of this company
 items:
+  minItems: 1
+  maxItems: 5
   allOf:
     - $ref: '#/components/schemas/EntityRepresentative'
