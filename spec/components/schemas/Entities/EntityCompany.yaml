@@ -21,7 +21,7 @@ properties:
     maxLength: 300
     example: Super Hero Masks
   principal_address:
-    description: "The company's primary location, where business is performed"
+    description: "The primary location of the company where business is performed"
     allOf:
       - $ref: "#/components/schemas/EntityAddress"
   registered_address:
