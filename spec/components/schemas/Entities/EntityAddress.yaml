@@ -22,7 +22,7 @@ properties:
     example: "London"
   state:
     type: string
-    description: "The address state (in the US, this needs to be a ISO 3166-1 state code)"
+    description: "The address state (in the US, this is required and needs to be an ISO 3166-1 state code)"
     minLength: 0
     maxLength: 300
     nullable: true

@@ -1,6 +1,6 @@
 type: object
 title: Profile
-description: The sub-entity profile
+description: The profile of the sub-entity
 properties:
   urls:
     type: array
