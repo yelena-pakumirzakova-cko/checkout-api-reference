@@ -1,13 +1,13 @@
 type: object
-title: EntityExtendedResponse
+title: ExtendedResponse
 allOf:
-  - $ref: '#/components/schemas/EntityBasicResponse'
+  - $ref: "#/components/schemas/EntityBasicResponse"
   - type: object
     properties:
       contact_details:
-        $ref: '#/components/schemas/EntityContactDetails'
+        $ref: "#/components/schemas/EntityContactDetails"
       profile:
-        $ref: '#/components/schemas/EntityProfile'
+        $ref: "#/components/schemas/EntityProfile"
       company:
-        $ref: '#/components/schemas/EntityCompany'
-  - $ref: '#/components/schemas/EntityLinks'
+        $ref: "#/components/schemas/EntityCompany"
+  - $ref: "#/components/schemas/EntityLinks"

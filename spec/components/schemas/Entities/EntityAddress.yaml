@@ -1,5 +1,5 @@
 type: object
-title: EntityAddress
+title: Address
 properties:
   address_line1:
     type: string

@@ -1,5 +1,5 @@
 type: object
-title: EntityPhone
+title: Phone
 properties:
   country_code:
     type: string

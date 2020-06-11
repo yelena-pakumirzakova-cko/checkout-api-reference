@@ -1,25 +1,26 @@
 type: object
-title: EntityProfile
+title: Profile
+description: The sub-entity profile
 properties:
   urls:
     type: array
     description: "A collection of URLs of websites the sub-entity accepts payments on"
+    minItems: 1
+    maxItems: 20
     items:
       type: string
       description: "A URL of a website the sub-entity accepts payments on"
       minLength: 4
       maxLength: 300
-      minItems: 1
-      maxItems: 20
       example: "https://www.superheroexample.com"
   mccs:
     type: array
     description: "A collection of 4-digit ISO 18245 merchant category codes classifying the sub-entity's industry"
+    minItems: 1
+    maxItems: 5
     items:
       type: string
       description: "A 4-digit ISO 18245 merchant category code classifying the sub-entity's industry"
       minLength: 4
       maxLength: 4
-      minItems: 1
-      maxItems: 5
       example: 5669
