@@ -1,7 +1,4 @@
 get:
-  servers:
-    - url: http://flow.cko.lon/admin
-      description: QA
   security:
     - OAuth:
       - flow
@@ -10,7 +7,7 @@ get:
     - Workflows
   summary: Get all workflows
   description: |
-    Gets all workflows
+    Get all workflows
   responses:
     '200':
       description: Workflows retrieved successfully

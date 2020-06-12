@@ -21,9 +21,19 @@ allOf:
           description: The HTTP header value
         example:
           Authorization: "70ed20ff-ba31-4ea3-b3ef-772f2be1cbdf"
-      signing_key:
-        type: string
-        description: |
-          An optional key used to produce a signature of the webhook contents that will be included in the `CKO-Signature` header.
+      signature:
+        type: object
+        description: Used to produce a signature of the webhook contents that will be included in the `Cko-Signature` header.
           This value can be computed by you on receipt of a webhook to validate its authenticity.
-        example: x!Yes2ygkcQYTiY6h3Fs
+        required:
+          - key
+        properties:
+          method:
+            type: enum
+              - HMACSHA256
+            description: The signing method, defaults to HMAC SHA256
+            example: HMACSHA256
+          key:
+            type: string
+            description: The key used the sign the webhook
+            example: public-signing-key

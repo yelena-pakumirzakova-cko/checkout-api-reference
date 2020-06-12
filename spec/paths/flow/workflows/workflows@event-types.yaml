@@ -1,7 +1,4 @@
 get:
-  servers:
-    - url: http://flow.cko.lon/admin
-      description: QA
   security:
     - OAuth:
       - flow
@@ -10,7 +7,7 @@ get:
     - Workflows
   summary: Get event types
   description: |
-    Gets a list of sources and their events for building new workflows
+    Get a list of sources and their events for building new workflows
   responses:
     '200':
       description: Event types retrieved successfully
