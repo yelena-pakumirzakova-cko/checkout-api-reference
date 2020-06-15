@@ -1,5 +1,5 @@
 type: object
-title: EntityCapabilities
+title: Capabilities
 properties:
   payments:
     type: object
