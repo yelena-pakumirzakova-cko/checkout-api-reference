@@ -29,9 +29,6 @@ get:
 
 
 post:
-  servers:
-    - url: http://flow.cko.lon/admin
-      description: QA
   security:
     - OAuth:
       - flow

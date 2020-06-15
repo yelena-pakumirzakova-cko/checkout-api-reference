@@ -88,9 +88,6 @@
 #       description: Internal Error
 
 delete:
-  servers:
-    - url: http://flow.cko.lon/admin
-      description: QA
   tags:
     - Workflows
   summary: Remove a workflow
