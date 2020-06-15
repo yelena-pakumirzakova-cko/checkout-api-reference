@@ -1,19 +1,19 @@
 type: object
-title: EntityAddress
+title: Address
 properties:
   address_line1:
     type: string
     description: "The first line of the address"
     minLength: 5
     maxLength: 300
-    example: "Super Hero Masks"
+    example: "90 Tottenham Court Road"
   address_line2:
     type: string
     description: "The second line of the address"
     minLength: 0
     maxLength: 300
     nullable: true
-    example: "90 Tottenham Court Road"
+    example: null
   city:
     type: string
     description: "The address city"
@@ -22,7 +22,7 @@ properties:
     example: "London"
   state:
     type: string
-    description: "The address state (in the US, this needs to be a ISO 3166-1 state code)"
+    description: "The address state (in the US, this is required and needs to be an ISO 3166-1 state code)"
     minLength: 0
     maxLength: 300
     nullable: true
@@ -30,7 +30,7 @@ properties:
   zip:
     type: string
     description: "The address zip/postal code"
-    minLength: 5
+    minLength: 1
     maxLength: 16
     example: "W1T4TJ"
   country:

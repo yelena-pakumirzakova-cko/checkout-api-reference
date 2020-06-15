@@ -1,5 +1,5 @@
 type: object
-title: EntityBasicResponse
+title: BasicResponse
 readOnly: true
 properties:
   id:
