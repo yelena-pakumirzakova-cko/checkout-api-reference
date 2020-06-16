@@ -12,7 +12,6 @@ properties:
     description: "The second line of the address"
     minLength: 0
     maxLength: 300
-    nullable: true
     example: null
   city:
     type: string
@@ -25,7 +24,6 @@ properties:
     description: "The address state (in the US, this is required and needs to be an ISO 3166-1 state code)"
     minLength: 0
     maxLength: 300
-    nullable: true
     example: null
   zip:
     type: string
