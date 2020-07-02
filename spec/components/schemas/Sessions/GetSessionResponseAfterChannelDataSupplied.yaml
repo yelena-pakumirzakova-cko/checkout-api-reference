@@ -28,6 +28,10 @@ properties:
     type: bool
     description: Indicates whether this session involved a challenge
     example: true
+  downgraded:
+    type: bool
+    description: Indicates whether a 3DS2 authentication was downgraded to 3DS1
+    example: false
   authentication_type:
     $ref: '#/components/schemas/AuthenticationType'
   authentication_category:

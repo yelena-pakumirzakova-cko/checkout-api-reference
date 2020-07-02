@@ -22,6 +22,10 @@ properties:
     $ref: '#/components/schemas/Amount'
   currency:
     $ref: '#/components/schemas/Currency'
+  downgraded:
+    type: bool
+    description: Indicates whether a 3DS2 authentication was downgraded to 3DS1
+    example: false
   authentication_type:
     $ref: '#/components/schemas/AuthenticationType'
   authentication_category:
@@ -30,6 +34,8 @@ properties:
     $ref: '#/components/schemas/Status'
   next_actions:
     $ref: '#/components/schemas/NextActions'
+  acs:
+    $ref: '#/components/schemas/FallbackAcs'
   protocol_version:
     $ref: '#/components/schemas/ProtocolVersion'
   reference:

@@ -1,0 +1,34 @@
+post:
+  tags:
+    - Sessions
+  summary: Validate the result of a 3DS1 challenge.
+  description: |
+    An endpoint accepting a Payer Authentication Response (PaRes)
+  parameters:
+    - name: id
+      in: path
+      description: Session ID
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/ParesRequest'
+  responses:
+    '200':
+      description: Validation completed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GetParesSessionResponse'
+      headers:
+        Cko-Request-Id:
+          $ref: "#/components/headers/Cko-Request-Id"
+        Cko-Version:
+          $ref: "#/components/headers/Cko-Version"
+    '404':
+      description: Session not found
+    '502':
+      description: Bad gateway

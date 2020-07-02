@@ -6,4 +6,5 @@ items:
     - issuer_fingerprint
     - challenge_cardholder
     - redirect_cardholder
+    - 3ds1_authenticate
     - complete

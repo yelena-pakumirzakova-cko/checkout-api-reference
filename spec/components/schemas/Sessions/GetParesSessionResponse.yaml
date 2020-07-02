@@ -48,6 +48,7 @@ properties:
     $ref: '#/components/schemas/Reference'
   next_actions:
     $ref: '#/components/schemas/NextActions'
+    example: "complete"
   ds:
     $ref: '#/components/schemas/Ds'
   acs:

@@ -18,10 +18,26 @@ properties:
     maxLength: 32
     example: ACSRefNum1234
   url:
-    description: Fully qualified URL of the ACS to be used for the challenge.
+    description: Fully qualified URL of the ACS to be used for the 3DS1 or 3DS2 challenge.
     type: string
     maxLength: 2048
     example: https://server.acsdomainname.com
+  pareq:
+    description: The Payer Authentication Request to be sent to the ACS URL to initiate a 3DS1 challenge. 
+    type: string
+    maxLength: 2048
+    example: eJxVUV1vgkAQ/CuE93rHCS2Y5QyKrT5oTYXU+EbhqkT5hhb99d2zUC0Jyc7e3tzMLIzb5KR8ibKKs9RWtQFVFZGGWRSne1v1vecHUx1z8A6lEO5GhE0pOCxFVQV7ocSRrYbHjBmWrmuWpakc1s6bKDh0hBz5BgxID/FmGR6CtOYQhMVkseKGZuqmBaSDkIhy4XLaf4zqzBoC+W1DGiSCT/zd7nXhArkiCLMmrcszN9kjkB5AU574oa7zakTIR3O5ZHE0CLMEiDwActOxbmRVIVEbR3zpOt93/3nlHenKnRmv3swGIicgCmrBGSqjT5Qp1BwxY2Sgx2sfgkQqQN+WpfgbFNk1IJfvON2phY7vG4C5lhg7utApuugRiDbPUoET+MBfDeQmejqXUYY1prPNM7GeuMF7tSuGm/pkvuhtMXc+p/5WkwFfhyRjjAExnQ6vlBIAkTSk2x3p1ovVv7X/AJOitQc=
+  md: 
+    description: A unique value that must be sent with the PaReq when initiating a 3DS1 challenge.
+    type: string
+    minLength: 31
+    maxLength: 31
+    example: sid_y3oqhf46pyzuxjbcn2giaqnb441
+  term_url:
+    description: A URL that must be sent with the PaReq when initiating a 3DS1 challenge, and the URL to post the PaRes to after a 3DS1 challenge.
+    type: string
+    maxLength: 512
+    example: https://api.checkout.com/sessions/sid_y3oqhf46pyzuxjbcn2giaqnb441/pares
   signed_content:
     description: >
       Contains the JWS compact serialization created by the ACS for a challenged App authentication.
