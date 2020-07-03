@@ -1,4 +1,6 @@
 post:
+  security:
+    - SessionSecret: []
   tags:
     - Sessions
   summary: Validate the result of a 3DS1 challenge.
