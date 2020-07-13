@@ -61,7 +61,16 @@ get:
         example: 'ent_wxglze3wwywujg4nna5fb7ldli,ent_vkb5zcy64zoe3cwfmaqvqyqyku'
       required: false
       description: >-
-        One or more comma-separated client entities. This works like a logical *OR*
+        One or more comma-separated client entities or sub entities. This works like a logical *OR*
+        operator
+    - in: query
+      name: sub_entity_ids
+      schema:
+        type: string
+        example: 'ent_uzm3uxtssvmuxnyrfdffcyjxeu,ent_hy5wtzwzeuwefmsnjtdhw4scfi'
+      required: false
+      description: >-
+        One or more comma-separated client sub entities. This works like a logical *OR*
         operator
     - in: query
       name: statuses
