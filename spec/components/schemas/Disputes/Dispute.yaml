@@ -11,7 +11,7 @@ properties:
     example: "ent_wxglze3wwywujg4nna5fb7ldli"
   sub_entity_id:
     type: string
-    description: The client sub entity linked to this dispute
+    description: The sub-entity linked to this dispute
     example: "ent_uzm3uxtssvmuxnyrfdffcyjxeu"
   category:
     type: string
