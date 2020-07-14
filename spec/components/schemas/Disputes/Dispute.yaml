@@ -9,6 +9,10 @@ properties:
     type: string
     description: The client entity linked to this dispute
     example: "ent_wxglze3wwywujg4nna5fb7ldli"
+  sub_entity_id:
+    type: string
+    description: The sub-entity linked to this dispute
+    example: "ent_uzm3uxtssvmuxnyrfdffcyjxeu"
   category:
     type: string
     description: The reason for the dispute. [Find out more](https://docs.checkout.com/docs/disputes#section-dispute-reasons-and-recommended-evidence)
