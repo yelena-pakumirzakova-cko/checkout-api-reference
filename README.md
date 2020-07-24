@@ -18,14 +18,27 @@
 
 1. Install [Node JS](https://nodejs.org/)
 2. Install [dotnet cli](https://dotnet.microsoft.com/download)
-3. Clone repo and `cd`
+3. Clone repo and inside the repo directory
     + Run `npm install`
 
 ### Usage
  
-1. Run `npm start`
+1. Run `npm run start`
 2. Checkout console output to see where local server is started.
 3. Make changes using your favorite editor or `swagger-editor` (look for URL in console output)
 4. All changes are immediately propagated to your local server, moreover all documentation pages will be automagically refreshed in a browser after each change
 **TIP:** you can open `swagger-editor`, documentation and `swagger-ui` in parallel
-5. Once you finish with the changes you can run tests using: `npm test`
+5. Once you finish with the changes you can run tests using: `npm run test`
+
+### Troubleshooting
+
+- Verify if Node.js is installed
+`node --version`
+
+- Verify if Gulp is installed
+`gulp --version`
+
+- Verify if dotnet is installed
+`dotnet --version`
+
+If you are receiving the error message `ReferenceError: primordials is not defined` that's probably because you're using Node.js version >= 12 and Gulp version < 4. It's possible to overcome that by downgrading your Node.js version or by upgrading gulp on your machine. For more information, please check the issue https://github.com/gulpjs/gulp/issues/2324.
