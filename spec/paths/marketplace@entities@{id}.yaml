@@ -46,8 +46,8 @@ get:
     - Marketplace
 put:
   description: |
-    You can update all the fields under the contact_details, profile.urls, and company objects.
-    When updating a sub-entity we will conduct due diligence checks when necessary before processing a payment. During these checks, current payment capabilities are not affected. If successful, payment capabilities will be enabled.
+    You can update all fields under the ContactDetails, Profile, and Company objects. 
+    Please note that when you update a sub-entity we may conduct further due diligence checks when necessary. During these checks, your payment capabilities will remain the same.
   summary: Update sub-entity details
   requestBody:
     required: true
