@@ -11,13 +11,13 @@ properties:
   legal_name:
     type: string
     description: "The legal name of the sub-entity"
-    minLength: 4
+    minLength: 2
     maxLength: 300
     example: Super Hero Masks Inc.
   trading_name:
     type: string
     description: "The trading name of the sub-entity, also referred to as 'doing business as'"
-    minLength: 4
+    minLength: 2
     maxLength: 300
     example: Super Hero Masks
   principal_address:

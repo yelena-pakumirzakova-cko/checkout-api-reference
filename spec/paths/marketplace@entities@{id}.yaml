@@ -44,3 +44,49 @@ get:
                       - error_code2
   tags:
     - Marketplace
+put:
+  description: |
+    You can update all fields under the ContactDetails, Profile, and Company objects. 
+    Please note that when you update a sub-entity we may conduct further due diligence checks when necessary. During these checks, your payment capabilities will remain the same.
+  summary: Update sub-entity details
+  requestBody:
+    required: true
+    description: The sub-entity to be updated
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/EntityUpdateRequest"
+  security:
+    - OAuth:
+      - marketplace
+  responses:
+    "200":
+      description: Sub-entity updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/EntityBasicResponseWithLinks"
+      headers:
+        Cko-Version:
+          $ref: "#/components/headers/Cko-Version"
+        Cko-Request-Id:
+          $ref: "#/components/headers/Cko-Request-Id"
+    "401":
+      description: Unauthorized
+    "404":
+      description: Sub-entity not found
+    "422":
+      description: Invalid data was sent
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/ValidationError'
+              - type: object
+                properties:
+                  error_codes:
+                    example:
+                      - error_code1
+                      - error_code2
+  tags:
+    - Marketplace
