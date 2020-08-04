@@ -1,6 +1,7 @@
 type: object
 description: |
-  An optional dynamic billing descriptor displayed on the account owner's statement
+  An optional dynamic billing descriptor displayed on the account owner's statement. <br />
+  <i>Not supported for <a href="https://docs.checkout.com/preview/marketplaces/sub-entity-payments" target="_blank">sub-entity payments</a>.</i>
 properties:
   name:
     type: string
