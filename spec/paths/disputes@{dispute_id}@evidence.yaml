@@ -5,7 +5,7 @@ put:
     - OAuth: 
       - disputes
       - disputes:provide-evidence
-    - ApiKey: []
+    # - ApiKey: []
   summary: Provide dispute evidence
   description: >
     Adds supporting evidence to a dispute. Before using this endpoint, you first
@@ -47,7 +47,7 @@ get:
     - OAuth: 
       - disputes
       - disputes:view
-    - ApiKey: []
+    # - ApiKey: []
   summary: Get dispute evidence
   description: >
     Retrieves a list of the evidence submitted in response to a specific
@@ -78,7 +78,7 @@ post:
     - OAuth: 
       - disputes
       - disputes:provide-evidence
-    - ApiKey: []
+    # - ApiKey: []
   summary: Submit dispute evidence
   description: >-
     With this final request, you can submit the evidence that you have

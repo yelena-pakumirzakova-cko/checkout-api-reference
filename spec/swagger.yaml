@@ -29,11 +29,10 @@ info:
     
     # Authentication
     
-    When you sign up for an account, you are given a secret and public API key pair for API key authentication, or an access key ID and secret for OAuth 2.0.  
-    You authenticate with our API by following the appropriate authentication flow, using either your API keys or your access key credentials.  
-    
+    When you sign up for an account, you are given an OAuth 2.0 access key ID and secret that can be used to generate access tokens to authenticate with our API.  
 
-    Never share your secret keys or access key credentials. Keep them guarded and secure.
+
+    Never share your access key credentials. Keep them guarded and secure.
 servers:
   - url: https://api.checkout.com
     description: Live API
