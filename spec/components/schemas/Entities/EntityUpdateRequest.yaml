@@ -85,14 +85,10 @@ properties:
                 - first_name
                 - last_name
                 - address
-                - phone
               properties:
                 address:
                   required:
                     - country
-                phone:
-                  required:
-                    - number
 required:
   - contact_details
   - profile
