@@ -133,7 +133,7 @@ properties:
         title: Address
         description: "The address, the individual is registered at"
         allOf:
-          - $ref: "../schemas.yaml#/EntityAddress"
+          - $ref: "#/components/schemas/EntityAddress"
         required:
           - address_line1
           - city
