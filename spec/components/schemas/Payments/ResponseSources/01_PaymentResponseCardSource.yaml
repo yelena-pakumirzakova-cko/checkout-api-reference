@@ -10,6 +10,18 @@ allOf:
       - fingerprint
       - bin
     properties:
+      id:
+        type: string
+        description: The payment source identifier that can be used for subsequent payments. For new sources, this will only be returned if the payment was approved
+        example: "src_nwd3m4in3hkuddfpjsaevunhdy"
+      billing_address:
+        description: The payment source owner's billing address
+        allOf:
+          - $ref: '#/components/schemas/Address'
+      phone:
+        description: The payment source owner's phone number
+        allOf:
+          - $ref: '#/components/schemas/PhoneNumber'
       expiry_month:
         type: integer
         description: The expiry month

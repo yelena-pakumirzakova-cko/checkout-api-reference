@@ -7,7 +7,6 @@ discriminator:
   propertyName: type
   mapping:
     bank_account: '#/components/schemas/StoreBankAccountInstrumentResponse'
-    card: '#/components/schemas/StoreCardInstrumentResponse'
 properties:
   type:
     description: The type of instrument

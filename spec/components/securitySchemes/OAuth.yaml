@@ -41,7 +41,7 @@ flows:
   clientCredentials:
     tokenUrl: See table above
     scopes:
-      vault: Tokenise and store sensitive data
+      vault: Access to all Vault resources
       "vault:instruments": Create instruments
       gateway: Access to all Gateway resources
       "gateway:payment": Request payments
@@ -59,6 +59,7 @@ flows:
       "disputes:view": View disputes
       "disputes:provide-evidence": Provide dispute evidence
       "disputes:accept": Accept disputes
+      martketplace:  Manage sub-entities
       flow: Access to all Flow resources
       "flow:workflows": Manage workflows
       "flow:events": Retrieve events
