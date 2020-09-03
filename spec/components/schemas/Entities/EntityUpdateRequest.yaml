@@ -25,7 +25,7 @@ properties:
   company:
     type: object
     title: Company
-    description: "In case the sub-entity to onboard is a company, provide at least the required fields for this section"
+    description: "If the sub-entity is a company, complete this section"
     required:
       - legal_name
       - trading_name
@@ -92,7 +92,7 @@ properties:
   individual:
     type: object
     title: Individual
-    description: In case the sub-entity to onboard is an individual, provide at least the required fields for this section
+    description: "If the sub-entity is an individual, complete this section"
     required:
       - first_name
       - last_name
