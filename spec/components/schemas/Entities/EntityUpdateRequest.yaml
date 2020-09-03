@@ -156,7 +156,6 @@ required:
   - contact_details
   - profile
 example:
-  reference: "superhero1234"
   contact_details: 
     phone:
       number: 2345678910
