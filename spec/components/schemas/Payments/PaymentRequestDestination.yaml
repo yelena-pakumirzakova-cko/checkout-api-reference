@@ -1,11 +1,9 @@
 type: object
-description: The destination of the payout.<br><i>Use to pay out to a card or bank account instrument</i>.
+description: The destination of the payout.<br><i>Use to request a payout to a bank account instrument.</i>
 discriminator:
   propertyName: type
   mapping:
-    token: '#/components/schemas/01_PaymentRequestTokenDestination'
-    id: '#/components/schemas/02_PaymentRequestIdDestination'
-    card: '#/components/schemas/03_PaymentRequestCardDestination'
+    id: '#/components/schemas/01_PaymentRequestIdDestination'
 required:
   - type
 properties:

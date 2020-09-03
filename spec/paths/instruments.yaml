@@ -4,10 +4,11 @@ post:
   security: 
     - OAuth: 
       - vault
+      - vault:instruments
     # - ApiKey: []
   summary: Create an instrument
   description: |
-    Exchange a single use Checkout.com token for a payment instrument reference, that can be used at any time to request one or more payments.
+    Create a bank account payment instrument that you can later use as the destination for one or more payouts.
   requestBody:
     required: true
     content:

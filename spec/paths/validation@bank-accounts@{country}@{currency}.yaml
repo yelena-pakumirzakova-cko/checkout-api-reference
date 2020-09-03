@@ -1,6 +1,9 @@
 get:
   tags:
     - Instruments
+  security: 
+    - OAuth: 
+      - payout:bank-details
   summary: Get bank account fields
   description: |
     Returns the bank account fields required to create bank account instruments or perform payouts for the specified country and currency.
