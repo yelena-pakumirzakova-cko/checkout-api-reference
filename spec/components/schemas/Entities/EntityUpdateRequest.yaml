@@ -104,18 +104,18 @@ properties:
         type: string
         description: "The individual's first name"
         minLength: 2
-        maxLength: 300
+        maxLength: 50
         example: "John"
       middle_name:
         type: string
         description: "The individual's middle name"
-        maxLength: 300
+        maxLength: 50
         example: "Paul"
       last_name:
         type: string
         description: "The individual's last name"
         minLength: 2
-        maxLength: 300
+        maxLength: 50
         example: "Doe"
       trading_name:
         type: string
