@@ -71,6 +71,7 @@ post:
                 first_name: "John"
                 middle_name: null
                 last_name: "Doe"
+                trading_name: "John's Super Hero Masks"
                 registered_address:
                   address_line1: "90 Tottenham Court Road"
                   address_line2: null
