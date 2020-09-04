@@ -1,0 +1,2 @@
+reference: superhero1234
+$ref: "#/components/schemas/UpdateCompanySubEntityRequestExample"

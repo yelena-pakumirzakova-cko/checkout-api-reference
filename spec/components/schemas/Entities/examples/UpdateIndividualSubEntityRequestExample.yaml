@@ -1,0 +1,22 @@
+contact_details:
+  phone:
+    number: 2345678910
+profile:
+  urls:
+    - https://www.superheroexample.com
+  mccs:
+    - 5669
+individual:
+  first_name: "John"
+  middle_name: null
+  last_name: "Doe"
+  registered_address:
+    address_line1: "90 Tottenham Court Road"
+    address_line2: null
+    city: "London"
+    state: null
+    zip: "W1T4TJ"
+    country: "GB"
+  national_tax_id: "TAX123456"
+  identification:
+    national_id_number: "AB123456C"
