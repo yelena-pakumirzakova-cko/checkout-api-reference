@@ -1,6 +1,6 @@
 type: object
 title: Individual
-description: The individual details of the sub-entity
+description: "Information about the individual represented by the sub-entity. Include this object if you are onboarding a sole proprietor. This is required if the company object is omitted."
 properties:
   first_name:
     type: string

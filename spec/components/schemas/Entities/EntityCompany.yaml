@@ -1,6 +1,6 @@
 type: object
 title: Company
-description: The company details of the sub-entity
+description: "Information about the company represented by the sub-entity. Include this object if you are onboarding a company or business. This is required if the individual object is omitted."
 properties:
   business_registration_number:
     type: string
