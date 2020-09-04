@@ -9,7 +9,10 @@ post:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/EntityCreateRequest'
+          allOf:
+            - example:
+                reference: superhero1234
+            - $ref: '#/components/schemas/EntityCreateRequest'
   security:
     - OAuth:
       - marketplace
