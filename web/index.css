@@ -107,7 +107,7 @@
 
 body {
   margin: 0;
-  background-color: var(--background);
+  background-color: var(--background)!important;
 }
 
 /* General text elements */
@@ -128,7 +128,7 @@ body {
 
 /* Logo */
 
-img.sc-kafWEX.hZCbNs {
+img.sc-fzoCUK.jrEndp {
   padding: 24px 12px 12px 12px;
 }
 
@@ -513,6 +513,10 @@ label.active, span.sc-gwVKww.SmuWE.active {
 
 /* White background */
 
+.jwVCIw {
+  background-color: var(--background)!important;
+}
+
 @media screen and (max-width: 1425px) and (min-width: 1361px) {
   .dtUibw {
     width: 45% !important;
@@ -522,13 +526,13 @@ label.active, span.sc-gwVKww.SmuWE.active {
 
 /* Hide application/json */
 
-.futasu-0.wbaPa {
+.sc-fzpisO.jHQZJv {
   display: none;
 }
 
 /* Endpoint drop-down */
 
-.hgxMbQ, .goYvPl {
+button.sc-pjSSY.dcDVxm, button.sc-pjSSY.jrkSYj, .sc-oTbqq.fsuEer, .hgxMbQ, .goYvPl {
   background-color: var(--url-area) !important;
   border-radius: 0 !important;
 }
