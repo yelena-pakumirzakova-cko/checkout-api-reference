@@ -28,27 +28,20 @@ post:
                 trading_name: "Super Hero Masks"
                 principal_address: 
                   address_line1: "90 Tottenham Court Road"
-                  address_line2: null
                   city: "London"
-                  state: null
                   zip: "W1T4TJ"
                   country: "GB"
                 registered_address:
                   address_line1: "90 Tottenham Court Road"
-                  address_line2: null
                   city: "London"
-                  state: null
                   zip: "W1T4TJ"
                   country: "GB"
                 representatives: 
                   - first_name: "John"
-                    middle_name: null
                     last_name: "Doe"
                     address: 
                       address_line1: "90 Tottenham Court Road"
-                      address_line2: null
                       city: "London"
-                      state: null
                       zip: "W1T4TJ"
                       country: "GB"
                     identification:
@@ -69,14 +62,11 @@ post:
                   - 5669
               individual:
                 first_name: "John"
-                middle_name: null
                 last_name: "Doe"
                 trading_name: "John's Super Hero Masks"
                 registered_address:
                   address_line1: "90 Tottenham Court Road"
-                  address_line2: null
                   city: "London"
-                  state: null
                   zip: "W1T4TJ"
                   country: "GB"
                 national_tax_id: "TAX123456"
