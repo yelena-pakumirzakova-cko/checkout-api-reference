@@ -63,6 +63,7 @@
   --request-body-content-background: var(--cko-dark-blue);
   --title-color: var(--cko-white);
   --icon-color: var(--cko-light-grey);
+  --sidebar-option: var(--cko-light-grey);
   --sidebar-option-hover: var(--cko-dark-contrast-blue);
   --url-area: var(--cko-dark-contrast-blue);
 }
@@ -97,6 +98,7 @@
   --request-body-content-background: var(--cko-white);
   --title-color: var(--primary-dark-blue);
   --icon-color: var(--cko-light-grey);
+  --sidebar-option: var(--primary-dark-blue);
   --sidebar-option-hover: var(--cko-contrast-gray);
   --url-area: var(--primary-dark-blue);
 }
@@ -112,7 +114,7 @@ body {
 
 /* General text elements */
 
-.redoc-wrap p, h1, h1 a, h3, th, td, span.sc-jKJlTe.eZZMfQ {
+.redoc-wrap p, h1, h1 a, li, h3, th, td, span.sc-jKJlTe.eZZMfQ {
   color: var(--secondary-text) !important;
 }
 
@@ -126,22 +128,18 @@ body {
   background-color: var(--background) !important;
 }
 
-/* Logo */
-
-img.sc-fzoCUK.jrEndp {
-  padding: 24px 12px 12px 12px;
-}
 
 /* Logo background */
 
-.sc-feJyhm {
+.sc-fzoOEf.eXkYNB {
   background-color: var(--sidebar-background) !important;
 }
 
 /* Overwrite swagger logo with own logo file */
 
-.sc-kafWEX {
+.sc-fzpdyU.bpAxtW {
   content: var(--logo) !important;
+  padding: 24px 12px 12px 12px;
 }
 
 /* Hyperlinks color */
@@ -162,6 +160,16 @@ a:active, .active, ul[role="navigation"] label:hover, .loading {
   font-weight: 600 !important;
 }
 
+/* Menu item */
+
+label.sc-fzocqA.kUtIRQ.-depth1, label.sc-fzocqA.fpjOmP.-depth2 {
+  color: var(--sidebar-option) !important;
+}
+
+.kUtIRQ .sc-fznKkj polygon {
+  fill: var(--sidebar-option)!important;
+}
+
 /* Menu item hover */
 
 ul[role="navigation"] label:hover {
@@ -175,7 +183,7 @@ a:hover {
   text-decoration: underline !important;
 }
 
-p {
+p, li {
   font-size: 14px !important;
   line-height: 24px !important;
   font-style: normal;
@@ -257,6 +265,22 @@ td.sc-kgoBCf.kGwPhO {
   border: 1px solid var(--secondary-text) !important;
 }
 
+/* Request body schema titles */
+
+h5.sc-fzplWN.sc-pJkiN.iihPlZ, h5.sc-fzplWN.kfkaqq {
+  color: var(--secondary-text);
+  border-bottom: 1px solid var(--secondary-text);  
+}
+
+.kfkaqq {
+  color: var(--secondary-text);
+  border-bottom: 1px solid var(--secondary-text);
+}
+
+span.sc-fzpkJw.hctKJM, .sc-pReKu.eehIqb {
+  color: var(--secondary-text);
+}
+
 /* Request body schema background */
 
 .sc-kpOJdX.icucAR {
@@ -269,13 +293,17 @@ td.sc-fzqBZW.sc-fzoyAV.hjJCfv, .kImnVv button {
   font-weight: 600 !important;
 }
 
+.kImnVv button {
+  color: var(--secondary-text)!important;
+}
+
 /* Field params */
 
 span.sc-cHGsZl.lpeYvY {
   color: var(--field-params) !important;
 }
 
-span.sc-cHGsZl.sc-jqCOkK.beUper {
+span.sc-fzqzlV.sc-fzqOul.hKsEtX {
   color: var(--param-rule);
   border: none;
   background: none;
@@ -361,14 +389,18 @@ li.sc-eNQAEJ.jdXjUh {
 .irpqyy>ul>li {
   font-weight: 500 !important;
   background-color: var(--background-contrast) !important;
-  border-color: var(--background-contrast) !important;
+  border: none!important;
   color: var(--secondary-text) !important;
+  margin-bottom: 10px!important;
 }
+
+/* Selected tab */
 
 .react-tabs__tab-list .react-tabs__tab--selected {
   background-color: var(--secondary-button) !important;
   color: var(--primary-button-color) !important;
-  border-color: var(--secondary-button) !important;
+  border: none!important;
+  margin-bottom: 10px!important;
 }
 
 .jXDsIv {
@@ -574,27 +606,27 @@ ul>li.react-tabs__tab, ul>li.tab-success, ul>li.tab-error {
 }
 
 .react-tabs__tab-list .tab-success {
-  border-color: var(--cko-light-green) !important;
+  border: none!important;
   background-color: var(--cko-light-green) !important;
   color: var(--cko-white) !important;
 }
 
 .react-tabs__tab-list .tab-error {
-  border-color: var(--cko-light-red) !important;
+  border: none!important;
   background-color: var(--cko-light-red) !important;
   color: var(--cko-white) !important;
 }
 
 .tab-success.react-tabs__tab--selected {
   color: var(--cko-white) !important;
-  border-color: var(--cko-green) !important;
+  border: none!important;
   background: var(--cko-green) !important;
   opacity: 1;
 }
 
 .tab-error.react-tabs__tab--selected {
   color: var(--cko-white) !important;
-  border-color: var(--cko-red) !important;
+  border: none!important;
   background: var(--cko-red) !important;
   opacity: 1;
 }
@@ -676,7 +708,7 @@ span.token.boolean {
   color: var(--secondary-text) !important;
 }
 
-.sc-VigVT::before {
+.sc-fznyAO.CWQMf::before {
   background-image: var(--header-link) !important;
 }
 
