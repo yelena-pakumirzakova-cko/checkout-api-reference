@@ -74,8 +74,8 @@
   --secondary-text: var(--secondary-dark-blue);
   --logo: url("./favicons/dark-logo.svg");
   --header-link: url("./favicons/link-blue.svg");
-  --link-color: var(--cko-bright-blue);
-  --link-hover: var(--cko-light-blue);
+  --link-color: var(--secondary-dark-blue);
+  --link-hover: var(--cko-bright-blue);
   --active: var(--cko-dark-blue);
   --background-contrast: var(--cko-white);
   --subtitle: var(--cko-dark-blue);
@@ -148,6 +148,7 @@ img.sc-fzoCUK.jrEndp {
 
 a {
   color: var(--link-color) !important;
+  font-weight: bold;
 }
 
 b, strong {
@@ -158,7 +159,7 @@ b, strong {
 
 a:active, .active, ul[role="navigation"] label:hover, .loading {
   color: var(--active) !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
 }
 
 /* Menu item hover */
@@ -225,7 +226,7 @@ h1.sc-htoDjs.sc-fYxtnH.dTJWQH {
 
 /* Required field */
 
-.sc-ksYbfQ.sc-hmzhuo.jsTAxL {
+.sc-fzoWqW.sc-fzplgP.eDnpFZ {
   text-transform: uppercase;
   color: var(--required);
 }
@@ -236,26 +237,23 @@ td.sc-kgoBCf.kGwPhO {
   border-bottom: 1px solid var(--border);
 }
 
-/* Security details table */
+/* Environment and security details tables */
 
-.security-details th {
+.security-details th, .bmoWQk th {
   font-weight: 500 !important;
   color: var(--title-color) !important;
 }
 
-.security-details tr {
+.security-details tr, .bmoWQk tr {
   background-color: var(--background-contrast) !important;
 }
 
-.security-details table {
+.security-details th, .bmoWQk th {
   border: 1px solid var(--secondary-text) !important;
+  font-weight: 600!important;
 }
 
-.security-details th {
-  border: 1px solid var(--secondary-text) !important;
-}
-
-.security-details td {
+.security-details td, .bmoWQk td {
   border: 1px solid var(--secondary-text) !important;
 }
 
@@ -267,7 +265,7 @@ td.sc-kgoBCf.kGwPhO {
 
 /* Field names */
 
-td.sc-cSHVUG.sc-chPdSV {
+td.sc-fzqBZW.sc-fzoyAV.hjJCfv, .kImnVv button {
   font-weight: 600 !important;
 }
 
@@ -283,7 +281,7 @@ span.sc-cHGsZl.sc-jqCOkK.beUper {
   background: none;
 }
 
-code, .evgDyP, .sc-cHGsZl.sc-jbKcbu.bMfIUD {
+code, .evgDyP, .sc-cHGsZl.sc-jbKcbu.bMfIUD, .sc-fzqzlV.sc-fzonjX.iwWBsD {
   font-family: Courier, monospace !important;
   font-style: italic !important;
   background: var(--S10) !important;
