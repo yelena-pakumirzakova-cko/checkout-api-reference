@@ -3,7 +3,7 @@ title: Capabilities
 properties:
   payments:
     type: object
-    description: Payment related capabilities of an sub-entity
+    description: "Payment related capabilities of a sub-entity"
     properties:
       enabled:
         type: boolean

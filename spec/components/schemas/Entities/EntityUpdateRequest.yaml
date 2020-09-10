@@ -25,7 +25,7 @@ properties:
   company:
     type: object
     title: Company
-    description: The company details of the sub-entity
+    description: "Information about the company represented by the sub-entity. Include this object if you are onboarding a company or business. This is required if the individual object is omitted."
     required:
       - legal_name
       - trading_name
@@ -89,7 +89,111 @@ properties:
                 address:
                   required:
                     - country
+  individual:
+    type: object
+    title: Individual
+    description: "Information about the individual represented by the sub-entity. Include this object if you are onboarding a sole proprietor. This is required if the company object is omitted."
+    required:
+      - first_name
+      - last_name
+      - trading_name
+      - registered_address
+      - identification
+    properties:
+      first_name:
+        type: string
+        description: "The individual's first name"
+        minLength: 2
+        maxLength: 50
+        example: "John"
+      middle_name:
+        type: string
+        description: "The individual's middle name"
+        maxLength: 50
+        example: "Paul"
+      last_name:
+        type: string
+        description: "The individual's last name"
+        minLength: 2
+        maxLength: 50
+        example: "Doe"
+      trading_name:
+        type: string
+        description: "If applicable, the individual's trading name"
+        minLength: 2
+        maxLength: 300
+        example: Super Hero Masks
+      national_tax_id:
+        type: string
+        description: "The sub-entity's Tax Identification Code; for example, a Value Added Tax (VAT) Number in the UK"
+        minLength: 2
+        maxLength: 16
+        example: 1234567
+      registered_address:
+        title: Address
+        description: "The registered address of the individual"
+        allOf:
+          - $ref: "#/components/schemas/EntityAddress"
+        required:
+          - address_line1
+          - city
+          - zip
+          - country
+      identification:
+        type: object
+        title: Identification
+        description: "Identification of the individual, used for verification"
+        properties:
+          national_id_number:
+            type: string
+            description: "The official ID number, as applicable in the individual's country (For US, this must be numeric otherwise alpha-numeric)"
+            minLength: 1
+            maxLength: 25
+            example: AB123456C
+        required:
+          - national_id_number
 required:
   - contact_details
   - profile
-  - company
+example:
+  contact_details: 
+    phone:
+      number: 2345678910
+  profile:
+    urls:
+      - https://www.superheroexample.com
+    mccs:
+      - 5669
+  company:
+    business_registration_number: "452349600005"
+    legal_name: "Super Hero Masks Inc."
+    trading_name: "Super Hero Masks"
+    principal_address: 
+      address_line1: "90 Tottenham Court Road"
+      address_line2: null
+      city: "London"
+      state: null
+      zip: "W1T4TJ"
+      country: "GB"
+    registered_address:
+      address_line1: "90 Tottenham Court Road"
+      address_line2: null
+      city: "London"
+      state: null
+      zip: "W1T4TJ"
+      country: "GB"
+    representatives: 
+      - first_name: "John"
+        middle_name: null
+        last_name: "Doe"
+        address: 
+          address_line1: "90 Tottenham Court Road"
+          address_line2: null
+          city: "London"
+          state: null
+          zip: "W1T4TJ"
+          country: "GB"
+        identification:
+          national_id_number: "AB123456C"
+        phone:
+          number: 2345678910

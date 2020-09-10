@@ -10,4 +10,6 @@ allOf:
         $ref: "#/components/schemas/EntityProfile"
       company:
         $ref: "#/components/schemas/EntityCompany"
+      individual:
+        $ref: "#/components/schemas/EntityIndividual"
   - $ref: "#/components/schemas/EntityLinks"
