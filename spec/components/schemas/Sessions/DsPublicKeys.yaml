@@ -1,5 +1,8 @@
 type: object
 description: Public certificates specific to a DS for encrypting device data and verifying ACS signed content. Required when channel is "app".  
+required:
+  - ds_public
+  - ca_public
 properties:
   ds_public: 
     type: string

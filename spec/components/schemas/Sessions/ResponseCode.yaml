@@ -1,5 +1,6 @@
 description: >
-  The response from the DS or ACS which indicates whether a transaction qualifies as an authenticated transaction or account verification. <br/><br/>
+  The response from the DS or ACS which indicates whether a transaction qualifies as an authenticated transaction or account verification. <br/>
+  Only available if communication with the scheme was successful and the Session is in a final state. <br/><br/>
   • Y = Authentication Verification Successful. <br/>
   • N = Not Authenticated /Account Not Verified; Transaction denied. <br/>
   • U = Authentication/ Account Verification Could Not Be Performed; Technical or other problem, as indicated in ARes or RReq. <br/>

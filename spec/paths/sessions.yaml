@@ -53,7 +53,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/SessionsValidationError'
     '501':
       description: Not Implemented
     '502':

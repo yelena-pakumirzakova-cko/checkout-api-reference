@@ -5,8 +5,10 @@ allOf:
 properties:
   complete:
     type: object
-    description: The URI to signal the session as complete.
+    description: The URI to signal the session as complete. Only available if `next_actions` contains `complete`
     properties:
+      required:
+        - href
       href:
         type: string
         maxLength: 100

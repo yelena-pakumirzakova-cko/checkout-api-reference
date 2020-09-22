@@ -1,5 +1,9 @@
 type: object
-description: "The directory server information"
+description: "The directory server information. Can be empty if the Session is pending or communication with the DS failed"
+required:
+  - ds_id
+  - reference_number
+  - transaction_id
 properties:
   ds_id:
     description: Registered Application Provider Identifier (RID) that is unique to the Payment System. RIDs are defined by the ISO 7816-5 standard. Used as part of the device data encryption process.
