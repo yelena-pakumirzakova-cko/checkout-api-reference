@@ -1,6 +1,8 @@
 type: object
-description: >-
-  Error response. Full list of error codes is on GitHub
+required:
+  - request_id
+  - error_type
+  - error_codes
 properties:
   request_id:
     type: string
@@ -10,6 +12,7 @@ properties:
     enum:
       - operation_not_allowed
   error_codes:
+    description: Error response code. Full list of error codes is on GitHub
     type: array
     items:
       type: string

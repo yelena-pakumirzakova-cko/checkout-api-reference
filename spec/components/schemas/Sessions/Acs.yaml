@@ -1,5 +1,13 @@
 type: object
-description: "The access control server information"
+required:
+  - reference_number
+  - transaction_id
+  - operator_id
+  - url
+  - challenge_mandated
+  - authentication_type
+  - authentication_method
+description: "The access control server information. Can be empty if the Session is still pending or if communication with the ACS failed"
 properties:
   reference_number:
     description: EMVCo-assigned unique identifier to track approved ACS.

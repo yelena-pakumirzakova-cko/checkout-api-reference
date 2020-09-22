@@ -1,4 +1,4 @@
-type: object
+﻿type: object
 required:
   - request_id
   - error_type
@@ -10,13 +10,11 @@ properties:
   error_type:
     type: string
     enum:
-      - invalid_input
-      - forbidden
+      - unprocessable_entity
   error_codes:
     description: Error response code. Full list of error codes is on GitHub
     type: array
     items:
       type: string
       enum:
-        - amount_required
-        - card_required
+        - currency_required
