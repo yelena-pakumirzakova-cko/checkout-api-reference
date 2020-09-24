@@ -30,14 +30,14 @@ get:
                     enabled: false
                 contact_details:
                   phone:
-                    number: 2345678910
+                    number: "2345678910"
                 profile:
                   urls:
                   - https://www.superheroexample.com
                   mccs:
-                  - 5669
+                  - "5669"
                 company:
-                  business_registration_number: '452349600005'
+                  business_registration_number: "452349600005"
                   legal_name: Super Hero Masks Inc.
                   trading_name: Super Hero Masks
                   principal_address:
@@ -62,7 +62,7 @@ get:
                     identification:
                       national_id_number: AB123456C
                     phone:
-                      number: 2345678910
+                      number: "2345678910"
                 _links:
                   self:
                     href: https://api.checkout.com/marketplace/entities/ent_wxglze3wwywujg4nna5fb7ldli
@@ -75,19 +75,19 @@ get:
                     enabled: false
                 contact_details:
                   phone:
-                    number: 2345678910
+                    number: "2345678910"
                 profile:
                   urls:
                   - https://www.superheroexample.com
                   mccs:
-                  - 5669
+                  - "5669"
                 individual:
                   first_name: John
                   middle_name: Paul
                   last_name: Doe
                   trading_name: Super Hero Masks
                   legal_name: John Paul Doe
-                  national_tax_id: 1234567
+                  national_tax_id: "1234567"
                   registered_address:
                     address_line1: 90 Tottenham Court Road
                     city: London
