@@ -62,8 +62,8 @@ properties:
     $ref: '#/components/schemas/Acs'
   response_code:
     $ref: '#/components/schemas/ResponseCode'
-  response_reason:
-    $ref: '#/components/schemas/ResponseReason'
+  response_status_reason:
+    $ref: '#/components/schemas/ResponseStatusReason'
   cryptogram:
     $ref: '#/components/schemas/Cryptogram'
   eci:
