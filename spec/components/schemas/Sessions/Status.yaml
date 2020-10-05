@@ -10,4 +10,4 @@ enum:
   - unavailable
   - declined
   - rejected
-description: Indicates the status of the Session
+description: Indicates the status of the session

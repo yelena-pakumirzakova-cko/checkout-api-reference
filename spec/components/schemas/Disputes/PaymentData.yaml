@@ -52,7 +52,7 @@ properties:
     type: string
     description: |
       The final Electronic Commerce Indicator (ECI) security level used to authorize the payment. 
-      Applicable for 3D Secure, digital wallets, and network token payments
+      Applicable for 3D Secure and network token payments
     example: "06"
   has_refund:
     type: boolean

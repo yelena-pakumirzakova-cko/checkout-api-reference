@@ -7,10 +7,10 @@ required:
   - challenge_mandated
   - authentication_type
   - authentication_method
-description: "The access control server information. Can be empty if the Session is still pending or if communication with the ACS failed"
+description: "The access control server (ACS) information. Can be empty if the session is still pending or if communication with the ACS failed"
 properties:
   reference_number:
-    description: EMVCo-assigned unique identifier to track approved ACS.
+    description: EMVCo-assigned unique identifier to track approved ACS
     type: string
     maxLength: 32
     example: ACSRefNum1234
@@ -26,22 +26,23 @@ properties:
     maxLength: 32
     example: ACSRefNum1234
   url:
-    description: Fully qualified URL of the ACS to be used for the challenge.
+    description: Fully qualified URL of the ACS to be used for the challenge
     type: string
     maxLength: 2048
     example: https://server.acsdomainname.com
   signed_content:
     description: >
-      Contains the JWS compact serialization created by the ACS for a challenged App authentication.
-      (example truncated for readability)
+      Contains the JSON web signature (JWS) compact serialization created by the ACS for a challenged app authentication.
+      (Example has been truncated for readability.)
     type: string
     maxLength: 512
     example: eyJ4NWMiOlsiTUlJQjdEQ0NBWktnQXdJQkFnSVZBSzIxWEc5SVBCL083QzZjUTBvRlJJUkIwWDI0TUFvR0NDcUdTTTQ5QkFNQ01INHhDekFKQm
   challenge_mandated:
     type: boolean
-    description: Indication of whether a challenge is required for the transaction to be authorized
+    description: Indicates whether a challenge is required for the transaction to be authorized
   authentication_type:
     type: string
+    description: The type of authentication
     enum:
       - static
       - dynamic
@@ -50,9 +51,9 @@ properties:
   authentication_method:
     type: string
     description: |
-      Authentication approach that the ACS used to authenticate the Cardholder for this specific transaction.
+      Authentication approach that the ACS used to authenticate the cardholder for this specific transaction.
 
-      Note: This is in the RReq message from the ACS only. It is not passed to the 3DS Server URL.
+      Note: This is in the results request (RReq) message from the ACS only. It is not passed to the 3DS Server URL.
     enum:
       - static_passcode
       - sms_otp
@@ -66,7 +67,7 @@ properties:
       - other
   challenge_cancel_reason:
     type: string
-    description: Indicator informing the ACS and the DS that the authentication has been cancelled.
+    description: Indicator informing the ACS and the DS that the authentication has been cancelled
     enum:
       - cardholder_cancel
       - transaction_timed_out

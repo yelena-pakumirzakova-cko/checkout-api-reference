@@ -2,7 +2,7 @@ post:
   security:
     - SessionSecret: []
   summary: Complete a session
-  description: Completes a session by authorising the payment associated.
+  description: Completes a session by authorizing the associated payment.
   tags:
     - Sessions
   parameters:

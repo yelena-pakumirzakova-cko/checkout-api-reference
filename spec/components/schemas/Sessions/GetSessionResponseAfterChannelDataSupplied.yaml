@@ -14,7 +14,7 @@ properties:
   id:
     $ref: '#/components/schemas/SessionId'
   transaction_id:
-    description: The transaction identifier that needs to be provided when communicating directly with the ACS server
+    description: The transaction identifier that needs to be provided when communicating directly with the Access Control Server (ACS)
     type: string
     minLength: 36
     maxLength: 36

@@ -21,7 +21,7 @@ properties:
     description: The source of the payment
     type: object
     allOf:
-      - $ref: '#/components/schemas/PaymentResponseSource'
+      - $ref: '#/components/schemas/PaymentDetailsResponseSource'
   destination:
     description: The destination of the payment
     type: object
@@ -33,7 +33,7 @@ properties:
     example: 6540
   currency:
     type: string
-    description: The three-letter <a href="https://docs.checkout.com/docs/currency-codes" target="blank">ISO currency code</a> of the payment
+    description: The three-letter <a href="https://docs.checkout.com/four/resources/codes/currency-codes" target="_blank">ISO currency code</a> of the payment
     example: USD
     maxLength: 3
     minLength: 3

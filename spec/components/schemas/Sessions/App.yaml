@@ -17,14 +17,14 @@ allOf:
           - app
       sdk_app_id:
         description: >
-          Universally unique ID created upon all installations and updates of the 3DS Requestor App on a Consumer Device. This will be newly generated and stored by the 3DS SDK for each installation or update.
+          Universally unique ID created upon all installations and updates of the 3DS Requestor App on a consumer device. This will be newly generated and stored by the 3DS SDK for each installation or update.
         type: string
         minLength: 36
         maxLength: 36
         example: dbd64fcb-c19a-4728-8849-e3d50bfdde39
       sdk_max_timeout:
         description: >
-          Indicates maximum amount of time (in minutes) for all exchanges.
+          Indicates maximum amount of time (in minutes) for all exchanges
         type: integer
         minimum: 5
         example: 5
@@ -38,20 +38,20 @@ allOf:
         example: "3DS_LOA_SDK_PPFU_020100_00007"
       sdk_encrypted_data:
         description: >
-          JWE Object in Compact Serialization containing data encrypted by the SDK for the DS to decrypt.
+          A JSON web encryption (JWE) object in compact serialization, containing data encrypted by the SDK for the Directory Server to decrypt.
         type: string
         maxLength: 64000
         example: "<device-information>"
       sdk_transaction_id:
         description: >
-          Universally unique transaction identifier assigned by the 3DS SDK to identify a single transaction.
+          Universally unique transaction identifier assigned by the 3DS SDK to identify a single transaction
         type: string
         minLength: 36
         maxLength: 36
         example: "b2385523-a66c-4907-ac3c-91848e8c0067"
       sdk_interface_type:
         description: >
-          Lists all of the SDK Interface types that the device supports for displaying specific challenge user interfaces within the SDK.
+          Lists all of the SDK interface types that the device supports for displaying specific challenge user interfaces within the SDK
         type: string
         enum:
           - native
@@ -59,7 +59,7 @@ allOf:
           - both
       sdk_ui_elements:
         description: >
-          Lists all UI types that the device supports for displaying specific challenge user interfaces within the SDK.
+          Lists all the user interface elements that the cardholder's device supports for displaying specific challenge user interfaces within the SDK
         type: array
         items:
           type: string

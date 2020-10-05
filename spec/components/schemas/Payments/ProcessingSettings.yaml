@@ -8,14 +8,13 @@ properties:
   senderInformation:
     type: object
     description: | 
-      Allows you to send <a href="https://docs.checkout.com/docs/sender-data-for-payouts" target="_blank">additional data</a> 
-      required for Visa Direct Original Credit Transaction (OCT) and Mastercard Moneysend payments.
+      Allows you to send additional data required for Visa Direct Original Credit Transaction (OCT) and Mastercard Moneysend payments.
   aft:
     type: boolean
-    description: Indicates whether the payment is an [Account Funding Transaction](https://docs.checkout.com/docs/account-funding-transactions)
+    description: Indicates whether the payment is an Account Funding Transaction
   dlocal:
     type: object
-    description: Processing information required for <a href="https://docs.checkout.com/docs/request-a-payment-using-dlocal" target="_blank">dLocal payments</a>.
+    description: Processing information required for dLocal payments.
     properties:
       country:
         type: string

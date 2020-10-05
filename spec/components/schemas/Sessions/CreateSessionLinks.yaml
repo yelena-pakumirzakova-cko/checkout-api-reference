@@ -3,9 +3,9 @@ allOf:
 properties:
   redirect:
     type: object
-    description: > 
-      The link where the cardholder should be redirected to. </br>
-      Only available and required when `hosted` value is `true`.
+    description: >
+      The link to which the cardholder should be redirected. </br>
+      Only available when the `hosted` value is `true`.
     properties:
       required:
         - href

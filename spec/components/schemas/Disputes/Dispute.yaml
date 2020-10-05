@@ -15,12 +15,12 @@ properties:
     example: "ent_uzm3uxtssvmuxnyrfdffcyjxeu"
   category:
     type: string
-    description: The reason for the dispute. [Find out more](https://docs.checkout.com/docs/disputes#section-dispute-reasons-and-recommended-evidence)
+    description: The reason for the dispute. [Find out more](https://docs.checkout.com/four/risk-management/disputes#Disputes-Disputereasonsandrecommendedevidence)
     enum: [fraudulent, unrecognized, canceled_recurring, product_service_not_received, not_as_described, credit_not_issued, duplicate, incorrect_amount, general]
     example: "fraudulent"
   amount:
     type: number
-    description: The amount that is being disputed, in the processing currency
+    description: The amount that is being disputed, in the processing currency. This amount can be positive or negative depending on the type of transaction the dispute is received against
     example: 999
   currency:
     type: string
