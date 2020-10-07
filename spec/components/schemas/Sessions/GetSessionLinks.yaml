@@ -37,7 +37,7 @@ properties:
         example: https://api.hbsc.com/3dsmethod?tx=123456
   acs_url:
     type: object
-    description: Fully qualified URL of the ACS to be used for the challenge. Only available if `next_actions` contains `challenge_cardholder`
+    description: Fully qualified URL of the ACS to be used for the challenge. Only available if `next_actions` contains `authenticate`
     properties:
       required:
         - href
@@ -47,7 +47,7 @@ properties:
         example: https://api.hbsc.com/challenge
   term_url:
     type: object
-    description: Fully qualified URL of the ACS to be used for the challenge. Only available if `next_actions` contains `challenge_cardholder`
+    description: Fully qualified URL that will receive and process the PaReq (payer authentication response). Only available if `next_actions` contains `authenticate`
     properties:
       required:
         - href
