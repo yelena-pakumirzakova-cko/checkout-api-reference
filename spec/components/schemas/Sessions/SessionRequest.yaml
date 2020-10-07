@@ -10,7 +10,11 @@ properties:
     type: integer
     description: |
       The payment amount in the major currency.
-      Omitting this value will set `authentication_category` to `non_payment`.
+      
+      This value is required for 3DS1 authentications.
+      
+      
+      Omitting this value will set `authentication_category` to `non_payment` and renders the authentication as 3DS2 only.
     minimum: 0
     maxLength: 48
     example: 6540
