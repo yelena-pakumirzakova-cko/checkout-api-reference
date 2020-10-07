@@ -35,7 +35,17 @@ properties:
         type: string
         maxLength: 100
         example: https://api.hbsc.com/3dsmethod?tx=123456
-  challenge_url:
+  acs_url:
+    type: object
+    description: Fully qualified URL of the ACS to be used for the challenge. Only available if `next_actions` contains `challenge_cardholder`
+    properties:
+      required:
+        - href
+      href:
+        type: string
+        maxLength: 100
+        example: https://api.hbsc.com/challenge
+  term_url:
     type: object
     description: Fully qualified URL of the ACS to be used for the challenge. Only available if `next_actions` contains `challenge_cardholder`
     properties:

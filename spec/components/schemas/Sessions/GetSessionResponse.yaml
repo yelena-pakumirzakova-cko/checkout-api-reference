@@ -54,6 +54,8 @@ properties:
     $ref: '#/components/schemas/ProtocolVersion'
   reference:
     $ref: '#/components/schemas/Reference'
+  transaction_type:
+    $ref: '#/components/schemas/TransactionType'
   next_actions:
     $ref: '#/components/schemas/NextActions'
   ds:
@@ -64,6 +66,8 @@ properties:
     $ref: '#/components/schemas/ResponseCode'
   response_status_reason:
     $ref: '#/components/schemas/ResponseStatusReason'
+  pareq:
+    $ref: '#/components/schemas/Pareq'
   cryptogram:
     $ref: '#/components/schemas/Cryptogram'
   eci:
