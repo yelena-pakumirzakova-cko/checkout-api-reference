@@ -2,7 +2,30 @@ post:
   security:
     - SessionSecret: []
   summary: Complete a session
-  description: Completes a session by authorizing the associated payment.
+  description: |
+    Completes a session by posting the the following request to the callback URL (only relevant for non hosted sessions):
+    ```
+    {
+       "session_id": "sid_llraltf4jlwu5dxdtprcv7ba5i",
+       "amount" : 6540,
+       "currency": "USD",
+       "status": "approved",
+       "authentication_type": "regular",
+       "authentication_category": "payment",
+       "reference": "ORD-5023-4E89",
+       "approved": true,
+       "protocol_version": "2.1.0",
+       "response_code": "Y",
+       "response_reason": "01",
+       "cryptogram": "MTIzNDU2Nzg5MDA5ODc2NTQzMjE=",
+       "eci": "05",
+       "xid": "XSUErNftqkiTdlkpSk8p32GWOFA",
+       "cardholder_info": "Card declined. Please contact your issuing bank.",
+       "challenged": true
+    }
+    ```
+    <br/>
+    The fields of the above are the same as they would be in a GET session response
   tags:
     - Sessions
   parameters:

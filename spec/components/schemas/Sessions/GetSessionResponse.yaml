@@ -1,6 +1,7 @@
 required:
   - session_secret
   - id
+  - xid
   - transaction_id
   - scheme
   - amount
@@ -76,5 +77,9 @@ properties:
     type: string
     description: The xid value to use for authorization
     example: XSUErNftqkiTdlkpSk8p32GWOFA
+  cardholder_info:
+    type: string
+    description: May provide cardholder information from the DS to be presented to the cardholder
+    example: Card declined. Please contact your issuing bank.
   _links:
     $ref: '#/components/schemas/GetSessionLinks'
