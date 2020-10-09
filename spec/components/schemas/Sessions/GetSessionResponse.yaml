@@ -56,5 +56,13 @@ properties:
     $ref: '#/components/schemas/Cryptogram'
   eci:
     $ref: '#/components/schemas/Eci'
+  xid:
+    type: string
+    description: The xid value you can use for authorizing the payment
+    example: 75f614ae-723b-4b88-a1bd-c471b0e7fa45
+  cardholder_info:
+    type: string
+    description: May provides cardholder information from the DS to be presented to the cardholder
+    example: Card declined. Please contact your issuing bank.
   _links:
     $ref: '#/components/schemas/GetSessionLinks'
