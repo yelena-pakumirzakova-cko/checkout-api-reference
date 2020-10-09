@@ -29,7 +29,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Payment'
+            $ref: '#/components/schemas/PaymentDetails'
       headers:
         Cko-Request-Id:
           $ref: "#/components/headers/Cko-Request-Id"

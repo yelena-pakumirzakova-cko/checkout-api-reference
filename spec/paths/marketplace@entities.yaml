@@ -16,12 +16,12 @@ post:
               reference: superhero1234
               contact_details: 
                 phone:
-                  number: 2345678910
+                  number: "2345678910"
               profile:
                 urls:
                   - https://www.superheroexample.com
                 mccs:
-                  - 5669
+                  - "5669"
               company:
                 business_registration_number: "452349600005"
                 legal_name: "Super Hero Masks Inc."
@@ -48,18 +48,18 @@ post:
                       description: Identification of the representative, used for verification
                       national_id_number: "AB123456C"
                     phone:
-                      number: 2345678910
+                      number: "2345678910"
           Individual:
             value:
               reference: superhero1234
               contact_details:
                 phone:
-                  number: 2345678910
+                  number: "2345678910"
               profile:
                 urls:
                   - https://www.superheroexample.com
                 mccs:
-                  - 5669
+                  - "5669"
               individual:
                 first_name: "John"
                 last_name: "Doe"

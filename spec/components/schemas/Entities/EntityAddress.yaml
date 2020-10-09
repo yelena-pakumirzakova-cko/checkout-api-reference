@@ -3,8 +3,8 @@ title: Address
 properties:
   address_line1:
     type: string
-    description: "The first line of the address"
-    minLength: 5
+    description: "The first line of the address. Note that the length of line 1 and line 2 combined must be at least 5 characters long"
+    minLength: 1
     maxLength: 300
     example: "90 Tottenham Court Road"
   address_line2:

@@ -1,5 +1,7 @@
 type: array
-description: Identifies what actions to take in order to complete the session.
+description: >
+  Identifies what actions to take in order to complete the session. `redirect_cardholder` only applies to hosted sessions.
+  `authenticate` only applies to sessions that have been downgraded to 3DS1 (`protocol_version 1.0.2`)
 items:
   enum:
     - collect_channel_data
@@ -7,3 +9,5 @@ items:
     - challenge_cardholder
     - redirect_cardholder
     - complete
+    - authenticate
+    - redirect_cardholder

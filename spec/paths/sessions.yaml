@@ -7,10 +7,10 @@ post:
       - sessions:browser
   summary: Request a session
   description: |
-    A payment session is used to authenticate a cardholder before requesting a payment.
-    Payment sessions are linked to one or more payments (in case of Merchant-initiated payments).
+    Create a payment session to authenticate a cardholder before requesting a payment.
+    Payment sessions can be linked to one or more payments (in the case of recurring and other merchant-initiated payments).
 
-    Use `next_actions` from a successful response to identify what actions can be performed next. 
+    The `next_actions` object in the response tells you which actions can be performed next. 
 
   requestBody:
     content:
@@ -53,7 +53,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/SessionsValidationError'
     '501':
       description: Not Implemented
     '502':

@@ -13,13 +13,13 @@ properties:
       The payment amount. If a `destination` is specified, indicates the payout amount.
       Omit the amount or provide a value of `0` to perform a card verification.       
 
-      The amount must be provided in the <a href="https://docs.checkout.com/docs/calculating-the-value" target="blank">minor currency unit</a>.
+      The amount must be provided in the <a href="https://docs.checkout.com/four/resources/calculating-the-amount" target="blank">minor currency unit</a>.
     minimum: 0
     example: 6540
   currency:
     type: string
     description: |
-      The three-letter <a href="https://docs.checkout.com/docs/currency-codes" target="blank">ISO currency code</a>
+      The three-letter <a href="https://docs.checkout.com/four/resources/codes/currency-codes" target="blank">ISO currency code</a>
 
       If a `destination` is specified, indicates the currency of the payout.
     example: USD
@@ -87,7 +87,7 @@ properties:
   previous_payment_id:
     type: string
     description: |
-      For payments that use <a href="https://docs.checkout.com/docs/stored-card-details" target="blank">stored card details</a>, such as recurring payments –
+      For payments that use <a href="https://docs.checkout.com/four/payments/use-saved-card-details/about-stored-card-details" target="blank">stored card details</a>, such as recurring payments –
       an existing payment identifier from the recurring series or the Scheme Transaction Id
     example: "pay_fun26akvvjjerahhctaq2uzhu4"
   risk:

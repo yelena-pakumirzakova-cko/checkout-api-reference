@@ -30,7 +30,7 @@ properties:
     description: "The sub-entity's Tax Identification Code; for example, a Value Added Tax (VAT) Number in the UK"
     minLength: 2
     maxLength: 16
-    example: 1234567
+    example: "1234567"
   registered_address:
     title: Address
     description: "The registered address of the individual"
