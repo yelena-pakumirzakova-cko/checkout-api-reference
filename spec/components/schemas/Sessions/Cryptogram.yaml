@@ -1,4 +1,4 @@
-description: Payment System-specific value provided as part of the ACS registration for each supported DS.
+description: Payment system-specific value provided as part of the ACS registration for each supported DS
 type: string
 minLength: 28
 maxLength: 28

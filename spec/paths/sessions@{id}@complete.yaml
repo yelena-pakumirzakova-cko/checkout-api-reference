@@ -19,7 +19,7 @@ post:
        "response_reason": "01",
        "cryptogram": "MTIzNDU2Nzg5MDA5ODc2NTQzMjE=",
        "eci": "05",
-       "xid": "75f614ae-723b-4b88-a1bd-c471b0e7fa45",
+       "xid": "XSUErNftqkiTdlkpSk8p32GWOFA",
        "cardholder_info": "Card declined. Please contact your issuing bank.",
        "challenged": true
     }

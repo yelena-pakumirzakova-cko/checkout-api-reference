@@ -5,6 +5,7 @@ discriminator:
   propertyName: type
   mapping:
     card: '#/components/schemas/01_PaymentResponseCardSource'
+    currency_account: '#/components/schemas/02_PaymentResponseCurrencyAccountSource'
 required:
   - type
 

@@ -1,5 +1,7 @@
 description: >
-  The response from the DS or ACS which provides information on why the `response_code` field has the specified value.  <br/><br/>
+  The response from the DS or ACS which provides information on why the `response_code` field has the specified value.  <br/>
+  Only available when `response_code` is not `Y`.  <br/><br/>
+
   • 01 = Card authentication failed <br/>
   • 02 = Unknown Device <br/>
   • 03 = Unsupported Device <br/>

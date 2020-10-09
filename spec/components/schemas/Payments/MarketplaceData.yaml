@@ -1,5 +1,5 @@
 type: object
-description: Information related to Marketplace payments
+description: Information related to marketplace payments
 properties:
   sub_entity_id:
     type: string

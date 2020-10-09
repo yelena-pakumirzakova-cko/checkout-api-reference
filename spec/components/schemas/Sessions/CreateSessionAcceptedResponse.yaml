@@ -1,10 +1,22 @@
+required:
+  - session_secret
+  - id
+  - transaction_id
+  - scheme
+  - amount
+  - currency
+  - authentication_type
+  - authentication_category
+  - status
+  - protocol_version
+  - _links
 properties:
   session_secret:
     $ref: '#/components/schemas/SessionSecret'
   id:
     $ref: '#/components/schemas/SessionId'
   transaction_id:
-    description: The transaction identifier that needs to be provided when communicating directly with the ACS server
+    description: The transaction identifier that needs to be provided when communicating directly with the Access Control Server (ACS)
     type: string
     minLength: 36
     maxLength: 36
@@ -13,11 +25,11 @@ properties:
     type: string
     description: Indicates the scheme this authentication is carried out against
     enum:
-      - Visa
-      - Mastercard
-      - Jcb
-      - Amex
-      - Diners
+      - visa
+      - mastercard
+      - jcb
+      - amex
+      - diners
   amount:
     $ref: '#/components/schemas/Amount'
   currency:

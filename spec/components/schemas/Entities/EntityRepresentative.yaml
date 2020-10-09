@@ -22,6 +22,14 @@ properties:
     title: Address
     description: "The representative's address"
     allOf:
+      - type: object
+        properties:
+          address_line1:
+            type: string
+            description: "The first line of the address. If provided, the length of line 1 and line 2 combined must be at least 5 characters long"
+            minLength: 0
+            maxLength: 300
+            example: "90 Tottenham Court Road"
       - $ref: "#/components/schemas/EntityAddress"
   identification:
     type: object

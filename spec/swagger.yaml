@@ -60,7 +60,7 @@ tags:
   - name: Marketplace
     description: Manage all your sub-entities (also known as sub-merchants) through one integration, globally.
   - name: Sessions
-    description: Sessions are Checkout.com's interpretation of the EMV 3DS protocol which enables support for SCA payments.
+    description: Use Sessions to authenticate transactions with 3D Secure (3DS) and comply with Strong Customer Authentication (SCA) requirements.
   - name: Workflows
     description: Use Workflows to start receiving webhook notifications for your payments, disputes, and marketplace sub-entities.
   # - name: Files

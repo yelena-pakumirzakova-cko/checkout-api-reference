@@ -28,7 +28,7 @@ description: |
   }'
   ```
 
-  Your access token will be valid for a length of time (in seconds) indicated by the `expires_in` field in the response. When it expires, you'll need to either request a new one. You can use one of our SDKs to handle this automatically.
+  Your access token will be valid for a length of time (in seconds) indicated by the `expires_in` field in the response. When it expires, you'll need to request a new one.
 
   Depending on the Environment against which you're making your requests against you'll need to request the token from a different Authorization Server.
 

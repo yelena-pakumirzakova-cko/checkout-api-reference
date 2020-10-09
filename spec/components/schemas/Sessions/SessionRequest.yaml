@@ -10,7 +10,11 @@ properties:
     type: integer
     description: |
       The payment amount in the major currency.
-      Omitting this value will set `authentication_category` to `non_payment`.
+      
+      This value is required for 3DS1 authentications.
+      
+      
+      Omitting this value will set `authentication_category` to `non_payment` and renders the authentication as 3DS2 only.
     minimum: 0
     maxLength: 48
     example: 6540
@@ -24,7 +28,7 @@ properties:
   processing_channel_id:
     type: string
     description: |
-      This is required if it is not set in the request OAuth token. The processing channel to be used for the session. 
+      The processing channel to be used for the session. Required if this was not set in the request for the OAuth token.
   marketplace:
     $ref: '#/components/schemas/MarketplaceData'
   authentication_type:

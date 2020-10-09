@@ -44,8 +44,14 @@ allOf:
         allOf:
           - $ref: '#/components/schemas/SessionAddress'
       home_phone:
-        $ref: '#/components/schemas/SessionPhone'
+        description: The cardholder's home phone number
+        allOf:
+          - $ref: '#/components/schemas/SessionPhone'
       mobile_phone:
-        $ref: '#/components/schemas/SessionPhone'
+        description: The cardholder's mobile phone number
+        allOf:
+          - $ref: '#/components/schemas/SessionPhone'
       work_phone:
-        $ref: '#/components/schemas/SessionPhone'
+        description: The cardholder's work phone number
+        allOf:
+          - $ref: '#/components/schemas/SessionPhone'

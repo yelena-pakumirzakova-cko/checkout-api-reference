@@ -2,7 +2,7 @@ put:
   security:
     - SessionSecret: []
   summary: Update a session
-  description: Update a session by providing information about the environment it was created.
+  description: Update a session by providing information about the environment.
   tags:
     - Sessions
   parameters:
@@ -40,4 +40,4 @@ put:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/SessionsValidationError'

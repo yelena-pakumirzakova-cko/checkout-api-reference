@@ -1,8 +1,8 @@
 put:
   security:
     - SessionSecret: []
-  summary: Update session 3ds method completion indicator
-  description: Update session 3ds method completion indicator based on the result of accessing the 3ds method url.
+  summary: Update session 3DS Method completion indicator
+  description: Update the session's 3DS Method completion indicator based on the result of accessing the 3DS Method URL.
   tags:
     - Sessions
   parameters:
@@ -20,7 +20,7 @@ put:
           $ref: '#/components/schemas/ThreeDsMethodCompletion'
   responses:
     '200':
-      description: Session updated. DS has processed the authentication.
+      description: Session updated. Directory Server (DS) has processed the authentication.
       content:
         application/json:
           schema:
@@ -40,4 +40,4 @@ put:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrorResponse'
+            $ref: '#/components/schemas/SessionsValidationError'
