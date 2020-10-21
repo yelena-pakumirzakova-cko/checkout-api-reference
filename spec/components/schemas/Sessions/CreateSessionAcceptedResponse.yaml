@@ -40,6 +40,8 @@ properties:
     $ref: '#/components/schemas/Category'
   status:
     $ref: '#/components/schemas/Status'
+  status_reason:
+    $ref: '#/components/schemas/StatusReason'
   next_actions:
     $ref: '#/components/schemas/NextActions'
   protocol_version:
