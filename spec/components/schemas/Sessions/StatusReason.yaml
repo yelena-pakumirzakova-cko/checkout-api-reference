@@ -10,7 +10,7 @@ description: >
   • pares_status = The status was set to the status in the Payer Authentication response we got back from the Access Control Server (issuer server - 3DS1) <br/>
   • rreq_error = There was an issue in the Response we got back from the Access Control Server (issuer server - 3DS2) <br/>
   • rreq_status = The status was set to the status in the Response we got back from the Access Control Server (issuer server - 3DS2) <br/>
-  • risk_declined = The status was set to unavailable because the Risk engine recommended we decline the authentication <br/>
+  • risk_declined = The status was set to declined because the Risk engine recommended we decline the authentication <br/>
 enum:
   - ares_error
   - ares_status
