@@ -46,6 +46,8 @@ properties:
     $ref: '#/components/schemas/Category'
   status:
     $ref: '#/components/schemas/Status'
+  status_reason:
+    $ref: '#/components/schemas/StatusReason'
   approved:
     $ref: '#/components/schemas/Approved'
   protocol_version:
