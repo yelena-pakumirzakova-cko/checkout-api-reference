@@ -32,12 +32,16 @@ put:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ForbiddenErrorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
     '404':
       description: Session not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
     '422':
       description: Unprocessable channel information
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/SessionsValidationError'
+            $ref: '#/components/schemas/ErrorResponse'
