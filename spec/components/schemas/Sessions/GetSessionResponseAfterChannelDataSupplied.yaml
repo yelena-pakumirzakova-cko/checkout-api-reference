@@ -1,5 +1,4 @@
 required:
-  - session_secret
   - id
   - transaction_id
   - scheme
