@@ -10,4 +10,3 @@ items:
     - redirect_cardholder
     - complete
     - authenticate
-    - redirect_cardholder
