@@ -47,13 +47,13 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ForbiddenErrorResponse'
+            $ref: '#/components/schemas/ErrorResponse'
     '422':
       description: Invalid data was sent
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/SessionsValidationError'
+            $ref: '#/components/schemas/ErrorResponse'
     '501':
       description: Not Implemented
     '502':
