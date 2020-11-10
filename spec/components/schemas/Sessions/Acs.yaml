@@ -3,7 +3,6 @@ required:
   - reference_number
   - transaction_id
   - operator_id
-  - url
   - challenge_mandated
   - authentication_type
   - authentication_method
