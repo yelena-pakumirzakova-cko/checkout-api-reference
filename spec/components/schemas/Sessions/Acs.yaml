@@ -43,8 +43,14 @@ properties:
     description: The type of authentication as returned from the ACS provider. 
   challenge_cancel_reason:
     type: string
-    pattern: "^\\d{2}$"
     description: Indicator informing the ACS and the DS that the authentication has been cancelled
+    enum:
+      - cardholder_cancel
+      - transaction_timed_out
+      - challenge_timed_out
+      - transaction_error
+      - unknown
+      - sdk_timed_out
   interface:
     type: string
     enum:
