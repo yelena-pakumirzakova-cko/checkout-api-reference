@@ -4,8 +4,6 @@ required:
   - transaction_id
   - operator_id
   - challenge_mandated
-  - authentication_type
-  - authentication_method
 description: "The access control server (ACS) information. Can be empty if the session is still pending or if communication with the ACS failed. This will be available when the channel data and issuer fingerprint result have been provided."
 properties:
   reference_number:
