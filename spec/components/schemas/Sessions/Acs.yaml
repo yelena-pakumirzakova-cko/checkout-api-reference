@@ -38,30 +38,9 @@ properties:
     type: boolean
     description: Indicates whether a challenge is required for the transaction to be authorized
   authentication_type:
-    type: string
-    description: The type of authentication
-    enum:
-      - static
-      - dynamic
-      - oob
-      - decoupled
-  authentication_method:
-    type: string
-    description: |
-      Authentication approach that the ACS used to authenticate the cardholder for this specific transaction.
-
-      Note: This is in the results request (RReq) message from the ACS only. It is not passed to the 3DS Server URL.
-    enum:
-      - static_passcode
-      - sms_otp
-      - fob_or_card_reader_otp
-      - app_otp
-      - otp_other
-      - kba
-      - oob_biometrics
-      - oob_login
-      - oob_other
-      - other
+    type: string    
+    pattern: "\d{2}"
+    description: The type of authentication as returned from the ACS provider. 
   challenge_cancel_reason:
     type: string
     description: Indicator informing the ACS and the DS that the authentication has been cancelled
