@@ -39,7 +39,7 @@ properties:
         maxLength: 30
       email:
         type: string
-        description: An optional email address to associate with the customer
+        description: The customer's email address
       name:
         type: string
         description: The customer's name. This will only set the name for new customers
