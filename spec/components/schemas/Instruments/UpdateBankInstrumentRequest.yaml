@@ -1,0 +1,5 @@
+type: object
+description: The type of instrument to be updated
+discriminator:
+  mapping:
+    bank_account: '#/components/schemas/UpdateBankAccountInstrumentRequest'

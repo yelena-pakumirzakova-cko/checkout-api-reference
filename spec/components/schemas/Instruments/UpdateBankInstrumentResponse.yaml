@@ -1,0 +1,18 @@
+type: object
+description: The response for type of instrument stored
+required:
+  - type
+  - id
+discriminator:
+  propertyName: type
+  mapping:
+    bank_account: '#/components/schemas/UpdateBankInstrumentResponse'
+properties:
+  type:
+    description: The type of instrument
+    type: string
+  fingerprint:
+    description: The base 32 encoded vault id
+    type: string
+    example: "smoua2sbuqhupeofwbe77n5nsm"
+

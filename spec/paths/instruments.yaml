@@ -32,3 +32,74 @@ post:
            $ref: '#/components/schemas/ValidationError'
     '500':
       description: Internal Error
+
+patch:
+  tags:
+    - Instruments
+  security: 
+    - OAuth: 
+      - vault
+      - vault:instruments
+    # - ApiKey: []
+  summary: Update an instrument
+  description: |
+    Update a bank account payment instrument that you can later use as the destination for one or more payouts.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/UpdateBankInstrumentRequest'
+  responses:
+    '201':
+      description: Instrument updated successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdateBankInstrumentResponse'  
+    '401':
+      description: Unauthorized
+    '422':
+      description: Invalid data was sent
+      content:
+        application/json:
+         schema:
+           $ref: '#/components/schemas/ValidationError'
+    '500':
+      description: Internal Error
+
+
+delete:
+  tags:
+    - Instruments
+  security: 
+    - OAuth: 
+      - vault
+      - vault:instruments
+    # - ApiKey: []
+  summary: Deletes an instrument
+  description: |
+    Deletes a bank account payment instrument.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/UpdateBankInstrumentRequest'
+  responses:
+    '204':
+      description: Instrument deleted successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdateBankInstrumentResponse'  
+    '401':
+      description: Unauthorized
+    '422':
+      description: Invalid data was sent
+      content:
+        application/json:
+         schema:
+           $ref: '#/components/schemas/ValidationError'
+    '500':
+      description: Internal Error
