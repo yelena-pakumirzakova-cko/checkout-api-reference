@@ -85,14 +85,10 @@ delete:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/UpdateBankInstrumentRequest'
+          $ref: '#/components/schemas/DeleteBankInstrumentRequest'
   responses:
     '204':
       description: Instrument deleted successfully
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UpdateBankInstrumentResponse'  
     '401':
       description: Unauthorized
     '422':

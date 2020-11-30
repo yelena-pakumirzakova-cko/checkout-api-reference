@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\spec",
+    "\\spec\\components",
+    "\\spec\\components\\schemas",
+    "\\spec\\components\\schemas\\Instruments",
+    "\\spec\\components\\schemas\\Payments",
+    "\\spec\\components\\schemas\\Tokens",
+    "\\spec\\paths",
+    "\\src",
+    "\\src\\OpenApiGenerator"
+  ],
+  "SelectedNode": "\\spec\\paths\\instruments.yaml",
+  "PreviewInSolutionExplorer": false
+}

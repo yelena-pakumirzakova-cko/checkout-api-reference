@@ -1,0 +1,10 @@
+type: object
+description: The instrument to be deleted
+required:
+  - instrumentId
+properties:
+  instrumentId:
+    description: The payment instruction to be deleted
+    pattern: "^(src_)[[a-z0-9]]{{26}}$)"
+    example: "src_tzcb3avdqshuhc4oxsi3rdo2r4"
+    type: string
