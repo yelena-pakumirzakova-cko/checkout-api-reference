@@ -77,9 +77,9 @@ delete:
       - vault
       - vault:instruments
     # - ApiKey: []
-  summary: Deletes an instrument
+  summary: Delete an instrument
   description: |
-    Deletes a bank account payment instrument.
+    Delete an bank account payment instrument.
   requestBody:
     required: true
     content:
