@@ -5,7 +5,6 @@ post:
     - OAuth: 
       - vault
       - vault:instruments
-    # - ApiKey: []
   summary: Create an instrument
   description: |
     Create a bank account payment instrument that you can later use as the destination for one or more payouts.
@@ -40,10 +39,17 @@ patch:
     - OAuth: 
       - vault
       - vault:instruments
-    # - ApiKey: []
   summary: Update an instrument
   description: |
     Update a bank account payment instrument that you can later use as the destination for one or more payouts.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      example: src_ubfj2q76miwundwlk72vxt2i7q
+      description: The instrument identifier
   requestBody:
     required: true
     content:

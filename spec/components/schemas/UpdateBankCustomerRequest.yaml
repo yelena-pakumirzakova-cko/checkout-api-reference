@@ -8,5 +8,5 @@ properties:
     example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
   default:
     type: bool
-    description: Determines if this customer is set as the default for the instrument
+    description: Determines if this instrument is set as the default for the customer
     example: true
