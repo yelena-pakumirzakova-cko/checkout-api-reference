@@ -49,6 +49,7 @@ patch:
       schema:
         type: string
       example: src_ubfj2q76miwundwlk72vxt2i7q
+      pattern: "^(src_)[[a-z0-9]]{{26}}$)"
       description: The instrument identifier
   requestBody:
     required: true
@@ -84,16 +85,18 @@ delete:
     - OAuth: 
       - vault
       - vault:instruments
-    # - ApiKey: []
   summary: Delete an instrument
   description: |
     Delete a payment instrument.
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: '#/components/schemas/DeleteInstrumentRequest'
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      example: src_ubfj2q76miwundwlk72vxt2i7q
+      pattern: "^(src_)[[a-z0-9]]{{26}}$)"
+      description: The payment instrument to be deleted
   responses:
     '204':
       description: Instrument deleted successfully
