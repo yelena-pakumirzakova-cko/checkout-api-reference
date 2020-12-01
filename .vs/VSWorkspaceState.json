@@ -5,12 +5,10 @@
     "\\spec\\components",
     "\\spec\\components\\schemas",
     "\\spec\\components\\schemas\\Instruments",
-    "\\spec\\components\\schemas\\Payments",
-    "\\spec\\components\\schemas\\Tokens",
+    "\\spec\\components\\schemas\\Instruments\\properties",
     "\\spec\\paths",
-    "\\src",
     "\\src\\OpenApiGenerator"
   ],
-  "SelectedNode": "\\spec\\paths\\instruments.yaml",
+  "SelectedNode": "\\spec\\components\\schemas\\Instruments\\DeleteBankInstrumentRequest.yaml",
   "PreviewInSolutionExplorer": false
 }

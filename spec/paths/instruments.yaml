@@ -79,7 +79,7 @@ delete:
     # - ApiKey: []
   summary: Delete an instrument
   description: |
-    Delete an bank account payment instrument.
+    Delete a bank account payment instrument.
   requestBody:
     required: true
     content:
