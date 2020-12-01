@@ -79,13 +79,13 @@ delete:
     # - ApiKey: []
   summary: Delete an instrument
   description: |
-    Delete a bank account payment instrument.
+    Delete a payment instrument.
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/DeleteBankInstrumentRequest'
+          $ref: '#/components/schemas/DeleteInstrumentRequest'
   responses:
     '204':
       description: Instrument deleted successfully
