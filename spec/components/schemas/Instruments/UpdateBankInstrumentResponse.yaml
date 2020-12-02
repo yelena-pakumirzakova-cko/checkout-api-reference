@@ -2,7 +2,7 @@ type: object
 description: The response for type of instrument stored
 required:
   - type
-  - id
+  - fingerprint
 discriminator:
   propertyName: type
   mapping:
