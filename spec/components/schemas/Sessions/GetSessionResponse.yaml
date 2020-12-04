@@ -12,6 +12,8 @@ required:
 properties:
   id:
     $ref: '#/components/schemas/SessionId'
+  session_secret:
+    $ref: '#/components/schemas/SessionSecret'
   transaction_id:
     description: The transaction identifier that needs to be provided when communicating directly with the Access Control Server (ACS)
     type: string
@@ -81,5 +83,7 @@ properties:
     type: string
     description: May provide cardholder information from the DS to be presented to the cardholder
     example: Card declined. Please contact your issuing bank.
+  card:
+    $ref: '#/components/schemas/CardInfo'
   _links:
     $ref: '#/components/schemas/GetSessionLinks'

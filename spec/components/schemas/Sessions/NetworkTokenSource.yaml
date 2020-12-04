@@ -1,5 +1,4 @@
 ﻿type: object
-description: A network token payment source
 allOf:
   - $ref: "#/components/schemas/SessionSource"
   - type: object
@@ -36,19 +35,3 @@ allOf:
         minLength: 2
         maxLength: 45
         example: "Bruce Wayne"
-      billing_address:
-        description: The customer's billing address
-        allOf:
-          - $ref: '#/components/schemas/SessionAddress'
-      home_phone:
-        description: The cardholder's home phone number
-        allOf:
-          - $ref: '#/components/schemas/SessionPhone'
-      mobile_phone:
-        description: The cardholder's mobile phone number
-        allOf:
-          - $ref: '#/components/schemas/SessionPhone'
-      work_phone:
-        description: The cardholder's work phone number
-        allOf:
-          - $ref: '#/components/schemas/SessionPhone'

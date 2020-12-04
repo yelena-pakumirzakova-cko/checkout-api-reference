@@ -47,8 +47,12 @@ properties:
       • operation_not_allowed_for_scope = You are using an OAuth2.0 token that does not contain the right scope. <br/>
       • protocol_version_not_supported_by_sdk = You created an App channel Session with a protocol version not supported by the relevant mobile SDK. <br/>
       • ds_error = The Directory Server (schemes) responded with an unexpected error or timed out. <br/>
-      • processing_channel_disabled = The Processing Channel or processor used for this Session is not active. <br/><br/>
-      
+      • processing_channel_disabled = The Processing Channel or processor used for this Session is not active. <br/>
+      • vault_not_configured_for_processing_channel = Using a Processing Channel not configured for used with Checkout.com Vault offering but trying to use a Vault source (`id` or `token`). <br/>
+      • error_trying_to_contact_vault = Checkout.com's Vault responded with an unexpected error or timed out. Only relevant for a Vault source (`id` or `token`). <br/>
+      • instrument_used_is_not_card = Using an `id` type source that is not a card (only card type instruments are supported in 3DS) . <br/>
+      • no_processor_configured_for_card_scheme = Using a card that belongs to a scheme that is not configured in the Processing Channel being used. <br/><br/>
+
       Also, there is a number of generic error codes as described below: <br/>
       • some_field_required = Usually with an error type `unprocessable_entity`. The field `some_field` is required but not provided in the payload. <br/>
       • some_field_invalid = Usually with an error type `unprocessable_entity`. The field `some_field` failed validation. Please consult the API spec. <br/>

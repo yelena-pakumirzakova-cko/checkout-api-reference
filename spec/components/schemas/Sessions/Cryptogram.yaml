@@ -1,4 +1,7 @@
-description: Payment system-specific value provided as part of the ACS registration for each supported DS
+description: >
+  Payment system-specific value provided as part of the ACS registration for each supported DS.
+  Please be advised that this field will only be included in responses when authenticating with a valid OAuth token and not when authenticating 
+    with `session_secret`. 
 type: string
 minLength: 28
 maxLength: 28
