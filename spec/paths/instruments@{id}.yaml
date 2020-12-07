@@ -22,14 +22,19 @@ patch:
     content:
       application/json:
         schema:
-          $ref: '#/components/schemas/UpdateBankInstrumentRequest'
+          $ref: '#/components/schemas/UpdateInstrumentRequest'
   responses:
-    '201':
+    '200':
       description: Instrument updated successfully
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/UpdateBankInstrumentResponse'  
+            $ref: '#/components/schemas/UpdateInstrumentResponse' 
+      headers:
+        Cko-Request-Id:
+          $ref: '#/components/headers/Cko-Request-Id'
+        Cko-Version:
+          $ref: '#/components/headers/Cko-Version'
     '401':
       description: Unauthorized
     '404':
