@@ -75,11 +75,5 @@ delete:
       description: Unauthorized
     '404':
       description: Instrument not found or not associated with client
-    '422':
-      description: Invalid data was sent
-      content:
-        application/json:
-         schema:
-           $ref: '#/components/schemas/ValidationError'
     '500':
       description: Internal Error
