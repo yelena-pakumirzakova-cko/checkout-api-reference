@@ -1,33 +1,19 @@
 type: object
-description: Instruction details for payouts to bank accounts
+description: Details about the instruction for payouts to bank accounts
 properties:
   purpose:
     type: string
-    description: An optional description of the payout purpose, for example Insurance claim or Remittance.
-  desired_value_date:
+    description: An optional description of the payout purpose, for example `Insurance claim` or `Remittance`
+    example: "Remittance"
+  charge_bearer: 
     type: string
-    format: date
-    description: The date (in ISO 8601 format) on which the recipient's account will be credited
-  desired_value_date_behavior:
-    type: string
-    enum: 
-      - pay_early
-      - pay_later
-      - do_not_pay
-    default: pay_later
-    example: pay_later
-    description: The behavior if the desired payout date is not achievable
-  charge_bearer:
-    type: string
+    description: Who should be charged the payout fee
     enum:
       - OUR
       - SHA
-      - BEN
-    description: Who should be charged the payout fee
   repair:
     type: boolean
-    description: Determines if the payment details can be modified to prevent payment return
-    example: false
+    description: Determines whether the payout details can be modified to prevent a payout from being returned
   scheme:
     type: string
     description: The preferred payment scheme or network the bank transfer will be sent through
@@ -36,8 +22,10 @@ properties:
       - local
       - instant
   quote_id:
+    type: string
     allOf:
       - $ref: '#/components/schemas/QuoteId'
-    description: | 
-      The FX quote identifier. 
-      If omitted, and the source and destination currencies differ, the current market exchange rate will be used. 
+    description: The FX quote identifier. If omitted, and the source and destination currencies differ, the current market exchange rate will be used
+    minLength: 30
+    maxLength: 30
+    pattern: ^(qte)_[a-z2-7]{26}$

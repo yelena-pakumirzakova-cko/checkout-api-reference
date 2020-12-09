@@ -322,6 +322,39 @@ span.sc-fzpkJw.hctKJM, .sc-pReKu.eehIqb {
   color: var(--secondary-text);
 }
 
+/* Request body schema - One of text */
+
+.ldExJi {
+  color: var(--secondary-text)!important;
+}
+
+/* Request body schema - Tabs */
+
+.sc-fzoiQi {
+  border-radius: 8px!important;
+  padding: 12px!important;
+}
+
+.sc-fzoiQi:hover {
+  background-color: var(--T40);
+}
+
+/* Rquest body schema - First tab */
+
+.fvfRMB {
+  border: none!important;
+  color: var(--S1000)!important;
+  background-color: var(--T300)!important;
+}
+
+/* Request body schema - Second tab */
+
+.kCktTl {
+  border: none!important;
+  color: var(--secondary-text)!important;
+  background-color: var(--code-background)!important;
+}
+
 /* Request body schema background */
 
 .sc-kpOJdX.icucAR {
@@ -1016,7 +1049,7 @@ code span {
   --sidebar-option: var(--S1000);
   --sidebar-option-hover: var(--cko-contrast-gray);
   --url-area: var(--S1000);
-  --sample-selector-background: var(--S1000);
+  --sample-selector-background: var(--S10);
   --sample-selector-text: var(--S00);
   --code-text-color: var(--S700);
 }
@@ -1486,12 +1519,8 @@ span.sc-fzoVTD.heGpRL, .sc-fzoJus.hHgrjJ {
   font-weight: bold;
 }
 
-span.sc-fzpmMD.gBfPiy.dropdown-selector-value, span.sc-fzpmMD.kgBWAC.dropdown-selector-value {
-  color: var(--sample-selector-text) !important; 
-}
-
 .iFDKZT.iFDKZT .dropdown-arrow {
-  border-top-color: var(--sample-selector-text)!important;
+  border-top-color: var(--source-selector-text)!important;
 }
 
 span.sc-fznWOq.mcMLk.dropdown-selector-content {

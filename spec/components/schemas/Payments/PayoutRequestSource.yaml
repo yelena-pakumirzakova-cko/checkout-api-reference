@@ -1,0 +1,13 @@
+type: object
+description: The source of the payout
+discriminator:
+  propertyName: type
+  mapping:
+    currency_account: '#/components/schemas/05_PaymentRequestCurrencyAccountSource'
+required:
+  - type
+properties:
+  type:
+    type: string
+    description: The payout source type
+    example: "currency_account"

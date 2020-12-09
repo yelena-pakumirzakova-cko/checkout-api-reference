@@ -1,0 +1,37 @@
+type: object
+required:
+  - source
+  - destination
+  - amount
+  - currency
+  - billing_descriptor
+  - sender
+properties:
+  source: 
+    $ref: '#/components/schemas/PayoutRequestSource'
+  destination:
+    $ref: '#/components/schemas/PaymentRequestDestination'
+  amount:
+    type: integer
+    description: |
+     The payout amount.
+     The amount must be provided in the <a href="https://docs.checkout.com/four/resources/calculating-the-amount" target="blank">minor currency unit</a>
+    minimum: 0
+    example: 6540
+  currency:
+    type: string
+    description: |
+      The three-letter <a href="https://docs.checkout.com/four/resources/codes/currency-codes" target="blank">ISO currency code</a>
+    example: USD
+    maxLength: 3
+    minLength: 3
+  reference:
+    type: string
+    description: A reference you can later use to identify this payout
+    example: "Withdrawal"
+  billing_descriptor:
+    $ref: '#/components/schemas/PayoutBillingDescriptor'
+  sender:
+    $ref: '#/components/schemas/PayoutSender'
+  instruction:
+    $ref: '#/components/schemas/PaymentInstruction'

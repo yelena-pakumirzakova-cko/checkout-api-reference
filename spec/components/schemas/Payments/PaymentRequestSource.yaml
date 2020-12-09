@@ -1,5 +1,5 @@
 type: object
-description: The source of the payment.<br><i>Use to request a payment</i>.
+description: The source of the payment
 discriminator:
   propertyName: type
   mapping:
@@ -7,7 +7,6 @@ discriminator:
     id: '#/components/schemas/02_PaymentRequestIdSource'
     card: '#/components/schemas/03_PaymentRequestCardSource'
     network_token: '#/components/schemas/04_PaymentRequestNetworkTokenSource'
-    currency_account: '#/components/schemas/05_PaymentRequestCurrencyAccountSource'
 required:
   - type
 properties:
