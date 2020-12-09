@@ -49,7 +49,7 @@ properties:
       • ds_error = The Directory Server (schemes) responded with an unexpected error or timed out. <br/>
       • processing_channel_disabled = The Processing Channel or processor used for this Session is not active. <br/>
       • vault_not_configured_for_processing_channel = Using a Processing Channel not configured for used with Checkout.com Vault offering but trying to use a Vault source (`id` or `token`). <br/>
-      • error_trying_to_contact_vault = Checkout.com's Vault responded with an unexpected error or timed out. Only relevant for a Vault source (`id` or `token`). <br/>
+      • error_getting_instrument = Checkout.com's Vault responded with an unexpected error or timed out. Only relevant for a Vault source (`id` or `token`). <br/>
       • instrument_used_is_not_card = Using an `id` type source that is not a card (only card type instruments are supported in 3DS) . <br/>
       • no_processor_configured_for_card_scheme = Using a card that belongs to a scheme that is not configured in the Processing Channel being used. <br/><br/>
 
