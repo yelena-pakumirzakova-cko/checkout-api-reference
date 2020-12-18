@@ -5,7 +5,7 @@ allOf:
   - type: object
 properties:
   type:
-    description: This is used as illustration purposes and will not be part of the request.
+    description: This field is used for illustration purposes and does not need to be provided in the request.
     type: string
     enum: ["card", "bank_account"]
 

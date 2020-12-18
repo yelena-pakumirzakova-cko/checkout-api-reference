@@ -5,7 +5,7 @@ allOf:
   - type: object
 properties:
   type:
-    description: This is used as illustration purposes and will not be part of the request.
+    description: This field is used for illustration purposes and does not need to be provided in the request.
     type: string
     enum: ["card", "bank_account"]
 
@@ -24,31 +24,15 @@ properties:
         minLength: 4
         maxLength: 4
 
-  cardholder_name:
+  name:
     description: |
       Name of the cardholder 
     type: string
     example: "Mr. J Smith"
   
-  first_name:
-    description: |
-      First name of the instrument owner 
-    type: string
-    example: "John"
-
-  last_name:
-    description: | 
-      Last name of the instrument owner.
-    type: string
-    example: "Smith"
-
-  billing_address:
-    $ref: '#/components/schemas/Address'
-    description: Billing address of the instrument owner
-
-  phone:
-    $ref: '#/components/schemas/PhoneNumber'
-    description: Phone number for the instrument owner       
+  account_holder:
+    $ref: '#/components/schemas/UpdateCardAccountHolder'
+        
 
   customer:
     $ref: "#/components/schemas/UpdateCustomerRequest"

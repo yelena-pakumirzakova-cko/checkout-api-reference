@@ -12,19 +12,19 @@ properties:
 
   first_name:
     description: |
-      The account holder's first name. 
+      The account holder's first name 
     type: string
     example: "John"
 
   last_name:
     description: | 
-      The account holder's last name.
+      The account holder's last name
     type: string
     example: "Smith"
 
   company_name:
     description: | 
-      The legal name of a registered company that holds the account.
+      The legal name of a registered company that holds the account
     type: string
     example: Test company
 
