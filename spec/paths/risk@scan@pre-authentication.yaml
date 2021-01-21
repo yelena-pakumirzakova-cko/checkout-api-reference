@@ -1,0 +1,75 @@
+post:
+  security:
+    - ApiSecretKey: []
+  tags:
+    - Risk
+  summary: Request a pre-authentication risk scan
+  operationId: preAuthenticationRiskAssessment
+  description: |
+   some nice description
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/PreAuthenticationAssessmentRequest'
+        # example:
+  responses:
+    '200':
+      description: Transaction assessed successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PreAuthenticationAssessmentResponse'
+        Cko-Request-Id:
+          $ref: "#/components/headers/Cko-Request-Id"
+        Cko-Version:
+          $ref: "#/components/headers/Cko-Version"
+    '401':
+      description: Unauthorized
+    '422':
+      description: Invalid data was sent
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+    '502':
+      description: Bad gateway
+
+# post:
+#   security:
+#     - ApiSecretKey: []
+#   tags:
+#     - Risk
+#   summary: Perform a pre-capture risk assessment for a transaction
+#   operationId: preCaptureRiskAssessment
+#   description: |
+#    some nice description
+#   parameters:
+#     - $ref: '#/components/parameters/ckoIdempotencyKey'
+#   requestBody:
+#     content:
+#       application/json:
+#         schema:
+#           $ref: '#/components/schemas/PreAuthenticationAssessmentRequest'
+#         # example:
+#   responses:
+#     '200':
+#       description: Transaction assessed successfully
+#       content:
+#         application/json:
+#           schema:
+#             $ref: '#/components/schemas/PreCaptureAssessmentResponse'
+#         Cko-Request-Id:
+#           $ref: "#/components/headers/Cko-Request-Id"
+#         Cko-Version:
+#           $ref: "#/components/headers/Cko-Version"
+#     '401':
+#       description: Unauthorized
+#     '422':
+#       description: Invalid data was sent
+#       content:
+#         application/json:
+#           schema:
+#             $ref: '#/components/schemas/ValidationError'
+#     '502':
+#       description: Bad gateway

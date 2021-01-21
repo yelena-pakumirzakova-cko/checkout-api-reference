@@ -1,0 +1,5 @@
+type: object
+description: "The address details of the customer making the payment"
+properties:
+  address:
+    $ref: '#/components/schemas/Address'

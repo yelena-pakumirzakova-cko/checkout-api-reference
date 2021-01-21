@@ -1,0 +1,14 @@
+type: object 
+required: 
+  - decision
+  - details
+description: The assessment result
+properties: 
+  decision:
+    description: The recommended action based on the risk assessed
+    enum: [capture, flag, void]
+    example: capture
+  details:
+    type: array
+    items:
+      $ref: '#/components/schemas/Details'

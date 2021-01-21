@@ -1,0 +1,9 @@
+type: object
+description: List of triggered routing rules in order of execution
+properties: 
+  id:
+    type: string
+    example: rul_458784548431886453
+  name: 
+    type: string
+    example: High Risk Countries

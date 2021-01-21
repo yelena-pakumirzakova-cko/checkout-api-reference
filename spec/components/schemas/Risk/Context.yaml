@@ -1,0 +1,24 @@
+type: object
+properties:
+  date:
+    $ref: '#/components/schemas/Timestamp'
+  customer:
+    $ref: '#/components/schemas/Customer'
+  phone: 
+    $ref: '#/components/schemas/Phone'
+  payment:
+    $ref: '#/components/schemas/RiskPayment'
+  shipping:
+    description: "The shipping details for the customer making the payment"
+    $ref: '#/components/schemas/RiskAddress'
+  billing:
+    description: "The billing details for the customer making the payment"
+    $ref: '#/components/schemas/RiskAddress'
+  device:
+    $ref: '#/components/schemas/Device'
+  metadata:
+    type: object
+    description: Allows you to store additional information about a transaction with custom fields and up to five user-defined fields (`udf1` to `udf5`), which can be used for reporting purposes. `udf1` is also used for some of our risk rules.
+    example:
+      coupon_code: "NY2018"
+      partner_id: 123989

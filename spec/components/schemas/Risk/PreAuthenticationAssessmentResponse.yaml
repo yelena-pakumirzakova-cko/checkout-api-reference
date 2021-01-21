@@ -1,0 +1,29 @@
+type: object
+description: Pre-Authentication Response
+required:
+  - scan_id
+  - risk_assessment_id
+  - result
+properties:
+  scan_id:
+    type: string
+    description: The unique id of the scan
+    example: "rsc_dze5fzef654zefzf"
+  risk_assessment_id:
+    type: string
+    description: The correlation id across scans for a given transaction
+    example: "ras_d1eze3fef54re65f4er66"
+  score: 
+    type: integer
+    description: The risk score calculated by Checkout. Absent if not enough data provided.
+    example: 21
+    minimum: 0
+    maximum: 100
+  result:
+    description: The scan result based on the routing strategy
+    allOf:
+      - $ref: '#/components/schemas/PreAuthResult'
+  warning:
+    description: Present when Checkout scan is more restrictive
+    allOf:
+      - $ref: '#/components/schemas/Warning'

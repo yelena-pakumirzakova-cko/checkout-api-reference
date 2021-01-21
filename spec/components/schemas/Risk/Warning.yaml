@@ -1,0 +1,15 @@
+type: object 
+required: 
+  - decision
+  - reasons
+properties: 
+  decision:
+    description: Checkout recommended decision
+    enum: [try_exemptions, try_frictionless, default_to3ds, force_challenge, decline]
+    example: try_frictionless
+  reasons:
+    description: How the decision was concluded
+    type: array
+    items:
+      enum: [DeclineListEmail, DeclineListBIN, DeclineListShipping, RoutingStrategy]
+      example: [DeclineListEmail, DeclineListBIN]

@@ -1,0 +1,14 @@
+type: object 
+required: 
+  - decision
+  - details
+description: The assessment result
+properties: 
+  decision:
+    description: The recommended action based on the risk assessed
+    enum: [try_exemptions, try_frictionless, default_to3ds, force_challenge, decline]
+    example: try_frictionless
+  details:
+    type: array
+    items:
+      $ref: '#/components/schemas/Details'

@@ -1,0 +1,8 @@
+type: object
+properties:
+  avs_result: 
+    type: string
+    example: V
+  cvv_result:
+    type: string
+    example: N

@@ -1,0 +1,25 @@
+type: object
+properties:
+  risk_assessment_id:
+    type: string
+    description: The correlation id across scans for a given transaction. Returned in /pre-authentication response. If not provided one will be generated.
+    example: "ras_d1eze3fef54re65f4er66"
+  date:
+    description: The original payment attempt date
+    $ref: '#/components/schemas/Timestamp'
+  customer:
+    $ref: '#/components/schemas/Customer'
+  payment:
+    $ref: '#/components/schemas/RiskPayment'
+  shipping:
+    $ref: '#/components/schemas/RiskAddress'
+  billing:
+    $ref: '#/components/schemas/RiskAddress'
+  device:
+    $ref: '#/components/schemas/Device'
+  metadata:
+    $ref: '#/components/schemas/Metadata'
+  authentication_result: 
+    $ref: '#/components/schemas/AuthenticationResult'
+  authorization_result: 
+    $ref: '#/components/schemas/AuthorizationResult'

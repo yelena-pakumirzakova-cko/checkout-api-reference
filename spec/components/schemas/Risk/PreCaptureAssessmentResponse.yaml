@@ -1,0 +1,23 @@
+type: object
+description: Pre-Capture Response
+required:
+  - scan_id
+  - risk_assessment_id
+  - result
+properties:
+  scan_id:
+    type: string
+    description: The unique id of the scan
+    example: "rsc_dze5fzef654zefzf"
+  risk_assessment_id:
+    type: string
+    description: The correlation id across scans for a given transaction
+    example: "ras_d1eze3fef54re65f4er66"
+  result:
+    description: The scan result based on the routing strategy
+    allOf:
+      - $ref: '#/components/schemas/PreCaptureResult'
+  warning:
+    description: Present when Checkout scan is more restrictive
+    allOf:
+      - $ref: '#/components/schemas/PreCaptureWarning'
