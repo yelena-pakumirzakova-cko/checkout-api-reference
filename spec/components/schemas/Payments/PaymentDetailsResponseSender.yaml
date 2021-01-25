@@ -16,7 +16,8 @@ properties:
       - corporate
       - instrument
     description: The type of sender
-
+    example: instrument
   reference:
     type: string
     description: The sender's reference for the payout
+    example: "8285282045818"

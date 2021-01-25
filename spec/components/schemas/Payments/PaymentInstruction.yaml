@@ -7,13 +7,13 @@ properties:
     example: "Remittance"
   charge_bearer: 
     type: string
-    description: Who should be charged the payout fee
+    description: Who should be charged the payout fee<br><i>Only required if making a payout using an international scheme<i>.
     enum:
       - OUR
       - SHA
   repair:
     type: boolean
-    description: Determines whether the payout details can be modified to prevent a payout from being returned
+    description: Determines whether the payout details can be modified to attempt to prevent a payout from being returned
   scheme:
     type: string
     description: The preferred payment scheme or network the bank transfer will be sent through
