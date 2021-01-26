@@ -1,11 +1,12 @@
 type: object
 description: Store a previously tokenized instrument
 allOf:
-  - $ref: '#/components/schemas/PaymentSender'
+  - $ref: '#/components/schemas/PaymentDetailsResponseSender'
 required:
   - type
   - first_name
   - last_name
+  - address
 properties:
   type:
     type: string

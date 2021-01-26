@@ -4,9 +4,9 @@ get:
   security: 
     - OAuth: 
       - payout:bank-details
-  summary: Get bank account fields
+  summary: Get bank account field formatting
   description: |
-    Returns the bank account fields required to create bank account instruments or perform payouts for the specified country and currency.
+    Returns the bank account field formatting required to create bank account instruments or perform payouts for the specified country and currency.
   parameters:
     - in: path
       name: country

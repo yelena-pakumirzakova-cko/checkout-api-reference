@@ -3,9 +3,9 @@ description: Information about the sender of the payment's funds
 discriminator:
   propertyName: type
   mapping:
-    individual: '#/components/schemas/01_IndividualSender'
-    corporate: '#/components/schemas/02_CorporateSender'
-    instrument: '#/components/schemas/03_InstrumentSender'
+    individual: '#/components/schemas/01_PaymentResponseIndividualSender'
+    corporate: '#/components/schemas/02_PaymentResponseCorporateSender'
+    instrument: '#/components/schemas/03_PaymentResponseInstrumentSender'
 required:
   - type
 properties:
@@ -16,13 +16,8 @@ properties:
       - corporate
       - instrument
     description: The type of sender
-
+    example: instrument
   reference:
     type: string
     description: The sender's reference for the payout
-  
-  # p2c
-  account_number:
-    type: string
-    description: The sender's account number (card payouts only)
-    example: "424242424242424242"
+    example: "8285282045818"
