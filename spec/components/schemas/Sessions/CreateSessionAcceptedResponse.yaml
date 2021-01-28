@@ -48,5 +48,7 @@ properties:
     $ref: '#/components/schemas/ProtocolVersion'
   reference:
     $ref: '#/components/schemas/Reference'
+  card:
+    $ref: '#/components/schemas/CardInfo'
   _links:
     $ref: '#/components/schemas/CreateSessionLinks'

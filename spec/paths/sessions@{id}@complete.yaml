@@ -1,5 +1,8 @@
 post:
   security:
+    - OAuth:
+        - sessions:app
+        - sessions:browser
     - SessionSecret: []
   summary: Complete a session
   description: |
