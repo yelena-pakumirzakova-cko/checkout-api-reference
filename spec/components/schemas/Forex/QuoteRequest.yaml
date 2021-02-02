@@ -9,7 +9,7 @@ properties:
     example: GBP
   source_amount:
     type: integer
-    description: | 
+    description: |
       The amount to be converted from the source currency in the minor currency unit.
 
       The amount must be provided in the <a href="https://docs.checkout.com/four/resources/calculating-the-amount" target="_blank">minor currency unit</a>.
@@ -20,10 +20,14 @@ properties:
     example: USD
   destination_amount:
     type: integer
-    description: | 
+    description: |
       The amount to be converted to the destination currency in the minor currency unit.
 
       The amount must be provided in the <a href="https://docs.checkout.com/four/resources/calculating-the-amount" target="_blank">minor currency unit</a>.
+  processing_channel_id:
+    type: string
+    description: The processing channel used for the payment
+    example: "mer_q4dbxom5jbgudnjzjpz7j2z6uq"
 example:
   source_currency: GBP
   source_amount: 30000
