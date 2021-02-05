@@ -1,0 +1,10 @@
+type: array
+description: Entities workflow object
+required:
+  - entities
+allOf:
+  - $ref: "#/components/schemas/workflow-condition"
+  - type: object
+    properties:
+      entities:
+        $ref: '#/components/schemas/source-entity-hashmap'

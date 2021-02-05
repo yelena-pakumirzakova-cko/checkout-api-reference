@@ -1,9 +1,10 @@
 type: object
-description: The workflow action
 discriminator:
   propertyName: type
   mapping:
     webhook: '#/components/schemas/webhook-action'
+    simulator: '#/components/schemas/simulator-action'
+    slack: '#/components/schemas/slack-action'
 required: 
   - type
 properties:
