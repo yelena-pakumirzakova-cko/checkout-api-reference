@@ -2,6 +2,7 @@ type: object
 required:
   - source_currency
   - destination_currency
+  - processing_channel_id
 properties:
   source_currency:
     type: string
@@ -27,7 +28,9 @@ properties:
   processing_channel_id:
     type: string
     description: The processing channel used for the payment
+    example: "pc_hpswyyx23geezflc2ocz3exn4y"
 example:
   source_currency: GBP
   source_amount: 30000
   destination_currency: USD
+  processing_channel_id: "pc_hpswyyx23geezflc2ocz3exn4y"
