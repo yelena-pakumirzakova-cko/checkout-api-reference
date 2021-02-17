@@ -2,52 +2,68 @@ type: object
 properties:
   name: 
     type: string
-    description: A name you can use to describe your workflow
+    description: A name to describe your workflow
     example: Webhooks workflow
   conditions:
     type: array
-    description: One or more workflow conditions
+    description: The workflow conditions. You must include an `event` condition. The `entity` condition is an optional filter, which only supports `gateway` and `dispute` webhooks.
     minItems: 1
-    items: 
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-            - event
-          example: event
-        events:
-          $ref: '#/components/schemas/source-events-hashmap'
+    items:
+      $ref: '#/components/schemas/workflow-condition'
   actions:
     type: array
-    description: One or more workflow actions
+    description: The workflow actions
     minItems: 1
     items:
       $ref: '#/components/schemas/workflow-action'
 example:
   {
-    "name": "Webhooks workflow",
+    "name": "My Webhook Workflow",
     "conditions": [
       {
         "type": "event",
         "events": {
           "gateway": [
             "payment_approved",
-            "payment_pending",
-            "payment_declined"
+            "payment_declined",
+            "card_verification_declined",
+            "card_verified",
+            "payment_authorization_incremented",
+            "payment_authorization_increment_declined",
+            "payment_capture_declined",
+            "payment_captured",
+            "payment_refund_declined",
+            "payment_refunded",
+            "payment_void_declined",
+            "payment_voided"
+          ],
+          "dispute": [
+            "dispute_canceled",
+            "dispute_evidence_required",
+            "dispute_expired",
+            "dispute_lost",
+            "dispute_resolved",
+            "dispute_won"
           ]
         }
+      },
+      {
+        "type": "entity",
+        "entities": [
+          "ent_xyfdshfudosfdshfdiosfds",
+          "ent_fidjosfjdisofdjsifdosfu"
+        ]
       }
     ],
     "actions": [
       {
         "type": "webhook",
-        "url": "https://example.com/webhooks",
-        "signature": {
-          "key": "8V8x0dLK%AyD*DNS8JJr"
-        },
+        "url": "https://example.com/webhook-receiver",
         "headers": {
-          "Authorization": "70ed20ff-ba31-4ea3-b3ef-772f2be1cbdf"
+          "Authorization": "secret-key"
+        },
+        "signature": {
+          "key": "signature-key"
         }
       }
     ]
