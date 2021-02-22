@@ -4,41 +4,41 @@ description: "Information about the individual represented by the sub-entity. In
 properties:
   first_name:
     type: string
-    description: "The individual's first name"
+    description: "The person's first name"
     minLength: 2
     maxLength: 50
     example: "John"
   middle_name:
     type: string
-    description: "The individual's middle name"
+    description: "The person's middle name"
     maxLength: 50
     example: "Paul"
   last_name:
     type: string
-    description: "The individual's last name"
+    description: "The person's last name"
     minLength: 2
     maxLength: 50
     example: "Doe"
   legal_name:
     type: string
-    description: "The legal name of the individual sub-entity"
+    description: "The legal name of the person."
     example: John Paul Doe
     readOnly: true
   trading_name:
     type: string
-    description: "If applicable, the individual's trading name"
+    description: "If applicable, the person's trading name."
     minLength: 2
     maxLength: 300
     example: Super Hero Masks
   national_tax_id:
     type: string
-    description: "The sub-entity's Tax Identification Code; for example, a Value Added Tax (VAT) Number in the UK"
+    description: "The sub-entity's Tax Identification Code. For example, a Value Added Tax (VAT) number in the UK."
     minLength: 2
     maxLength: 16
     example: "1234567"
   registered_address:
     title: Address
-    description: "The registered address of the individual"
+    description: "The registered address of the person."
     allOf:
       - $ref: "#/components/schemas/EntityAddress"
   date_of_birth:

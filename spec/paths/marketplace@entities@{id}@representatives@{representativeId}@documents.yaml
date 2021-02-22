@@ -1,7 +1,7 @@
 parameters:
   - in: path
     name: id
-    description: The id of the sub-entity
+    description: The id of the sub-entity.
     required: true
     allowEmptyValue: false
     example: ent_w4jelhppmfiufdnatam37wrfc4
@@ -19,10 +19,10 @@ parameters:
       type: string
 post:
   description: Upload an identification document for your entity. If a document already exists for the entity, it will be replaced by the new document provided in this request.
-  summary: Upload a document (Representatives)
+  summary: Upload a document (representatives)
   requestBody:
     required: true
-    description: A multipart request outlining the document to be created. The document must have a document type, and can have a front and a back.
+    description: A multi-part request outlining the document to be created. The document must have a document type, and can have a front and a back.
     content:
       multipart/form-data:
         schema:

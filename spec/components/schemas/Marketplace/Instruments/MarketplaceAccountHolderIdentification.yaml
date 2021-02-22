@@ -1,10 +1,10 @@
 type: object
 title: AccountHolderIdentification
-description: Bank account holder's proof of identification
+description: Bank account holder's proof of identification.
 properties:
   type:
     title: Type
-    description: The type of identification used to identify the account holder
+    description: The type of identification used to identify the account holder.
     type: string
     enum:
       - passport
@@ -14,12 +14,12 @@ properties:
       - tax_id
   number:
     title: Number
-    description: The identification number
+    description: The identification number.
     type: string
     example: "09876"
   issuing_country:
     title: IssuingCountry
-    description: The two-letter ISO country code of the country that issued the identification
+    description: The two-letter ISO country code of the country that issued the identification.
     type: string
     format: ISO 3166-1
     example: "GB"

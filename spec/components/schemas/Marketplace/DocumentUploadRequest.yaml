@@ -3,7 +3,7 @@ title: DocumentUploadRequest
 properties:
   type:
     type: string
-    description: The type of document
+    description: The type of document.
     enum:
       - passport
       - national_identity_card

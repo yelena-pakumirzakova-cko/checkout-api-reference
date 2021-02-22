@@ -3,7 +3,7 @@ title: Address
 properties:
   address_line1:
     type: string
-    description: "The first line of the address. Note that the length of line 1 and line 2 combined must be at least 5 characters long"
+    description: "The first line of the address. Note that the length of line 1 and line 2 combined must be at least 5 characters long."
     minLength: 1
     maxLength: 300
     example: "90 Tottenham Court Road"
@@ -21,19 +21,20 @@ properties:
     example: "London"
   state:
     type: string
-    description: "The address state (in the US, this is required and needs to be an ISO 3166-1 state code)"
+    description: "The address state. (In the US, this is required and needs to be an ISO 3166-1 state code.)"
     minLength: 0
     maxLength: 300
     example: null
   zip:
     type: string
-    description: "The address zip/postal code"
+    pattern: ^\d{5}(?:[-\s]\d{4})?$
+    description: "The address zip/postal code."
     minLength: 1
     maxLength: 16
     example: "W1T4TJ"
   country:
     type: string
-    description: The two-letter <a href="https://docs.checkout.com/docs/country-codes" target="blank">ISO country code</a> of the address
+    description: The two-letter <a href="https://docs.checkout.com/docs/country-codes" target="blank">ISO country code</a> of the address.
     minLength: 2
     maxLength: 2
     pattern: "[a-zA-Z]{2}"
