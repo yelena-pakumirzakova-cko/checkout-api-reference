@@ -9,13 +9,13 @@ properties:
     example: "90 Tottenham Court Road"
   address_line2:
     type: string
-    description: "The second line of the address"
+    description: "The second line of the address."
     minLength: 0
     maxLength: 300
     example: null
   city:
     type: string
-    description: "The address city"
+    description: "The address city."
     minLength: 2
     maxLength: 300
     example: "London"

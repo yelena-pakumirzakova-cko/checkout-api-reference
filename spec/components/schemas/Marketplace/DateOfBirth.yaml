@@ -1,5 +1,5 @@
 type: object
-title: DateOfBirth
+title: Date of birth
 description: The date of birth of the person according to the Gregorian calendar.
 properties:
   day:

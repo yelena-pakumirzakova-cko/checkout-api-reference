@@ -10,45 +10,45 @@ properties:
       - corporate
       - government
   first_name:
-    title: FirstName
+    title: First name
     description: "The account holder's first name. Required if `type` is `individual`."
     type: string
     example: Peter
   last_name:
-    title: LastName
+    title: Last name
     description: "The account holder's last name. Required if `type` is `individual`."
     type: string
     example: Parker
   company_name:
-    title: CompanyName
+    title: Company name
     description: "The legal name of a registered company that holds the account. Required if `type` is `corporate`."
     type: string
     example: Super Hero Masks Inc.
   tax_id:
-    title: TaxId
+    title: Tax ID
     description: The account holder's tax number/reference.
     type: string
     example: "123456"
   date_of_birth:
-    title: DateOfBirth
+    title: Date of birth
     description: The account holder's date of birth.
     allOf:
       - $ref: "#/components/schemas/DateOfBirth"
   country_of_birth:
-    title: CountryOfBirth
+    title: Country of birth
     description: The two-letter ISO country code of the account holder's country of birth.
     type: string
     format: ISO 3166-1
     example: "GB"
   residential_status:
-    title: ResidentalStatus
+    title: Residental status
     description: The two-letter ISO country code of the account holder's country of birth.
     type: string
     enum:
       - resident
       - non_resident
   billing_address:
-    title: BillingAddress
+    title: Billing address
     description: The billing address of the account holder.
     allOf:
       - $ref: "#/components/schemas/EntityAddress"
@@ -60,7 +60,7 @@ properties:
   identification:
     $ref: "#/components/schemas/MarketplaceAccountHolderIdentification"
   email:
-    title: email
+    title: Email
     description: The account holder's email address.
     type: string
     format: email

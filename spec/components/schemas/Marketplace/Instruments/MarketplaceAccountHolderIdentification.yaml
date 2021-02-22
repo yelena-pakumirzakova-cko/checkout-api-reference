@@ -1,5 +1,5 @@
 type: object
-title: AccountHolderIdentification
+title: Account holder identification
 description: Bank account holder's proof of identification.
 properties:
   type:

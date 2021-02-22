@@ -1,5 +1,5 @@
 type: object
-title: BasicResponse
+title: Basic response
 readOnly: true
 properties:
   id:

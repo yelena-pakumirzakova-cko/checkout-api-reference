@@ -1,5 +1,5 @@
 type: object
-title: DocumentUploadRequest
+title: Document upload request
 properties:
   type:
     type: string
