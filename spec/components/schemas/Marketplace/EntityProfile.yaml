@@ -4,7 +4,7 @@ description: "Information about the profile of the sub-entity, primarily regardi
 properties:
   urls:
     type: array
-    description: "A collection of website URLs the sub-entity accepts payments on. Separate different URLs with a space and make sure the entry is no longer than 4,000 characters (including the space).<br><br>For example, 'www.example1.com www.example2.com'."
+    description: "A collection of website URLs the sub-entity accepts payments on. The array of items, when joined together with a space, should be no longer than 4,000 characters."
     minItems: 1
     maxItems: 100
     items:
