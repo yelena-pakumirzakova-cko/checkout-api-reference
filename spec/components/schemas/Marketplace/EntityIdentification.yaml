@@ -25,7 +25,7 @@ properties:
         example: passport
       front:
         type: string
-        description: The id of the front side of the document as represented within Checkout.com systems.
+        description: The ID of the front side of the document as represented within Checkout.com systems.
         example: file_wxglze3wwywujg4nna5fb7ldli
       back:
         type: string
