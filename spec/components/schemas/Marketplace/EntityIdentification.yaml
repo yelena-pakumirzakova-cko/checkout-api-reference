@@ -1,6 +1,6 @@
 type: object
 title: Identification
-description: Identification details of an individual, which is used for verification.
+description: Identification details of an individual, used for verification.
 properties:
   national_id_number:
     type: string
