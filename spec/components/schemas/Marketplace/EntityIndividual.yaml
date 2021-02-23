@@ -15,7 +15,7 @@ properties:
     example: "Paul"
   last_name:
     type: string
-    description: "The person's last name"
+    description: "The person's last name."
     minLength: 2
     maxLength: 50
     example: "Doe"
