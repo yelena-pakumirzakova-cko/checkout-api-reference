@@ -10,7 +10,7 @@ properties:
     example: "John"
   middle_name:
     type: string
-    description: "The person's middle name"
+    description: "The person's middle name."
     maxLength: 50
     example: "Paul"
   last_name:
