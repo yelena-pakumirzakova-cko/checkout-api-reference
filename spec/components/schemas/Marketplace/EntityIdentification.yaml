@@ -29,7 +29,7 @@ properties:
         example: file_wxglze3wwywujg4nna5fb7ldli
       back:
         type: string
-        description: The id of the back side of the document as represented within Checkout.com systems. The back of the document is required for all document types apart from passports.
+        description: The ID of the back side of the document as represented within Checkout.com systems. The back of the document is required for all document types apart from passports.
         example: file_adglze3wwywujg4nna5fb7l1sg
     readOnly: true
     required:
