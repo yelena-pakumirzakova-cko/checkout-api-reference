@@ -4,7 +4,7 @@ description: "Information about the individual represented by the sub-entity. In
 properties:
   first_name:
     type: string
-    description: "The person's first name"
+    description: "The person's first name."
     minLength: 2
     maxLength: 50
     example: "John"
