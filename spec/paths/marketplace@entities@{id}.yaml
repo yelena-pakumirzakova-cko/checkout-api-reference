@@ -1,7 +1,8 @@
 parameters:
   - in: path
     name: id
-    description: The id of the sub-entity
+    description: The ID of the sub-entity.
+
     required: true
     allowEmptyValue: false
     example: ent_w4jelhppmfiufdnatam37wrfc4
@@ -9,6 +10,7 @@ parameters:
     schema:
       type: string
 get:
+  description: Use this endpoint to retrieve a sub-entity and its full details.
   summary: Get sub-entity details
   security:
     - OAuth:
@@ -150,12 +152,12 @@ get:
     - Marketplace
 put:
   description: |
-    You can update all fields under the ContactDetails, Profile, and Company objects. 
+    You can update all fields under the Contact details, Profile, and Company objects. 
     Please note that when you update a sub-entity we may conduct further due diligence checks when necessary. During these checks, your payment capabilities will remain the same.
   summary: Update sub-entity details
   requestBody:
     required: true
-    description: The sub-entity to be updated
+    description: The sub-entity to be updated.
     content:
       application/json:
         schema:

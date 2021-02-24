@@ -1,14 +1,14 @@
 type: object
-title: BasicResponse
+title: Basic response
 readOnly: true
 properties:
   id:
     type: string
-    description: The unique identifier of the sub-entity
+    description: The unique identifier of the sub-entity.
     example: ent_wxglze3wwywujg4nna5fb7ldli
   reference:
     type: string
-    description: A unique reference you can later use to identify this sub-entity
+    description: A unique reference you can later use to identify this sub-entity.
     minLength: 1
     maxLength: 15
     example: superhero1234

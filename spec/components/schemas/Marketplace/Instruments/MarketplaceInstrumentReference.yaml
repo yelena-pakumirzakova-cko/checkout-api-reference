@@ -3,11 +3,11 @@ title: InstrumentReference
 properties:
   id:
     title: Id
-    description: The unique identifier of this payment instrument
+    description: The unique identifier of this payment instrument.
     type: string
     example: src_hmnkhxlshf3uhljow7zt7sf2cq
   label:
     title: Label
-    description: The reference you can use to identify this payment instrument
+    description: The reference you can use to identify this payment instrument.
     type: string
     example: Peter's Personal Account
