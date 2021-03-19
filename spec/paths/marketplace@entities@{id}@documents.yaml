@@ -21,6 +21,7 @@ post:
   security:
     - OAuth:
       - marketplace
+      - files
   responses:
     '202':
       description: Document accepted
