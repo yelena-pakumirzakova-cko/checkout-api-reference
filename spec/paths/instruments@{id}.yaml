@@ -1,3 +1,38 @@
+get:
+  security: 
+    - OAuth: 
+      - vault
+      - vault:instruments
+  tags:
+    - Instruments
+  summary: Get instrument details
+  operationId: getInstrumentDetails
+  description: Returns details of an instrument
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        pattern: "^(src)_(\\w{26})$"
+      required: true
+      description: The instrument id
+  responses:
+    '200':
+      description: Instrument retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RetrieveInstrumentResponse'
+      headers:
+        Cko-Request-Id:
+          $ref: "#/components/headers/Cko-Request-Id"
+        Cko-Version:
+          $ref: "#/components/headers/Cko-Version"
+    '401':
+      description: Unauthorized
+    '404':
+      description: Instrument not found
+
 patch:
   tags:
     - Instruments
@@ -47,7 +82,6 @@ patch:
            $ref: '#/components/schemas/ValidationError'
     '500':
       description: Internal Error
-
 
 delete:
   tags:
