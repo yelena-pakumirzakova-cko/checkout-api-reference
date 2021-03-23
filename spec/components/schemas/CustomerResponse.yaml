@@ -1,7 +1,5 @@
 type: object
 description: Stored customer details
-required:
-  - id
 properties:
   id:
     type: string
