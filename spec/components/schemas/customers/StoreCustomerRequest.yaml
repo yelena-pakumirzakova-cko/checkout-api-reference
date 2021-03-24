@@ -1,0 +1,25 @@
+type: object
+description: Create a customer
+properties:
+  email:
+    type: string
+    format: email
+    description: The customer's email address
+    maxLength: 255
+    example: "jokershere@gmail.com"
+  name:
+    type: string
+    description: The customer's name
+    maxLength: 255
+    example: "Jack Napier"
+  phone:
+    description: The customer's phone number
+    allOf:
+      - $ref: "#/components/schemas/PhoneNumber"
+  metadata:
+    type: object
+    description: Allows you to store additional information about a customer. Max length of key(s) and value(s) is 100 each. A max. of 10 KVP are allowed.
+    example:
+      coupon_code: "NY2018"
+      partner_id: 123989
+
