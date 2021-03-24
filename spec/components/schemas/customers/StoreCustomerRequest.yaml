@@ -22,4 +22,13 @@ properties:
     example:
       coupon_code: "NY2018"
       partner_id: 123989
+  default:
+    type: string
+    description: The instrument ID to set as this customer’s default instrument
+    example: "src_wmlfc3zyhqzehihu7giusaaawu"
+  instruments:
+    type: array
+    description: Instrument IDs for instruments to link to this customer
+    example:
+      ["src_y3oqhf46pyzuxjbcn2giaqnb44", "src_wmlfc3zyhqzehihu7giusaaawu"]
 
