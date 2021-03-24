@@ -10,7 +10,7 @@ discriminator:
     card: '#/components/schemas/StoreTokenInstrumentResponse'
 properties:
   type:
-    description: The type of instrument
+    description: The underlying instrument type
     type: string
   id:
     description: The unique identifier of the payment source or destination that can be used later for payments

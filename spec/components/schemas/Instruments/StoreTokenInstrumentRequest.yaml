@@ -17,7 +17,7 @@ properties:
     example: tok_asoto22g2fsu7prwomy12sgfsa
     
   account_holder:
-    $ref: "#/components/schemas/TokenAccountHolder"
+    $ref: "#/components/schemas/StoreAccountHolderTokenRequest"
 
   customer:
     $ref: "#/components/schemas/CustomerRequest"
