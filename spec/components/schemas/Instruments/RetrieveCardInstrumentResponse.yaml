@@ -83,7 +83,7 @@ properties:
     description: The issuer/card scheme product type
     example: CLASSIC
   customer:
-    $ref: "#/components/schemas/CustomerResponse"
+    $ref: "#/components/schemas/RetrieveInstrumentCustomerResponse"
   account_holder:
     type: object
     description: The account holder details
@@ -96,3 +96,11 @@ properties:
         description: The last name of the account holder
         type: string
         example: "Smith"
+      billing_address:
+        description: The billing address of the account holder
+        allOf:
+          - $ref: "#/components/schemas/Address"
+      phone:
+        description: The phone number of the account holder
+        allOf:
+          - $ref: "#/components/schemas/PhoneNumber"
