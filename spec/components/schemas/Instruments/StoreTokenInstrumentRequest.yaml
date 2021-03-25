@@ -20,6 +20,6 @@ properties:
     $ref: "#/components/schemas/StoreAccountHolderTokenRequest"
 
   customer:
-    $ref: "#/components/schemas/CustomerRequest"
+    $ref: "#/components/schemas/StoreCustomerInstrumentRequest"
 
 

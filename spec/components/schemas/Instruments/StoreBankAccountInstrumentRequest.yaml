@@ -71,6 +71,6 @@ properties:
   #   description: Details of the intermediary bank
 
   customer:
-    $ref: "#/components/schemas/CustomerRequest"
+    $ref: "#/components/schemas/StoreCustomerInstrumentRequest"
 
 
