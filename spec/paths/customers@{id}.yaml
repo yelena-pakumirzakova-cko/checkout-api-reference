@@ -1,8 +1,8 @@
 get:
-  security: 
-    - OAuth: 
-      - vault
-      - vault:Customers
+  security:
+    - OAuth:
+        - vault
+        - vault:Customers
   tags:
     - Customers
   summary: Get customer details
@@ -22,18 +22,80 @@ get:
         maxLength: 255
       description: The customer's email address, Required if `id` is not provided
   responses:
-    '200':
+    "200":
       description: Customer retrieved successfully
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/RetrieveCustomerResponse'
+            $ref: "#/components/schemas/RetrieveCustomerResponse"
       headers:
         Cko-Request-Id:
           $ref: "#/components/headers/Cko-Request-Id"
         Cko-Version:
           $ref: "#/components/headers/Cko-Version"
-    '401':
+    "401":
       description: Unauthorized
-    '404':
+    "404":
+      description: Customer not found
+
+delete:
+  tags:
+    - Customers
+  security:
+    - OAuth:
+        - vault
+        - vault:customers
+  summary: Delete a customer
+  description: Delete a customer and all of their linked payment instruments
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+        pattern: "^(cus)_(\\w{26})$"
+      description: The customer id
+  responses:
+    "204":
+      description: Customer deleted successfully
+    "401":
+      description: Unauthorized
+    "404":
+      description: Customer not found or not associated with client
+
+patch:
+  tags:
+    - Customers
+  security:
+    - OAuth:
+        - vault
+        - vault:customers
+  summary: Update customer details
+  description: Update details of a customer and link payment instruments to them
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        pattern: "^(cus)_(\\w{26})$"
+      required: true
+      description: The customer id
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/UpdateCustomerDetailsRequest"
+  responses:
+    "204":
+      description: Customer updated successfully
+    "401":
+      description: Unauthorized
+    "422":
+      description: Invalid data was sent
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ValidationError"
+    "404":
       description: Customer not found
