@@ -14,7 +14,7 @@ properties:
     example: "jokershere@gmail.com"
   default:
     type: string
-    description: The instrument ID for this customer’s default instrument
+    description: The ID for this customer's default instrument
     example: "src_wmlfc3zyhqzehihu7giusaaawu"
   name:
     type: string
@@ -33,6 +33,6 @@ properties:
   instruments:
     type: array
     title: Instrument
-    description: The details of instruments linked to this customer
+    description: The details of the instruments linked to this customer
     items:
       $ref: "#/components/schemas/RetrieveCustomerInstrumentResponse"

@@ -10,7 +10,7 @@ required:
   - bin
 properties:
   type:
-    description: The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized)
+    description: The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized).
     type: string
     example: "card"
   id:

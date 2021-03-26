@@ -6,7 +6,7 @@ properties:
   id:
     type: string
     pattern: "^(cus)_(\\w{26})$"
-    description: The customer's unique identifier. This can be passed as a source when making a payment
+    description: The customer's unique identifier. This can be passed as a source when making a payment.
     example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
   email:
     type: string
@@ -17,6 +17,6 @@ properties:
     description: The customer's name
     example: "Jack Napier"
   default:
-    description: True, if this instrument is set as the default for the customer
+    description: This will be true if this instrument is set as the default for the customer
     type: boolean
     example: true
