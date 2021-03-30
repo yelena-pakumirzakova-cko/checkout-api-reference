@@ -1,5 +1,11 @@
 type: object
 description: Bank account details
+required:
+  - id
+  - type
+  - fingerprint
+  - currency
+  - country
 allOf:
   - $ref: "#/components/schemas/RetrieveCustomerInstrumentResponse"
 properties:

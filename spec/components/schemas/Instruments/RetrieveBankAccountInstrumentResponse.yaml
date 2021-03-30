@@ -1,5 +1,11 @@
 type: object
 description: Bank account details
+required:
+  - type
+  - id
+  - fingerprint
+  - country
+  - currency
 properties:
   type:
     description: The type of instrument
@@ -71,4 +77,4 @@ properties:
     $ref: "#/components/schemas/BankDetails"
 
   customer:
-    $ref: "#/components/schemas/CustomerRequest"
+    $ref: "#/components/schemas/RetrieveInstrumentCustomerResponse"

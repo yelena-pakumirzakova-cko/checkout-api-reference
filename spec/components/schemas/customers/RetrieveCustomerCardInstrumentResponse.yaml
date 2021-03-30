@@ -3,6 +3,7 @@ description: card instrument response
 allOf:
   - $ref: "#/components/schemas/RetrieveCustomerInstrumentResponse"
 required:
+  - id
   - fingerprint
   - expiry_month
   - expiry_year
