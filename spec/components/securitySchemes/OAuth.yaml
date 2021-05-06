@@ -1,7 +1,6 @@
 type: oauth2
 description: |
-  For server-to-server communication, we support the OAuth 2.0 client credentials flow.
-  We will provide you with a set of access key credentials – an access key ID and secret – which you can exchange for an access token by calling the 'request an access token' endpoint below. 
+  Your client credentials consist of an access key ID and an access key secret (corresponding to OAuth 2.0 client ID and client secret). You can exchange these for an access token by calling the [request an access token](#tag/Access/paths/~1connect~1token/post) endpoint. 
   You will need to authenticate using basic authentication, using your access key ID and access key secret as your username and password:
 
   ```
@@ -43,6 +42,7 @@ flows:
     scopes:
       vault: Access to all Vault resources
       "vault:instruments": Create instruments
+      "vault:tokenization": Tokenize payment instruments
       gateway: Access to all Gateway resources
       "gateway:payment": Request payments
       "gateway:payment-details": Get payment details
@@ -59,7 +59,15 @@ flows:
       "disputes:view": View disputes
       "disputes:provide-evidence": Provide dispute evidence
       "disputes:accept": Accept disputes
-      martketplace:  Manage sub-entities
+      marketplace:  Manage sub-entities
       flow: Access to all Flow resources
       "flow:workflows": Manage workflows
       "flow:events": Retrieve events
+      files: Access to all Files resources
+      "files:retrieve": Retrieve files
+      "files:upload": Upload files
+      "issuing:client": Access to all client-related resources
+      "issuing:partner": Access to all partner-related resources
+      risk: Access to all Risk resources
+      "risk:assessment": Manage risk assessment
+      "risk:settings": Manage risk settings
