@@ -54,7 +54,7 @@ patch:
         type: string
         pattern: "^(cus)_(\\w{26})$"
       required: true
-      description: The customer id
+      description: The customer ID
   requestBody:
     required: true
     content:
@@ -91,7 +91,7 @@ delete:
       schema:
         type: string
         pattern: "^(cus)_(\\w{26})$"
-      description: The customer id
+      description: The customer ID
   responses:
     "204":
       description: Customer deleted successfully

@@ -7,7 +7,7 @@ get:
     - Instruments
   summary: Get instrument details
   operationId: getInstrumentDetails
-  description: Returns details of an instrument
+  description: Retrieve the details of a payment instrument.
   parameters:
     - in: path
       name: id
@@ -15,7 +15,7 @@ get:
         type: string
         pattern: "^(src)_(\\w{26})$"
       required: true
-      description: The instrument id
+      description: The instrument ID
   responses:
     '200':
       description: Instrument retrieved successfully
@@ -43,7 +43,7 @@ patch:
     - ApiSecretKey: []
   summary: Update an instrument
   description: |
-    Update a bank account payment instrument that you can later use as the destination for one or more payouts.
+    Update the details of a payment instrument.
   parameters:
     - in: path
       name: id
@@ -52,7 +52,7 @@ patch:
         type: string
       example: src_ubfj2q76miwundwlk72vxt2i7q
       pattern: "^(src_)[[a-z0-9]]{{26}}$)"
-      description: The instrument identifier
+      description: The instrument ID
   requestBody:
     required: true
     content:
@@ -103,7 +103,7 @@ delete:
         type: string
       example: src_ubfj2q76miwundwlk72vxt2i7q
       pattern: "^(src_)[[a-z0-9]]{{26}}$)"
-      description: The payment instrument to be deleted
+      description: The ID of the payment instrument to be deleted
   responses:
     '204':
       description: Instrument deleted successfully
