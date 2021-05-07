@@ -74,6 +74,9 @@ tags:
   #     Upload files to be used as input to other APIs
 
 x-tagGroups:
+  - name: Set up
+    tags:
+      - Access
   - name: Handle payments and payouts
     tags:
       - Payments
