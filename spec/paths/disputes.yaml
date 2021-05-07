@@ -5,7 +5,7 @@ get:
     - OAuth: 
       - disputes
       - disputes:view
-    # - ApiKey: []
+    - ApiSecretKey: []
   summary: Get disputes
   description: >-
     Returns a list of all disputes against your business. The results will be
@@ -36,8 +36,7 @@ get:
         type: string
         format: ISO-8601
       required: false
-      description: >-
-        The date and time from which to filter disputes, based on the dispute's
+      description: The date and time from which to filter disputes, based on the dispute's
         `last_update` field
     - in: query
       name: to
@@ -45,8 +44,7 @@ get:
         type: string
         format: ISO-8601
       required: false
-      description: >-
-        The date and time until which to filter disputes, based on the dispute's
+      description: The date and time until which to filter disputes, based on the dispute's
         `last_update` field
     - in: query
       name: id
@@ -60,8 +58,7 @@ get:
         type: string
         example: 'ent_wxglze3wwywujg4nna5fb7ldli,ent_vkb5zcy64zoe3cwfmaqvqyqyku'
       required: false
-      description: >-
-        One or more comma-separated client entities. This works like a logical *OR*
+      description: One or more comma-separated client entities. This works like a logical *OR*
         operator
     - in: query
       name: sub_entity_ids
@@ -69,8 +66,7 @@ get:
         type: string
         example: 'ent_uzm3uxtssvmuxnyrfdffcyjxeu,ent_hy5wtzwzeuwefmsnjtdhw4scfi'
       required: false
-      description: >-
-        One or more comma-separated sub-entities. This works like a logical *OR*
+      description: One or more comma-separated sub-entities. This works like a logical *OR*
         operator
     - in: query
       name: statuses
@@ -78,8 +74,7 @@ get:
         type: string
         example: 'evidence_required,evidence_under_review'
       required: false
-      description: >-
-        One or more comma-separated statuses. This works like a logical *OR*
+      description: One or more comma-separated statuses. This works like a logical *OR*
         operator
     - in: query
       name: payment_id
@@ -92,16 +87,13 @@ get:
       schema:
         type: string
       required: false
-      description: >-
-        An optional reference (such as an order ID) that you can use later to
-        identify the payment. Previously known as `TrackId`
+      description: An optional reference (such as an order ID) that you can use later to identify the payment. Previously known as `TrackId`
     - in: query
       name: payment_arn
       schema:
         type: string
       required: false
-      description: >-
-        The acquirer reference number (ARN) that you can use to query the
+      description: The acquirer reference number (ARN) that you can use to query the
         issuing bank
     - in: query
       name: payment_mcc
@@ -114,9 +106,7 @@ get:
       schema:
         type: boolean
       required: false
-      description: >-
-        If `true`, only returns disputes of the specific channel that the secret
-        key is associated with. Otherwise, returns all disputes for that
+      description: If `true`, only returns disputes of the specific channel that the secret key is associated with. Otherwise, returns all disputes for that
         business
   responses:
     '200':
