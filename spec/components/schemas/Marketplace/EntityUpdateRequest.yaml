@@ -35,7 +35,7 @@ properties:
         type: string
         description: "The Business Registration Number of the sub-entity, such as Commercial Registration, Ministry of Commerce certificate number or equivalent registration number."
         minLength: 2
-        maxLength: 16
+        maxLength: 20
         example: "452349600005"
       legal_name:
         type: string
