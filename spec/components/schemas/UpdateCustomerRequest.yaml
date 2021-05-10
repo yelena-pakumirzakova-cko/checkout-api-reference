@@ -7,6 +7,6 @@ properties:
     description: The identifier of an existing customer
     example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
   default:
-    type: bool
+    type: boolean
     description: "If true, sets this instrument as the default for the customer"
     example: true
