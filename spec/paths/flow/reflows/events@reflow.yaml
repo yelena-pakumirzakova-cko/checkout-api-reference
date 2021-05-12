@@ -10,7 +10,7 @@ post:
     - Reflows
   summary: Reflow
   description: |
-    Reflows all the actions for event/subject and workflow ids
+     Reflow past events attached to multiple event ids and multiple workflow ids OR by multiple subject ids and multiple workflow ids. If no workflow ids are specified, all matching workflows will be triggered.
   requestBody:
     required: true
     content:

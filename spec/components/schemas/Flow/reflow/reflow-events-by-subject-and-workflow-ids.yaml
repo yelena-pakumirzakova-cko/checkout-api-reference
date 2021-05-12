@@ -5,13 +5,13 @@ properties:
     description: A list of string subject Ids
     items:
       type: string
-      description: The subject identifier
-      pattern: ^sbj_[a-z0-9]{26}$
-      example: sbj_hnmnr6hdbslqlc38jd8mn35bk9
-    example: [sbj_lzmo6p0i3612judj754w1ngtil,sbj_ol88zt9jviq4mkark1bo5b4i9sk]
+      description: The transaction subject identifier e.g. payment, dispute etc. The events associated with these subjects will be reflow-ed.
+      pattern: ^pay_[a-z0-9]{26}$
+      example: pay_hnmnr6hdbslqlc38jd8mn35bk9
+    example: [pay_lzmo6p0i3612judj754w1ngtil,pay_ol88zt9jviq4mkark1bo5b4i9sk]
   workflows: 
     type: array
-    description: A list of string worflow Ids
+    description: A list of string worflow Ids whose actions we want to trigger for the events.
     items:
       type: string
       description: The workflow identifier

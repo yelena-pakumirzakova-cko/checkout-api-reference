@@ -10,7 +10,7 @@ post:
     - Reflows
   summary: Reflow by subject
   description: |
-    Reflows all the actions of all events for a subject id
+    Reflows the events associated with the subject id and triggers the actions of any workflows with matching conditions.
   parameters:
     - in: path
       name: subjectId
@@ -18,7 +18,7 @@ post:
         type: string
         pattern: ^sbj_[a-z0-9]{26}$
       required: true
-      description: The subject identifier
+      description: The transaction subject identifier e.g. payment, dispute etc. The events associated with these subjects will be reflow-ed.
       example: sbj_x5zm2po6kimubhlfitgt2mfwgi
   responses:
     '202':

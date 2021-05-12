@@ -10,7 +10,7 @@ post:
     - Reflows
   summary: Reflow by event and workflow
   description: |
-    Reflows all the actions of an event id and workflow id
+    Triggers all the actions of a specific event and workflow combination if the event denoted by th event id matches the workflow conditions.
   parameters:
     - in: path
       name: eventId
@@ -18,7 +18,7 @@ post:
         type: string
         pattern: ^evt_[a-z0-9]{26}$
       required: true
-      description: The event identifier
+      description: The unique identifier for the event to be re-flowed
       example: evt_x5zm2po6kimubhlfitgt2mfwgi
     - in: path
       name: workflowId
@@ -26,7 +26,7 @@ post:
         type: string
         pattern: ^wf_[a-z0-9]{26}$
       required: true
-      description: The workflow identifier
+      description: The string worflow id whose actions we want to trigger for the events.
       example: wf_c8zm2po6kimubhlfitgt2mferf
   responses:
     '202':
