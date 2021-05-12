@@ -1,0 +1,20 @@
+type: object
+properties:
+  subjects: 
+    type: array
+    description: A list of string subject Ids
+    items:
+      type: string
+      description: The subject identifier
+      pattern: ^sbj_[a-z0-9]{26}$
+      example: sbj_hnmnr6hdbslqlc38jd8mn35bk9
+    example: [sbj_lzmo6p0i3612judj754w1ngtil,sbj_ol88zt9jviq4mkark1bo5b4i9sk]
+  workflows: 
+    type: array
+    description: A list of string worflow Ids
+    items:
+      type: string
+      description: The workflow identifier
+      pattern: ^wf_[a-z0-9]{26}$
+      example: wf_iiutwnpb1p8044f2aq2znez9c6
+    example: [wf_sq8jnqi9i749hhb470bu308uk2,wf_bz91q7i4ks4sr0kasmas2xhp56]
