@@ -8,7 +8,7 @@ properties:
     items:
       type: string
       description: The identifiers of the subjects (for example, payment IDs and dispute IDs) whose events you want reflowed.
-      pattern: ^pay_[a-z0-9]{26}$
+      pattern: ^[a-z]{3}_[a-z0-9]{26}$
       example: pay_hnmnr6hdbslqlc38jd8mn35bk9
     example: [pay_lzmo6p0i3612judj754w1ngtil,pay_ol88zt9jviq4mkark1bo5b4i9sk]
   workflows: 
