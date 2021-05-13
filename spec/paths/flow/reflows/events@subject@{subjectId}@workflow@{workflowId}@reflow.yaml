@@ -18,10 +18,10 @@ post:
       name: subjectId
       schema:
         type: string
-        pattern: ^sbj_[a-z0-9]{26}$
+        pattern: ^[a-z]{3}_[a-z0-9]{26}$
       required: true
       description: The subject identifier (for a payment or a dispute, for instance). The events associated with these subjects will be reflowed.
-      example: sbj_x5zm2po6kimubhlfitgt2mfwgi
+      example: pay_x5zm2po6kimubhlfitgt2mfwgi
     - in: path
       name: workflowId
       schema:
