@@ -1,7 +1,9 @@
 post:
   servers:
-    - url: https://flow.cko-qa.ckotech.co/workflows
-      description: QA
+    - url: https://api.checkout.com/workflows
+      description: Live API
+    - url: https://api.sandbox.checkout.com/workflows
+      description: Sandbox API
   security:
     - OAuth:
       - flow
@@ -10,7 +12,7 @@ post:
     - Reflows
   summary: Reflow by event
   description: |
-    Reflows an event denoted by the event id and triggers the actions of any workflows with matching conditions.
+    Reflows a past event denoted by the event ID and triggers the actions of any workflows with matching conditions.
   parameters:
     - in: path
       name: eventId
@@ -18,7 +20,7 @@ post:
         type: string
         pattern: ^evt_[a-z0-9]{26}$
       required: true
-      description: The unique identifier for the event to be re-flowed
+      description: The unique identifier for the event to be reflowed.
       example: evt_x5zm2po6kimubhlfitgt2mfwgi
   responses:
     '202':

@@ -1,7 +1,9 @@
 post:
   servers:
-    - url: https://flow.cko-qa.ckotech.co/workflows
-      description: QA
+    - url: https://api.checkout.com/workflows
+      description: Live API
+    - url: https://api.sandbox.checkout.com/workflows
+      description: Sandbox API
   security:
     - OAuth:
       - flow
@@ -10,7 +12,7 @@ post:
     - Reflows
   summary: Reflow
   description: |
-     Reflow past events attached to multiple event ids and multiple workflow ids OR by multiple subject ids and multiple workflow ids. If no workflow ids are specified, all matching workflows will be triggered.
+     Reflow past events attached to multiple event IDs and workflow IDs, or to multiple subject IDs and workflow IDs. If you don't specify any workflow IDs, all matching workflows will be retriggered.
   requestBody:
     required: true
     content:
