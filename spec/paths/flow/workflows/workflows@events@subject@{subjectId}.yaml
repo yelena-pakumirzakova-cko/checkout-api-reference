@@ -1,8 +1,8 @@
 get:
   servers:
-    - url: https://api.checkout.com/workflows
+    - url: https://api.checkout.com
       description: Live API
-    - url: https://api.sandbox.checkout.com/workflows
+    - url: https://api.sandbox.checkout.com
       description: Sandbox API
   security:
     - OAuth:
