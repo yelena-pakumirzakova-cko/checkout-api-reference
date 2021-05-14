@@ -1,27 +1,35 @@
 post:
   servers:
-    - url: https://api.checkout.com/workflows
+    - url: https://api.checkout.com
       description: Live API
-    - url: https://api.sandbox.checkout.com/workflows
+    - url: https://api.sandbox.checkout.com
       description: Sandbox API
   security:
     - OAuth:
       - flow
       - flow:reflow
   tags:
-    - Reflows
-  summary: Reflow by subject
+    - Workflows
+  summary: Reflow by event and workflow
   description: |
-    Reflows the events associated with a subject ID (for example, a payment ID or a dispute ID) and triggers the actions of any workflows with matching conditions.
+    Reflows a past event by event ID and workflow ID. Triggers all the actions of a specific event and workflow combination if the event denoted by the event ID matches the workflow conditions.
   parameters:
     - in: path
-      name: subjectId
+      name: eventId
       schema:
         type: string
-        pattern: ^[a-z]{3}_[a-z0-9]{26}$
+        pattern: ^evt_[a-z0-9]{26}$
       required: true
-      description: The subject identifier (for example, a payment ID or a dispute ID). The events associated with these subjects will be reflowed.
-      example: pay_x5zm2po6kimubhlfitgt2mfwgi
+      description: The unique identifier for the event to be reflowed.
+      example: evt_x5zm2po6kimubhlfitgt2mfwgi
+    - in: path
+      name: workflowId
+      schema:
+        type: string
+        pattern: ^wf_[a-z0-9]{26}$
+      required: true
+      description: The identifier of the workflow whose actions you want to trigger.
+      example: wf_c8zm2po6kimubhlfitgt2mferf
   responses:
     '202':
       description: Event reflow initiated successfully        
