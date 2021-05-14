@@ -60,7 +60,7 @@ post:
             $ref: "#/components/headers/Cko-Version"
     '401':
       description: Unauthorized
-    '404':
+    '422':
       description: Invalid data was sent
       content:
         application/json:
