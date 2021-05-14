@@ -39,7 +39,7 @@ example:
         },
         "_links": {
           "self": {
-            "href": "http://flow.cko.lon/client/workflows/wf_34pacj7ae6wexju4avpecxvp6e/conditions/wfc_tisekcawefze3l27uaai6hz74e"
+            "href": "https://api.checkout.com/workflows/wf_34pacj7ae6wexju4avpecxvp6e/conditions/wfc_tisekcawefze3l27uaai6hz74e"
           }
         }
       },
@@ -52,7 +52,7 @@ example:
         ],
         "_links": {
           "self": {
-            "href": "http://flow.cko.lon/client/workflows/wf_34pacj7ae6wexju4avpecxvp6e/conditions/wfc_tisekcawefze3l27uaai6hz74y"
+            "href": "https://api.checkout.com/workflows/wf_34pacj7ae6wexju4avpecxvp6e/conditions/wfc_tisekcawefze3l27uaai6hz74y"
           }
         }
       }
@@ -71,14 +71,14 @@ example:
         },
         "_links": {
           "self": {
-            "href": "http://flow.cko.lon/client/workflows/wf_34pacj7ae6wexju4avpecxvp6e/actions/wfa_itja4x7zgzye3andzqq62u4hvq"
+            "href": "https://api.checkout.com/workflows/wf_34pacj7ae6wexju4avpecxvp6e/actions/wfa_itja4x7zgzye3andzqq62u4hvq"
           }
         }
       }
     ],
     "_links": {
       "self": {
-        "href": "http://flow.cko.lon/client/workflows/wf_wlu3wxc26jounofs5iez75qaqa"
+        "href": "https://api.checkout.com/workflows/wf_wlu3wxc26jounofs5iez75qaqa"
       }
     }
   }
