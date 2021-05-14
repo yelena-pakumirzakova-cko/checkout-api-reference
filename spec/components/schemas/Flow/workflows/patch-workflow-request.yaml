@@ -1,0 +1,12 @@
+type: object
+required:
+  - name
+properties:
+  name: 
+    type: string
+    description: A name you can use to describe your workflow
+    example: Webhooks workflow
+example:
+  {
+    "name": "Webhooks workflow",
+  }
