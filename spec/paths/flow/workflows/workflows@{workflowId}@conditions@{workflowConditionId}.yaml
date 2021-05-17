@@ -12,7 +12,7 @@
     - Workflows
   summary: Update a workflow condition
   description: |
-    Update a workflow condition
+    Update a workflow condition.
   parameters:
     - in: path
       name: workflowId

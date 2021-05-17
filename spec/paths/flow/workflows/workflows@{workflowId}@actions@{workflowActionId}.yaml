@@ -12,7 +12,7 @@
     - Workflows
   summary: Update a workflow action
   description: |
-    Update a workflow action
+    Update a workflow action.
   parameters:
     - in: path
       name: workflowId

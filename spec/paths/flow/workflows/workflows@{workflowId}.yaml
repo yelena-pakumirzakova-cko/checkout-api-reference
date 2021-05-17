@@ -95,7 +95,7 @@ patch:
     - Workflows
   summary: Patch a workflow
   description: |
-    Patch a workflow. You can update the workflow name.
+    Update the name of a workflow.
   parameters:
     - in: path
       name: workflowId

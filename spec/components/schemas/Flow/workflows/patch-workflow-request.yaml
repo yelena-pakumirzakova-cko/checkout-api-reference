@@ -4,7 +4,7 @@ required:
 properties:
   name: 
     type: string
-    description: A name you can use to describe your workflow
+    description: A name to describe the workflow
     example: Webhooks workflow
 example:
   {
