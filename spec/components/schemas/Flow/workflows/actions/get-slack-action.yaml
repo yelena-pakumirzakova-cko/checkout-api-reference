@@ -3,7 +3,7 @@ description: Action that sends a message to Slack
 required:
   - url
 allOf:
-  - $ref: '#/components/schemas/get-workflow-action'
+  #- $ref: '#/components/schemas/get-workflow-action'
   - type: object
     required:
       - url
