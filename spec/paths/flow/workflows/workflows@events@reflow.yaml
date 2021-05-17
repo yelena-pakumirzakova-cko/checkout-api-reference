@@ -40,6 +40,6 @@ post:
       content:
         application/json:
          schema:
-           $ref: '#/components/schemas/ValidationError'
+           $ref: '#/components/schemas/ids-validation-error'
     '500':
       description: Internal Error
