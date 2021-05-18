@@ -3,7 +3,7 @@ description: Action that sends a message to Slack
 required:
   - url
 allOf:
-  #- $ref: '#/components/schemas/workflow-action'
+  #- $ref: '#/components/schemas/get-workflow-action'
   - type: object
     required:
       - url
@@ -22,3 +22,5 @@ allOf:
         type: string
         description: The message template in liquid format you wish to use for slack messages. If no template is provided, the full event data will be provided.
         example: 'A payment for {event.amount} {event.currency} was declined'
+      _links:
+        $ref: '#/components/schemas/workflow-action-links'

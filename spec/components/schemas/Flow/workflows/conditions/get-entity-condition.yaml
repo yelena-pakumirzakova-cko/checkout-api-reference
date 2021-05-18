@@ -3,10 +3,12 @@ description: Condition that filters based on the entity
 required:
   - entities
 allOf:
-  - $ref: '#/components/schemas/workflow-condition'
+  - $ref: '#/components/schemas/get-workflow-condition'
   - type: object
     required:
       - entities
     properties:
       entities:
         $ref: '#/components/schemas/source-entity-hashmap'
+      _links:
+        $ref: '#/components/schemas/workflow-condition-links'
