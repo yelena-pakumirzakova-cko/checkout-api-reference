@@ -612,6 +612,10 @@ label.active, span.sc-gwVKww.SmuWE.active {
   color: var(--secondary-text) !important;
 }
 
+.gkLUAa {
+  color: inherit!important;
+}
+
 /* RIGHT MENU */
 
 /* White background */
@@ -642,10 +646,6 @@ span.sc-fzoVTD.heGpRL, .sc-fzoJus.hHgrjJ {
   font-weight: bold;
 }
 
-span.sc-fzpmMD.gBfPiy.dropdown-selector-value, span.sc-fzpmMD.kgBWAC.dropdown-selector-value {
-  color: var(--source-selector-text) !important; 
-}
-
 .iFDKZT.iFDKZT .dropdown-arrow {
   border-top-color: var(--sample-selector-text)!important;
 }
@@ -655,6 +655,10 @@ span.sc-fznWOq.mcMLk.dropdown-selector-content {
   border-radius: 0;
   left: 0;
   box-shadow: none;
+}
+
+.fWNSoF * {
+  color: white;
 }
 
 .iFDKZT.iFDKZT .dropdown-selector-content {
