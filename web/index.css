@@ -658,7 +658,7 @@ span.sc-fznWOq.mcMLk.dropdown-selector-content {
 }
 
 .fWNSoF * {
-  color: white;
+  color: var(--primary-text);
 }
 
 .iFDKZT.iFDKZT .dropdown-selector-content {
