@@ -38,8 +38,8 @@
   --B500: #0082D9;
   --P600: #6964B3;
   --secondary-dark-blue: #0C1142;
-  --cko-dark-blue: #202124;
-  --cko-dark-contrast-blue: #2c3034;
+  --cko-dark-blue: #090C30;
+  --cko-dark-contrast-blue: #242955;
   --cko-green: #02b48f;
   --cko-light-green: rgb(45, 179, 136, 0.5);
   --cko-grey-tint-blue: #E6E7ED;
@@ -63,6 +63,7 @@
 .dark {
   --background: var(--cko-dark-blue);
   --sidebar-background: var(--cko-dark-blue);
+  --toggle-bg: #55587B;
   --primary-text: var(--S00);
   --secondary-text: var(--cko-light-grey);
   --logo: url("./favicons/white-logo.svg");
@@ -80,11 +81,11 @@
   --secondary-button: var(--Y80);
   --code-background: var(--cko-dark-contrast-blue);
   --code-bracket: var(--cko-code-yellow);
-  --code-param: var(--cko-code-blue);
-  --code-string: var(--cko-code-green);
+  --code-param: white;
+  --code-string: #EE6D5F;
   --code-value-link: var(--cko-green);
   --code-value-bool: var(--cko-green);
-  --code-value-number: var(--T300);
+  --code-value-number: var(--T500);
   --primary-button-color: var(--cko-dark-blue);
   --example-area-background: var(--cko-dark-blue);
   --request-body-content-background: var(--cko-dark-blue);
@@ -93,7 +94,7 @@
   --sidebar-option: var(--cko-light-grey);
   --sidebar-option-hover: var(--cko-dark-contrast-blue);
   --url-area: var(--cko-dark-contrast-blue);
-  --sample-selector-background: var(--Y80);
+  --sample-selector-background: var(--S1000);
   --sample-selector-text: var(--S1000);
   --code-text-color: var(--S300);
   --source-selector-text: var(--S1000);
@@ -102,6 +103,7 @@
 .light {
   --background: var(--S00);
   --sidebar-background: var(--cko-grey-tint-blue);
+  --toggle-bg: var(--S1000);
   --primary-text: var(--S1000);
   --secondary-text: var(--secondary-dark-blue);
   --logo: url("./favicons/dark-logo.svg");
@@ -120,10 +122,10 @@
   --code-background: var(--sidebar-background);
   --code-bracket: var(--cko-code-gray);
   --code-param: var(--cko-code-light-blue);
-  --code-string: var(--cko-code-orange);
+  --code-string: #6964B3;
   --code-value-link: var(--cko-green);
   --code-value-bool: var(--cko-green);
-  --code-value-number: var(--T300);
+  --code-value-number: var(--R500);
   --primary-button-color: var(--cko-dark-blue);
   --example-area-background: var(--S00);
   --request-body-content-background: var(--S00);
@@ -265,8 +267,16 @@ body {
 /* Hyperlinks color */
 
 a {
-  color: var(--link-color) !important;
-  font-weight: bold;
+  color: var(--primary-text)!important;
+  font-weight: 600;
+}
+
+.ldExJi, .iwWBsD, .hKsEtX {
+  color: var(--primary-text)!important;
+}
+
+.jHQZJv {
+  background-color: var(--cko-dark-contrast-blue);
 }
 
 b, strong {
@@ -314,6 +324,7 @@ h1 {
   font-size: 40px !important;
   line-height: 44px !important;
   font-weight: 600 !important;
+  color: var(--primary-text)!important;
 }
 
 h2 {
@@ -321,12 +332,14 @@ h2 {
   line-height: 32px !important;
   color: var(--subtitle) !important;
   font-weight: 600 !important;
+  color: var(--primary-text)!important;
 }
 
 h3 {
   font-size: 18px !important;
   line-height: 24px !important;
   font-weight: 400 !important;
+  color: var(--primary-text)!important;
 }
 
 h4 {
@@ -340,6 +353,14 @@ h5.shv3r-4.gLzrjW {
 
 label.active {
   font-weight: 500 !important;
+}
+
+.dcDVxm {
+  background-color: var(--cko-dark-contrast-blue)!important;
+}
+
+.hHgrjJ {
+  background-color: var(--cko-dark-blue)!important;
 }
 
 /* Page title */
@@ -389,6 +410,7 @@ td.sc-kgoBCf.kGwPhO {
 .bmoWQk pre {
   background-color: var(--code-background) !important;
   border: 0 !important;
+  border-radius: 8px;
 }
 
 /* Request body schema titles */
@@ -472,8 +494,7 @@ code, .evgDyP, .sc-cHGsZl.sc-jbKcbu.bMfIUD, .sc-fzqzlV.sc-fzonjX.iwWBsD {
   font-family: Courier, monospace !important;
   font-style: italic !important;
   padding: 2px !important;
-  border-radius: 3px !important;
-  color: var(--code-text-color) !important;
+  border-radius: 8px !important;
   font-size: 15px !important;
   font-weight: 500 !important;
 }
@@ -954,7 +975,7 @@ caption {
   z-index: 100;
   top: 20px;
   right: 20px;
-  background-color: #1a1a1a;
+  background-color: var(--toggle-bg);
   border-radius: 30px;
   cursor: pointer;
   display: flex;
