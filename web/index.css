@@ -413,6 +413,10 @@ td.sc-kgoBCf.kGwPhO {
   border-radius: 8px;
 }
 
+.bmoWQk code {
+  border: 0!important;
+}
+
 .bmoWQk pre code, .bmoWQk .token.operator, .bmoWQk .token.entity, .bmoWQk .token.url, .bmoWQk .token.variable {
   color: var(--primary-text)!important;
 }
