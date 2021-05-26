@@ -74,7 +74,7 @@
   --background-contrast: var(--cko-dark-contrast-blue);
   --subtitle: var(--Y80);
   --required: var(--R500);
-  --border: var(--cko-dark-contrast-blue);
+  --border: var(--S700);
   --field-params: var(--Y80);
   --param-rule: var(--T300);
   --primary-button: var(--T300);
@@ -114,7 +114,7 @@
   --background-contrast: var(--S00);
   --subtitle: var(--cko-dark-blue);
   --required: var(--R500);
-  --border: var(--cko-contrast-gray);
+  --border: var(--S05);
   --field-params: var(--cko-code-blue);
   --param-rule: var(--P600);
   --primary-button: var(--T300);
@@ -397,12 +397,12 @@ td.sc-kgoBCf.kGwPhO {
 }
 
 .security-details th, .bmoWQk th {
-  border: 1px solid var(--secondary-text) !important;
+  border: 1px solid var(--border)!important;
   font-weight: 600!important;
 }
 
 .security-details td, .bmoWQk td {
-  border: 1px solid var(--secondary-text) !important;
+  border: 1px solid var(--border)!important;
 }
 
 /* Code sample in main section */
@@ -411,6 +411,10 @@ td.sc-kgoBCf.kGwPhO {
   background-color: var(--code-background) !important;
   border: 0 !important;
   border-radius: 8px;
+}
+
+.bmoWQk pre code, .bmoWQk .token.operator, .bmoWQk .token.entity, .bmoWQk .token.url, .bmoWQk .token.variable {
+  color: var(--primary-text)!important;
 }
 
 /* Request body schema titles */
