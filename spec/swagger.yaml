@@ -23,7 +23,7 @@ info:
 
     We have a testing environment called sandbox, which you can <a href="https://www.checkout.com/get-test-account">sign up for</a> to test API calls without affecting live data.
 
-    ##€ Looking for more guidance?
+    ### Looking for more guidance?
 
     Depending on what integration you need, we've provided <a href="https://docs.checkout.com/integrate/">guides to get you set up</a>.
 
