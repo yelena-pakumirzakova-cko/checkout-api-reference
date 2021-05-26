@@ -10,7 +10,7 @@ mkdir('-p', 'web_deploy')
 cp('-R', 'web/*', 'web_deploy/');
 
 exec('dotnet build src/OpenApiGenerator/OpenApiGenerator.csproj');
-exec('dotnet run -p src/OpenApiGenerator/OpenApiGenerator.csproj');
+exec(`ASPNETCORE_ENVIRONMENT=${process.env.ACCOUNT} dotnet run -p src/OpenApiGenerator/OpenApiGenerator.csproj`);
 
 cp('-R', 'output/*', 'web_deploy/');
 rm('-rf', 'output')

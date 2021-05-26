@@ -1,0 +1,42 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ development ]
+
+jobs:
+  build-abc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Checkout Api Reference repository
+        uses: actions/checkout@v2
+        with:
+          repository: checkout/checkout-api-reference
+          ref: development
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Build API Spec
+        run: |
+          npm i
+          npm run build:abc
+      
+      - name: Test API schema
+        run: npm run test
+  
+  build-nas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Checkout Api Reference repository
+        uses: actions/checkout@v2
+        with:
+          repository: checkout/checkout-api-reference
+          ref: development
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Build API Spec
+        run: |
+          npm i
+          npm run build:nas
+      
+      - name: Test API schema
+        run: npm run test
