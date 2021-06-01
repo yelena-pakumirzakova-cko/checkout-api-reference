@@ -146,7 +146,7 @@ namespace OpenApiGenerator
                 using (StreamReader sr = new StreamReader(file))
                 {
                     string contents = sr.ReadToEnd();
-                    if (contents.Contains($"x-{filterOutAccount}-only"))
+                    if (contents.Contains($"x-{filterOutAccount}"))
                         continue;
                 }
 
