@@ -1,0 +1,12 @@
+type: object
+title: Requirement
+readOnly: true
+properties:
+  field:
+    type: string
+    description: The name of the field required.
+    example: individual.identification.document
+  reason:
+    type: string
+    description: The reason the field is required.
+    example: Not provided
