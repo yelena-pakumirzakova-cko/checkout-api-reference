@@ -32,6 +32,7 @@ get:
                     enabled: false
                   payouts:
                     enabled: false
+                status: pending
                 contact_details:
                   phone:
                     number: "2345678910"

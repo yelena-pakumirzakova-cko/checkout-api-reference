@@ -13,11 +13,12 @@ properties:
     maxLength: 15
     example: superhero1234
   capabilities:
-    $ref: "../schemas.yaml#/EntityCapabilities"
+    $ref: "#/components/schemas/EntityCapabilities"
   status:
     type: string
     title: Status
-    description: The state of your sub-entity, which indicates whether it is able to process funds
+    description: The state of your sub-entity, which indicates what stage of onboarding its at and whether it's able to use its available capabilities
+    example: requirements_due
     enum:
       - active
       - pending
@@ -28,6 +29,6 @@ properties:
   requirements_due:
     type: array
     title: Requirements Due
-    description: "The requirements still due for this entity to unlock capabilitites."
+    description: The requirements due for this sub-entity before we will perform due diligence checks
     items:
-      $ref: "../schemas.yaml#/EntityRequirement"
+      $ref: "#/components/schemas/EntityRequirement"
