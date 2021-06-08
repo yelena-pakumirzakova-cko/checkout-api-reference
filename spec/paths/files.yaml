@@ -6,6 +6,11 @@ post:
       - disputes
       - disputes:provide-evidence
     - ApiSecretKey: []
+  servers:
+     - url: https://files.checkout.com/
+       description: Production server
+     - url: https://files.sandbox.checkout.com/
+       description: Sandbox server
   summary: Upload file
   description: >-
     Upload a file to use as evidence in a dispute. Your file must be in either
