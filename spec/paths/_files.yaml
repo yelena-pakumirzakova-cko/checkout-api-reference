@@ -9,7 +9,7 @@ post:
   servers:
      - url: https://files.checkout.com/
        description: Production server
-     - url: https://files.sandbox.checkout.com/
+     - url: https://files.sandbox.checkout.com
        description: Sandbox server
   summary: Upload file
   description: >-
