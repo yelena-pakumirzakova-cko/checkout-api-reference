@@ -1,14 +1,20 @@
 type: object
-title: UpdateRequest
+title: CreateRequest
 properties:
+  reference:
+    type: string
+    description: A unique reference you can later use to identify this sub-entity.
+    minLength: 1
+    maxLength: 15
+    example: superhero1234
   contact_details:
-    title: ContactDetails
+    title: Contact details
     allOf:
       - $ref: "#/components/schemas/EntityContactDetails"
       - type: object
         properties:
           phone:
-            description: "The phone number of the sub-entity"
+            description: "The phone number of the sub-entity."
             allOf:
               - $ref: "#/components/schemas/EntityPhone"
             required:
@@ -30,30 +36,28 @@ properties:
       - legal_name
       - trading_name
       - principal_address
-      - registered_address
-      - representatives
     properties:
       business_registration_number:
         type: string
-        description: "The Business Registration Number of the sub-entity, such as Commercial Registration, Ministry of Commerce certificate number or equivalent registration number"
+        description: "The Business Registration Number of the sub-entity, such as Commercial Registration, Ministry of Commerce certificate number or equivalent registration number."
         minLength: 2
         maxLength: 20
         example: "452349600005"
       legal_name:
         type: string
-        description: "The legal name of the sub-entity"
+        description: "The legal name of the sub-entity."
         minLength: 2
         maxLength: 300
         example: Super Hero Masks Inc.
       trading_name:
         type: string
-        description: "The trading name of the sub-entity, also referred to as 'doing business as'"
+        description: "The trading name of the sub-entity, also referred to as 'doing business as'."
         minLength: 2
         maxLength: 300
         example: Super Hero Masks
       principal_address:
         title: Address
-        description: "The primary location of the company where business is performed"
+        description: "The primary location of the company where business is performed."
         allOf:
           - $ref: "#/components/schemas/EntityAddress"
         required:
@@ -63,7 +67,7 @@ properties:
           - country
       registered_address:
         title: Address
-        description: "The registered address of the company"
+        description: "The registered address of the company."
         allOf:
           - $ref: "#/components/schemas/EntityAddress"
         required:
@@ -74,7 +78,7 @@ properties:
       representatives:
         type: array
         title: Representatives
-        description: "Information about representatives of this company"
+        description: "Information about representatives of this company."
         minItems: 1
         maxItems: 5
         items:
@@ -84,7 +88,6 @@ properties:
               required:
                 - first_name
                 - last_name
-                - address
               properties:
                 address:
                   required:
@@ -101,36 +104,36 @@ properties:
     properties:
       first_name:
         type: string
-        description: "The individual's first name"
+        description: "The person's first name."
         minLength: 2
         maxLength: 50
         example: "John"
       middle_name:
         type: string
-        description: "The individual's middle name"
+        description: "The person's middle name."
         maxLength: 50
         example: "Paul"
       last_name:
         type: string
-        description: "The individual's last name"
+        description: "The person's last name."
         minLength: 2
         maxLength: 50
         example: "Doe"
       trading_name:
         type: string
-        description: "If applicable, the individual's trading name"
+        description: "If applicable, the person's trading name."
         minLength: 2
         maxLength: 300
         example: Super Hero Masks
       national_tax_id:
         type: string
-        description: "The sub-entity's Tax Identification Code; for example, a Value Added Tax (VAT) Number in the UK"
+        description: "The sub-entity's tax identification code. For example, a value added tax (VAT) number in the UK."
         minLength: 2
         maxLength: 16
         example: "1234567"
       registered_address:
         title: Address
-        description: "The registered address of the individual"
+        description: "The registered address of the person."
         allOf:
           - $ref: "#/components/schemas/EntityAddress"
         required:
@@ -138,48 +141,11 @@ properties:
           - city
           - zip
           - country
+      date_of_birth:
+        $ref: "#/components/schemas/DateOfBirth"
+      identification:
+        $ref: "#/components/schemas/EntityIdentification"
 required:
+  - reference
   - contact_details
   - profile
-example:
-  contact_details:
-    phone:
-      number: 2345678910
-  profile:
-    urls:
-      - https://www.superheroexample.com
-    mccs:
-      - 5669
-  company:
-    business_registration_number: "452349600005"
-    legal_name: "Super Hero Masks Inc."
-    trading_name: "Super Hero Masks"
-    principal_address:
-      address_line1: "90 Tottenham Court Road"
-      address_line2: null
-      city: "London"
-      state: null
-      zip: "W1T4TJ"
-      country: "GB"
-    registered_address:
-      address_line1: "90 Tottenham Court Road"
-      address_line2: null
-      city: "London"
-      state: null
-      zip: "W1T4TJ"
-      country: "GB"
-    representatives:
-      - first_name: "John"
-        middle_name: null
-        last_name: "Doe"
-        address:
-          address_line1: "90 Tottenham Court Road"
-          address_line2: null
-          city: "London"
-          state: null
-          zip: "W1T4TJ"
-          country: "GB"
-        identification:
-          national_id_number: "AB123456C"
-        phone:
-          number: 2345678910
