@@ -6,6 +6,7 @@ using Microsoft.OpenApi.Readers;
 using Microsoft.OpenApi.Writers;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace OpenApiGenerator
 {
@@ -143,6 +144,7 @@ namespace OpenApiGenerator
                 using (StreamReader sr = new StreamReader(file))
                 {
                     path = fileInfo.Name.Substring(0, fileInfo.Name.IndexOf(".")).Replace("@", "/");
+                    path = new Regex(@"^_.+").Replace(path, "");
                     text += ($"  /{path}:\n");
 
                     var s = "";
