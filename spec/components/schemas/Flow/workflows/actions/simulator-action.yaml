@@ -1,9 +1,9 @@
 type: object
-description: Simulator action
+description: Action that invokes the Flow simulator
 required:
-  - url
+  - api_key
 allOf:
-  - $ref: '#/components/schemas/workflow-action'
+  #- $ref: '#/components/schemas/workflow-action'
   - type: object
     required:
       - api_key
@@ -11,3 +11,4 @@ allOf:
       api_key:
         type: string
         description: The simulator API key (any value supported)
+        example: 'secret123'

@@ -1,69 +1,70 @@
 type: object
 properties:
-  name: 
+  name:
     type: string
-    description: A name to describe your workflow
+    description: A name you can use to describe your workflow
     example: Webhooks workflow
   conditions:
     type: array
-    description: The workflow conditions. You must include an `event` condition. The `entity` condition is an optional filter, which only supports `gateway` and `dispute` webhooks.
+    description: Only one condition of the same type is permitted
     minItems: 1
     items:
       $ref: '#/components/schemas/workflow-condition'
   actions:
     type: array
-    description: The workflow actions
+    description: One or more workflow actions
     minItems: 1
     items:
       $ref: '#/components/schemas/workflow-action'
 example:
   {
-    "name": "My Webhook Workflow",
+    "name": "Webhooks workflow",
     "conditions": [
       {
         "type": "event",
         "events": {
           "gateway": [
-            "payment_approved",
-            "payment_declined",
-            "card_verification_declined",
-            "card_verified",
-            "payment_authorization_incremented",
-            "payment_authorization_increment_declined",
-            "payment_capture_declined",
-            "payment_captured",
-            "payment_refund_declined",
-            "payment_refunded",
-            "payment_void_declined",
-            "payment_voided"
+              "payment_approved",
+              "payment_declined",
+              "card_verification_declined",
+              "card_verified",
+              "payment_authorization_incremented",
+              "payment_authorization_increment_declined",
+              "payment_capture_declined",
+              "payment_captured",
+              "payment_refund_declined",
+              "payment_refunded",
+              "payment_void_declined",
+              "payment_voided"
           ],
           "dispute": [
-            "dispute_canceled",
-            "dispute_evidence_required",
-            "dispute_expired",
-            "dispute_lost",
-            "dispute_resolved",
-            "dispute_won"
+              "dispute_canceled",
+              "dispute_evidence_required",
+              "dispute_expired",
+              "dispute_lost",
+              "dispute_resolved",
+              "dispute_won"
           ]
         }
       },
       {
         "type": "entity",
         "entities": [
-          "ent_xyfdshfudosfdshfdiosfds",
-          "ent_fidjosfjdisofdjsifdosfu"
+            "ent_xyfdshfudosfdshfdiosfds",
+            "ent_fidjosfjdisofdjsifdosfu"
         ]
       }
     ],
     "actions": [
       {
         "type": "webhook",
-        "url": "https://example.com/webhook-receiver",
+        "url": "https://example.com/webhooks",
         "headers": {
-          "Authorization": "secret-key"
+          "Authorization": "70ed20ff-ba31-4ea3-b3ef-772f2be1cbdf"
         },
         "signature": {
-          "key": "signature-key"
+          "method": "HMACSHA256",
+          "key": "8V8x0dLK%AyD*DNS8JJr"
         }
       }
     ]
