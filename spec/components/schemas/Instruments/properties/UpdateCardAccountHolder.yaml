@@ -3,13 +3,13 @@ description: The account holder details
 properties:
   first_name:
     description: |
-      First name of the instrument owner 
+      The first name of the account holder 
     type: string
     example: "John"
 
   last_name:
     description: | 
-      Last name of the instrument owner.
+      The last name of the account holder
     type: string
     example: "Smith"
 
