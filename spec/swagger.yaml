@@ -1,6 +1,6 @@
-openapi: '3.0.1'
+openapi: "3.0.1"
 info:
-  version: '1.0.0'
+  version: "1.0.0"
   title: Checkout.com API Reference
   x-logo:
     url: "https://assets.checkout.com/docs/logos/logo-checkout-api-dark.svg"
@@ -8,39 +8,30 @@ info:
     altText: "Checkout.com API logo"
   contact:
     name: Checkout.com Support
-    url: 'https://checkout.com'
+    url: "https://checkout.com"
     email: support@checkout.com
   license:
     name: Checkout.com
-    url: 'https://checkout.com/api/license/'
-  termsOfService: 'https://checkout.com/terms/'
+    url: "https://checkout.com/api/license/"
+  termsOfService: "https://checkout.com/terms/"
   description: >
-    # Introduction
-    
-    Checkout.com provides a collection of APIs that enable you to process and manage payments.  
-    
-    Our APIs accept and return JSON in the HTTP body and return HTTP response codes to indicate errors.
-    You can consume the APIs directly using your favorite HTTP/REST library or, if you'd like to make use of one of our SDKs, please let our Integration team know at <a href="mailto:integration@checkout.com" target="_blank">integration@checkout.com</a>.  
-  
+    ##  Get started
 
-    Our unified payments API allows you to accept payments, as well as pay out to a variety of destinations, all using the same integration. 
-    
-    
-    And with our workflow management, events and disputes APIs, you can keep on top of your transactions and react to any chargebacks, keeping your business running smoothly. 
-    
+    Checkout.com provides a collection of APIs that enable you to process and manage payments. Our APIs accept and return JSON in the HTTP body, and return standard <a href="https://docs.checkout.com/four/resources/codes/http-response-codes">HTTP response codes</a>. 
+
+    You can consume the APIs directly using your favorite HTTP/REST library.  
+
+    We have a testing environment called sandbox, which you can <a href="https://www.checkout.com/get-test-account">sign up for</a> to test API calls without affecting live data.
+
     # Authentication
-    
-    When you sign up for an account, you are given a public key, and either a set of client credentials or a secret key. You authenticate with our API by following the appropriate authentication flow, using either your API keys or your client credentials.
 
+    When you sign up for an account, you are given a public key, and either a set of client credentials or a secret key. You authenticate with our API by following the appropriate authentication flow, using either your API keys or your client credentials.
 
     Unless explicitly stated, all endpoints require authentication using either your client credentials or your secret key. Public keys should only be used in JavaScript or native applications.
 
-
     - <b>Client-side authentication</b>. Use your [public key](#section/Authentication/ApiPublicKey) for client-side authentication. It only has access to a limited set of our APIs – mostly those called as part of your payment environment.
 
-
     - <b>Server-to-server authentication</b>. Use your [secret key](#section/Authentication/ApiSecretKey) or [client credentials](#section/Authentication/OAuth) for server-to-server communication. Support for API keys depends on the endpoint.
-
 
     Never share your client credentials, API keys, or access tokens. Keep them guarded and secure.
 
@@ -51,6 +42,7 @@ servers:
     description: Sandbox API
 tags:
   - name: Access
+    description: Create an access token to begin using our APIs.
   - name: Payments
     description: Process and manage payments from a variety of sources and to various destinations all within one integration.
   # - name: Sources
@@ -73,8 +65,25 @@ tags:
   #   description: |
   #     Upload files to be used as input to other APIs
 
-# x-tagGroups:
-# - name: Flow
-#   tags:
-#     - Events
-#     - Workflows
+x-tagGroups:
+  - name: Set up
+    tags:
+      - Access
+  - name: Handle payments and payouts
+    tags:
+      - Payments
+      - Forex
+  - name: Stored payment details
+    tags:
+      - Tokens
+      - Instruments
+  - name: Risk management
+    tags:
+      - Sessions
+      - Disputes
+  - name: Notifications
+    tags:
+      - Workflows
+  - name: Marketplace
+    tags:
+      - Marketplace
