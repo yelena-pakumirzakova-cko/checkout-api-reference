@@ -6,7 +6,7 @@ get:
   tags:
     - Customers
   summary: Get customer details
-  description: Returns details of a customer and their instruments
+  description: Returns the details of a customer and their payment instruments.
   parameters:
     - in: path
       name: id
@@ -46,7 +46,7 @@ patch:
         - vault
         - vault:customers
   summary: Update customer details
-  description: Update details of a customer and link payment instruments to them
+  description: Update the details of a customer and link payment instruments to them.
   parameters:
     - in: path
       name: id
@@ -83,7 +83,7 @@ delete:
         - vault
         - vault:customers
   summary: Delete a customer
-  description: Delete a customer and all of their linked payment instruments
+  description: Delete a customer and all of their linked payment instruments.
   parameters:
     - in: path
       name: id
