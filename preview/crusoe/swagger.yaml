@@ -50,7 +50,7 @@ tags:
   - name: Tokens
     description: Create a token that represents a card's details that you can later use to request a payment, without you having to process or store any sensitive information.
   - name: Instruments
-    description: Capture your customers’ bank account information and securely store it in the Vault to use for future payouts.
+    description: Create and manage your card and bank account payment instruments.
   - name: Forex
     description: Checkout.com Foreign Exchange services
   - name: Disputes
@@ -77,6 +77,7 @@ x-tagGroups:
     tags:
       - Tokens
       - Instruments
+      - Customers
   - name: Risk management
     tags:
       - Sessions
@@ -201,6 +202,141 @@ paths:
       x-code-samples:
         - lang: cURL
           source: "curl --location --request POST 'https://access.checkout.com/connect/token'\n  --header 'Content-Type: application/x-www-form-urlencoded'\n  --header 'Authorization: Basic dGVzdC1hY2Nlc3Mta2V5LWlkOnRlc3QtYWNjZXNzLWtleS1zZWNyZXQ='\n  --data-urlencode 'grant_type=client_credentials'\n  --data-urlencode 'scope=gateway'"
+  /customers:
+    post:
+      tags:
+        - Customers
+      security: 
+        - OAuth: 
+          - vault
+          - vault:customers
+      summary: Create a customer
+      description: Create a customer which can be linked to one or more payment instruments, and can be passed as a source when making a payment, using the customer’s default instrument.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoreCustomerRequest'
+      responses:
+        '201':
+          description: Customer created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoreCustomerResponse'  
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid data was sent
+          content:
+            application/json:
+             schema:
+               $ref: '#/components/schemas/ValidationError'
+        '500':
+          description: Internal Error
+  /customers/{id}:
+    get:
+      security:
+        - OAuth:
+            - vault
+            - vault:customers
+      tags:
+        - Customers
+      summary: Get customer details
+      description: Returns the details of a customer and their payment instruments.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            pattern: "^(cus)_(\\w{26})$"
+          description: The customer's ID. Required if `email` is not provided.
+        - in: path
+          name: email
+          schema:
+            type: string
+            format: email
+            maxLength: 255
+          description: The customer's email address. Required if `id` is not provided.
+      responses:
+        "200":
+          description: Customer retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RetrieveCustomerResponse"
+          headers:
+            Cko-Request-Id:
+              $ref: "#/components/headers/Cko-Request-Id"
+            Cko-Version:
+              $ref: "#/components/headers/Cko-Version"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Customer not found
+    
+    patch:
+      tags:
+        - Customers
+      security:
+        - OAuth:
+            - vault
+            - vault:customers
+      summary: Update customer details
+      description: Update the details of a customer and link payment instruments to them.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            pattern: "^(cus)_(\\w{26})$"
+          required: true
+          description: The customer ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCustomerDetailsRequest"
+      responses:
+        "204":
+          description: Customer updated successfully
+        "401":
+          description: Unauthorized
+        "422":
+          description: Invalid data was sent
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ValidationError"
+        "404":
+          description: Customer not found
+    
+    delete:
+      tags:
+        - Customers
+      security:
+        - OAuth:
+            - vault
+            - vault:customers
+      summary: Delete a customer
+      description: Delete a customer and all of their linked payment instruments.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            pattern: "^(cus)_(\\w{26})$"
+          description: The customer ID
+      responses:
+        "204":
+          description: Customer deleted successfully
+        "401":
+          description: Unauthorized
+        "404":
+          description: Customer not found or not associated with client
   /disputes:
     get:
       tags:
@@ -1337,7 +1473,7 @@ paths:
         - ApiSecretKey: []
       summary: Create an instrument
       description: |
-        Create a bank account payment instrument that you can later use as the destination for one or more payouts. <br><br>The parameters you need to provide depend on the destination country and currency. See <a href="https://docs.checkout.com/pay-to-bank/payout-formatting" target="_blank">our docs</a> and the <a href="#tag/Instruments/paths/~1validation~1bank-accounts~1{country}~1{currency}/get">GET endpoint below</a>.
+        Create a card or bank account payment instrument to use for future payments and payouts. <br><br>The parameters you need to provide when creating a bank account payment instrument depend on the account's country and currency. See <a href="https://docs.checkout.com/four/bank-payouts/payout-formatting" target="_blank">our docs</a> and the <a href="#tag/Instruments/paths/~1validation~1bank-accounts~1{country}~1{currency}/get">GET endpoint below</a>.
       requestBody:
         required: true
         content:
@@ -1365,6 +1501,41 @@ paths:
         - lang: Node (Beta)
           source: "import { Checkout } from \"checkout-node-sdk\";\n\nconst cko = new Checkout(\"sk_XXXX\");\n\ntry {\n  const instrument = await cko.instruments.create({\n    // infered type \"token\",\n    token: \"tok_bzi43qc6jeee5mmnfo4gnsnera\", // Generated by Checkout.Frames\n  });\n} catch (err) {\n  console.log(err.name);\n}"
   /instruments/{id}:
+    get:
+      security: 
+        - OAuth: 
+          - vault
+          - vault:instruments
+      tags:
+        - Instruments
+      summary: Get instrument details
+      operationId: getInstrumentDetails
+      description: Retrieve the details of a payment instrument.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            pattern: "^(src)_(\\w{26})$"
+          required: true
+          description: The instrument ID
+      responses:
+        '200':
+          description: Instrument retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetrieveInstrumentResponse'
+          headers:
+            Cko-Request-Id:
+              $ref: "#/components/headers/Cko-Request-Id"
+            Cko-Version:
+              $ref: "#/components/headers/Cko-Version"
+        '401':
+          description: Unauthorized
+        '404':
+          description: Instrument not found
+    
     patch:
       tags:
         - Instruments
@@ -1375,7 +1546,7 @@ paths:
         - ApiSecretKey: []
       summary: Update an instrument
       description: |
-        Update a bank account payment instrument that you can later use as the destination for one or more payouts.
+        Update the details of a payment instrument.
       parameters:
         - in: path
           name: id
@@ -1384,7 +1555,7 @@ paths:
             type: string
           example: src_ubfj2q76miwundwlk72vxt2i7q
           pattern: "^(src_)[[a-z0-9]]{{26}}$)"
-          description: The instrument identifier
+          description: The instrument ID
       requestBody:
         required: true
         content:
@@ -1416,7 +1587,6 @@ paths:
         '500':
           description: Internal Error
     
-    
     delete:
       tags:
         - Instruments
@@ -1436,7 +1606,7 @@ paths:
             type: string
           example: src_ubfj2q76miwundwlk72vxt2i7q
           pattern: "^(src_)[[a-z0-9]]{{26}}$)"
-          description: The payment instrument to be deleted
+          description: The ID of the payment instrument to be deleted
       responses:
         '204':
           description: Instrument deleted successfully
@@ -2982,6 +3152,327 @@ components:
           type: string
           description: The customer's name
           example: "Jack Napier"
+    RetrieveCustomerBankAccountInstrumentResponse:
+      type: object
+      description: Bank account details
+      required:
+        - id
+        - type
+        - fingerprint
+        - currency
+        - country
+      allOf:
+        - $ref: "#/components/schemas/RetrieveCustomerInstrumentResponse"
+      properties:
+        type:
+          description: The type of instrument
+          type: string    
+        id:
+          description: The unique identifier of the payment source or destination that can be used later for payments
+          type: string
+          example: "src_wmlfc3zyhqzehihu7giusaaawu" 
+      
+        fingerprint:
+          type: string
+          description: A token that can uniquely identify this instrument across all customers
+          pattern: ^([a-z0-9]{26})$
+          example: vnsdrvikkvre3dtrjjvlm5du4q
+      
+        account_type:
+          description: The type of account
+          type: string
+          enum:
+            - savings
+            - current
+            - cash
+          example: savings
+      
+        account_number:
+          description: Number (which can contain letters) that identifies the account
+          type: string
+          example: "13654567455"
+      
+        bank_code:
+          description: Code that identifies the bank
+          type: string
+          example: 123-456
+      
+        branch_code:
+          description: Code that identifies the bank branch
+          type: string
+          example: "6443"
+      
+        iban:
+          description: Internationally agreed standard for identifying bank account
+          type: string
+          example: HU93116000060000000012345676
+      
+        bban:
+          description: The combination of bank code and/or branch code and account number
+          type: string
+          example: 3704 0044 0532 0130 00
+      
+        swift_bic:
+          description: 8 or 11 character code which identifies the bank or bank branch
+          type: string
+          example: "37040044"
+      
+        currency:
+          description: The three-letter <a href="https://docs.checkout.com/four/resources/codes/currency-codes" target="_blank">ISO currency code</a> of the account's currency
+          type: string
+          example: GBP
+      
+        country:
+          description: The two-letter <a href="https://docs.checkout.com/four/resources/codes/country-codes" target="_blank">ISO country code</a> of where the account is based
+          type: string
+          example: GB
+      
+        account_holder:
+          $ref: "#/components/schemas/AccountHolder"
+      
+        bank:
+          $ref: "#/components/schemas/BankDetails"
+    RetrieveCustomerCardInstrumentResponse:
+      type: object
+      description: card instrument response
+      allOf:
+        - $ref: "#/components/schemas/RetrieveCustomerInstrumentResponse"
+      required:
+        - id
+        - fingerprint
+        - expiry_month
+        - expiry_year
+        - last4
+        - bin
+      properties:
+        type:
+          description: The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized).
+          type: string
+          example: "card"
+        id:
+          description: The unique identifier of the payment source or destination that can be used later for payments
+          type: string
+          example: "src_wmlfc3zyhqzehihu7giusaaawu"
+        fingerprint:
+          type: string
+          description: A token that can uniquely identify this instrument across all customers
+          pattern: ^([a-z0-9]{26})$
+          example: vnsdrvikkvre3dtrjjvlm5du4q
+        expiry_month:
+          type: integer
+          description: The expiry month
+          minimum: 1
+          example: 6
+          maxLength: 2
+        expiry_year:
+          type: integer
+          description: The expiry year
+          example: 2025
+          minLength: 4
+          maxLength: 4
+        scheme:
+          type: string
+          description: The card scheme
+          example: "VISA"
+        last4:
+          type: string
+          description: The last four digits of the card number
+          example: "9996"
+          minLength: 4
+          maxLength: 4
+        bin:
+          type: string
+          description: The card issuer's bank identification number (BIN)
+          example: "454347"
+        card_type:
+          type: string
+          description: The card type
+          enum:
+            - Credit
+            - Debit
+            - Prepaid
+            - Charge
+          example: Credit
+        card_category:
+          type: string
+          description: The card category
+          enum:
+            - Consumer
+            - Commercial
+          example: Consumer
+        issuer:
+          type: string
+          description: The name of the card issuer
+          example: "GOTHAM STATE BANK"
+        issuer_country:
+          type: string
+          maxLength: 2
+          minLength: 2
+          description: The card issuer's country (<a href="https://docs.checkout.com/resources/codes/country-codes" target="blank">two-letter ISO code</a>)
+          example: "US"
+        product_id:
+          type: string
+          description: The issuer/card scheme product identifier
+          example: "F"
+        product_type:
+          type: string
+          description: The issuer/card scheme product type
+          example: CLASSIC
+        account_holder:
+          type: object
+          description: The account holder details
+          properties:
+            first_name:
+              description: The first name of the account holder
+              type: string
+              example: "John"
+            last_name:
+              description: The last name of the account holder
+              type: string
+              example: "Smith"
+            billing_address:
+              description: The billing address of the account holder
+              allOf:
+                - $ref: "#/components/schemas/Address"
+            phone:
+              description: The phone number of the account holder
+              allOf:
+                - $ref: "#/components/schemas/PhoneNumber"
+    RetrieveCustomerInstrumentResponse:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          bank_account: '#/components/schemas/RetrieveCustomerBankAccountInstrumentResponse'
+          card: '#/components/schemas/RetrieveCustomerCardInstrumentResponse'
+      required:
+        - type
+      properties:
+        type:
+          description: The instrument type
+          type: string
+          example: "card"
+    RetrieveCustomerResponse:
+      type: object
+      description: Customer retrieved successfully
+      required: id,
+        email
+      properties:
+        id:
+          type: string
+          description: The customer's unique identifier
+          example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+        email:
+          type: string
+          format: email
+          description: The customer's email address
+          example: "jokershere@gmail.com"
+        default:
+          type: string
+          description: The ID for this customer's default instrument
+          example: "src_wmlfc3zyhqzehihu7giusaaawu"
+        name:
+          type: string
+          description: The customer's name
+          example: "Jack Napier"
+        phone:
+          description: The customer's phone number
+          allOf:
+            - $ref: "#/components/schemas/PhoneNumber"
+        metadata:
+          type: object
+          description: A set of key-value pairs that is attached to a customer
+          example:
+            coupon_code: "NY2018"
+            partner_id: 123989
+        instruments:
+          type: array
+          title: Instrument
+          description: The details of the instruments linked to this customer
+          items:
+            $ref: "#/components/schemas/RetrieveCustomerInstrumentResponse"
+    StoreCustomerRequest:
+      type: object
+      description: Create a customer
+      required:
+        - email
+      properties:
+        email:
+          type: string
+          format: email
+          description: The customer's email address
+          maxLength: 255
+          example: "jokershere@gmail.com"
+        name:
+          type: string
+          description: The customer's name
+          maxLength: 255
+          example: "Jack Napier"
+        phone:
+          description: The customer's phone number
+          allOf:
+            - $ref: "#/components/schemas/PhoneNumber"
+        metadata:
+          type: object
+          description: Allows you to store additional information about a customer. You can include a maximum of 10 key-value pairs. Each key and value can be up to 100 characters long.
+          example:
+            coupon_code: "NY2018"
+            partner_id: 123989
+        default:
+          type: string
+          description: The ID of the instrument you want to set as this customer's default instrument
+          example: "src_wmlfc3zyhqzehihu7giusaaawu"
+        instruments:
+          type: array
+          description: The IDs of the instruments you want to link to this customer
+          example:
+            ["src_y3oqhf46pyzuxjbcn2giaqnb44", "src_wmlfc3zyhqzehihu7giusaaawu"]
+      
+    StoreCustomerResponse:
+      type: object
+      description: Customer created successfully
+      required:
+        - id
+      properties:
+        id:
+          description: The customer's unique identifier
+          type: string
+          example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+      
+    UpdateCustomerDetailsRequest:
+      type: object
+      description: The customer's details
+      properties:
+        email:
+          type: string
+          format: email
+          description: The email address of the customer
+          maxLength: 255
+          example: "jokershere@gmail.com"
+        name:
+          type: string
+          description: The name of the customer
+          maxLength: 255
+          example: "Jack Napier"
+        phone:
+          description: The customer's phone number
+          allOf:
+            - $ref: "#/components/schemas/PhoneNumber"
+        metadata:
+          type: object
+          description: Allows you to store additional information about a customer. You can include a maximum of 10 key-value pairs. Each key and value can be up to 100 characters long. Providing metadata in this request will replace any existing stored for this customer.
+          example:
+            coupon_code: "NY2018"
+            partner_id: 123989
+        default:
+          type: string
+          description: The ID of this customer's default instrument
+          example: "src_wmlfc3zyhqzehihu7giusaaawu"
+        instruments:
+          type: array
+          description: The IDs of the instruments you want to link to this customer
+          example:
+            ["src_y3oqhf46pyzuxjbcn2giaqnb44", "src_wmlfc3zyhqzehihu7giusaaawu"]
     Dispute:
       type: object
       properties:
@@ -5032,13 +5523,13 @@ components:
       
         first_name:
           description: |
-            The account holder's first name 
+            The first name of the account holder 
           type: string
           example: "John"
       
         last_name:
           description: | 
-            The account holder's last name
+            The last name of the account holder
           type: string
           example: "Smith"
       
@@ -5130,19 +5621,43 @@ components:
             allOf: 
               - $ref: "#/components/schemas/Address"
             description: The bank's contact address
-    UpdateCardAccountHolder:
+    RetrieveInstrumentCustomerResponse:
+      type: object
+      description: Stored customer details
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          pattern: "^(cus)_(\\w{26})$"
+          description: The customer's unique identifier. This can be passed as a source when making a payment.
+          example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+        email:
+          type: string
+          description: The customer's email address
+          example: "jokershere@gmail.com"
+        name:
+          type: string
+          description: The customer's name
+          example: "Jack Napier"
+        default:
+          description: This will be true if this instrument is set as the default for the customer
+          type: boolean
+          example: true
+    StoreAccountHolderTokenRequest:
       type: object
       description: The account holder details
       properties:
+      
         first_name:
           description: |
-            First name of the instrument owner 
+            The first name of the account holder
           type: string
           example: "John"
       
         last_name:
           description: | 
-            Last name of the instrument owner.
+            The last name of the account holder
           type: string
           example: "Smith"
       
@@ -5155,6 +5670,243 @@ components:
           description: The phone number of the account holder
           allOf:
             - $ref: "#/components/schemas/PhoneNumber"
+    UpdateCardAccountHolder:
+      type: object
+      description: The account holder details
+      properties:
+        first_name:
+          description: |
+            The first name of the account holder 
+          type: string
+          example: "John"
+      
+        last_name:
+          description: | 
+            The last name of the account holder
+          type: string
+          example: "Smith"
+      
+        billing_address:
+          description: The billing address of the account holder
+          allOf:
+            - $ref: "#/components/schemas/Address"
+      
+        phone:
+          description: The phone number of the account holder
+          allOf:
+            - $ref: "#/components/schemas/PhoneNumber"
+    RetrieveBankAccountInstrumentResponse:
+      type: object
+      description: Bank account details
+      required:
+        - type
+        - id
+        - fingerprint
+        - country
+        - currency
+      properties:
+        type:
+          description: The type of instrument
+          type: string    
+        id:
+          description: The unique identifier of the payment source or destination that can be used later for payments
+          type: string
+          example: "src_wmlfc3zyhqzehihu7giusaaawu" 
+      
+        fingerprint:
+          type: string
+          description: A token that can uniquely identify this instrument across all customers
+          pattern: ^([a-z0-9]{26})$
+          example: vnsdrvikkvre3dtrjjvlm5du4q
+      
+        account_type:
+          description: The type of account
+          type: string
+          enum:
+            - savings
+            - current
+            - cash
+          example: savings
+      
+        account_number:
+          description: Number (which can contain letters) that identifies the account
+          type: string
+          example: "13654567455"
+      
+        bank_code:
+          description: Code that identifies the bank
+          type: string
+          example: 123-456
+      
+        branch_code:
+          description: Code that identifies the bank branch
+          type: string
+          example: "6443"
+      
+        iban:
+          description: Internationally agreed standard for identifying bank account
+          type: string
+          example: HU93116000060000000012345676
+      
+        bban:
+          description: The combination of bank code and/or branch code and account number
+          type: string
+          example: 3704 0044 0532 0130 00
+      
+        swift_bic:
+          description: 8 or 11 character code which identifies the bank or bank branch
+          type: string
+          example: "37040044"
+      
+        currency:
+          description: The three-letter <a href="https://docs.checkout.com/four/resources/codes/currency-codes" target="_blank">ISO currency code</a> of the account's currency
+          type: string
+          example: GBP
+      
+        country:
+          description: The two-letter <a href="https://docs.checkout.com/four/resources/codes/country-codes" target="_blank">ISO country code</a> of where the account is based
+          type: string
+          example: GB
+      
+        account_holder:
+          $ref: "#/components/schemas/AccountHolder"
+      
+        bank:
+          $ref: "#/components/schemas/BankDetails"
+      
+        customer:
+          $ref: "#/components/schemas/RetrieveInstrumentCustomerResponse"
+    RetrieveCardInstrumentResponse:
+      type: object
+      description: card instrument response
+      allOf:
+        - $ref: "#/components/schemas/RetrieveInstrumentResponse"
+      required:
+        - fingerprint
+        - expiry_month
+        - expiry_year
+        - last4
+        - bin
+      properties:
+        type:
+          description: The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized).
+          type: string
+          example: "card"
+        id:
+          description: The unique identifier of the payment source or destination that can be used later for payments
+          type: string
+          example: "src_wmlfc3zyhqzehihu7giusaaawu"
+        fingerprint:
+          type: string
+          description: A token that can uniquely identify this instrument across all customers
+          pattern: ^([a-z0-9]{26})$
+          example: vnsdrvikkvre3dtrjjvlm5du4q
+        expiry_month:
+          type: integer
+          description: The expiry month
+          minimum: 1
+          example: 6
+          maxLength: 2
+        expiry_year:
+          type: integer
+          description: The expiry year
+          example: 2025
+          minLength: 4
+          maxLength: 4
+        name:
+          type: string
+          description: The name of the cardholder
+          example: "John Test"
+        scheme:
+          type: string
+          description: The card scheme
+          example: "VISA"
+        last4:
+          type: string
+          description: The last four digits of the card number
+          example: "9996"
+          minLength: 4
+          maxLength: 4
+        bin:
+          type: string
+          description: The card issuer's bank identification number (BIN)
+          example: "454347"
+        card_type:
+          type: string
+          description: The card type
+          enum:
+            - Credit
+            - Debit
+            - Prepaid
+            - Charge
+          example: Credit
+        card_category:
+          type: string
+          description: The card category
+          enum:
+            - Consumer
+            - Commercial
+          example: Consumer
+        issuer:
+          type: string
+          description: The name of the card issuer
+          example: "GOTHAM STATE BANK"
+        issuer_country:
+          type: string
+          maxLength: 2
+          minLength: 2
+          description: The card issuer's country (<a href="https://docs.checkout.com/resources/codes/country-codes" target="blank">two-letter ISO code</a>)
+          example: "US"
+        product_id:
+          type: string
+          description: The issuer/card scheme product identifier
+          example: "F"
+        product_type:
+          type: string
+          description: The issuer/card scheme product type
+          example: CLASSIC
+        customer:
+          $ref: "#/components/schemas/RetrieveInstrumentCustomerResponse"
+        account_holder:
+          type: object
+          description: The account holder details
+          properties:
+            first_name:
+              description: The first name of the account holder
+              type: string
+              example: "John"
+            last_name:
+              description: The last name of the account holder
+              type: string
+              example: "Smith"
+            billing_address:
+              description: The billing address of the account holder
+              allOf:
+                - $ref: "#/components/schemas/Address"
+            phone:
+              description: The phone number of the account holder
+              allOf:
+                - $ref: "#/components/schemas/PhoneNumber"
+    RetrieveInstrumentResponse:
+      type: object
+      description: The response for type of instrument stored
+      required:
+        - type
+        - id
+      discriminator:
+        propertyName: type
+        mapping:
+          bank_account: '#/components/schemas/RetrieveBankAccountInstrumentResponse'
+          card: '#/components/schemas/RetrieveCardInstrumentResponse'
+      properties:
+        type:
+          description: The underlying instrument type
+          type: string
+        id:
+          description: The unique identifier of the payment source or destination that can be used later for payments
+          type: string
+          example: "src_wmlfc3zyhqzehihu7giusaaawu"
+      
     StoreBankAccountInstrumentRequest:
       type: object
       description: Store bank account details
@@ -5229,7 +5981,7 @@ components:
         #   description: Details of the intermediary bank
       
         customer:
-          $ref: "#/components/schemas/CustomerRequest"
+          $ref: "#/components/schemas/StoreCustomerInstrumentRequest"
       
       
     StoreBankAccountInstrumentResponse:
@@ -5241,9 +5993,13 @@ components:
         - fingerprint
       properties:
         type:
-          description: The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized)
+          description: The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized).
           type: string
           example: "card"
+        id:
+          description: The unique identifier of the payment source or destination that can be used later for payments
+          type: string
+          example: "src_wmlfc3zyhqzehihu7giusaaawu"
         fingerprint:
           type: string
           description: A token that can uniquely identify this instrument across all customers
@@ -5269,6 +6025,34 @@ components:
           description: Internationally agreed standard for identifying bank account
           type: string
           example: HU93116000060000000012345676
+    StoreCustomerInstrumentRequest:
+      type: object
+      description: The customer's details
+      properties:
+        id:
+          type: string
+          pattern: "^(cus)_(\\w{26})$"
+          description: The identifier of an existing customer
+          example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+        email:
+          type: string
+          format: email
+          description: An optional email address to associate with the customer
+          maxLength: 255
+          example: "jokershere@gmail.com"
+        name:
+          type: string
+          description: The customer's name. This will only set the name for *new* customers.
+          maxLength: 255
+          example: "Jack Napier"
+        phone:
+          description: The customer's phone number. This will only set the phone number for *new* customers.
+          allOf:
+            - $ref: "#/components/schemas/PhoneNumber"
+        default:
+          type: boolean
+          description: If true, this instrument will become the default for the customer. If a *new* customer is created as a result of this request, the instrument will automatically be the default.
+          example: true
     StoreInstrumentRequest:
       type: object
       description: The type of instrument to be stored
@@ -5276,6 +6060,7 @@ components:
         propertyName: type
         mapping:
           bank_account: '#/components/schemas/StoreBankAccountInstrumentRequest'
+          token: '#/components/schemas/StoreTokenInstrumentRequest'
       required:
         - type
       properties:
@@ -5292,6 +6077,7 @@ components:
         propertyName: type
         mapping:
           bank_account: '#/components/schemas/StoreBankAccountInstrumentResponse'
+          card: '#/components/schemas/StoreTokenInstrumentResponse'
       properties:
         type:
           description: The type of instrument
@@ -5301,6 +6087,119 @@ components:
           type: string
           example: "src_wmlfc3zyhqzehihu7giusaaawu"
       
+    StoreTokenInstrumentRequest:
+      type: object
+      description: Store token details
+      allOf:
+        - $ref: "#/components/schemas/StoreInstrumentRequest"
+        - type: object
+      required:
+        - token
+      properties:
+        type:
+          description: The type of instrument
+          type: string
+      
+        token:
+          type: string
+          description: The Checkout.com token
+          pattern: ^(tok)_(\w{26})$ | ^(card_tok)_(\w{12})$
+          example: tok_asoto22g2fsu7prwomy12sgfsa
+          
+        account_holder:
+          $ref: "#/components/schemas/StoreAccountHolderTokenRequest"
+      
+        customer:
+          $ref: "#/components/schemas/StoreCustomerInstrumentRequest"
+      
+      
+    StoreTokenInstrumentResponse:
+      type: object
+      description: card instrument response
+      allOf:
+        - $ref: '#/components/schemas/StoreInstrumentResponse'
+      required:
+        - fingerprint
+        - expiry_month
+        - expiry_year
+        - last4
+        - bin
+      properties:
+        type:
+          description: The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized).
+          type: string
+          example: "card"
+        id:
+          description: The unique identifier of the payment source or destination that can be used later for payments
+          type: string
+          example: "src_wmlfc3zyhqzehihu7giusaaawu"
+        fingerprint:
+          type: string
+          description: A token that can uniquely identify this instrument across all customers
+          pattern: ^([a-z0-9]{26})$
+          example: vnsdrvikkvre3dtrjjvlm5du4q
+        expiry_month:
+            type: integer
+            description: The expiry month
+            minimum: 1
+            example: 6
+            maxLength: 2
+        expiry_year:
+            type: integer
+            description: The expiry year
+            example: 2025
+            minLength: 4
+            maxLength: 4
+        scheme:
+            type: string
+            description: The card scheme
+            example: "VISA"
+        last4:
+            type: string
+            description: The last four digits of the card number
+            example: "9996"
+            minLength: 4
+            maxLength: 4
+        bin:
+            type: string
+            description: The card issuer's bank identification number (BIN)
+            example: "454347"
+        card_type:
+            type: string
+            description: The card type
+            enum:
+            - Credit
+            - Debit
+            - Prepaid
+            - Charge
+            example: Credit
+        card_category:
+            type: string
+            description: The card category
+            enum:
+            - Consumer
+            - Commercial
+            example: Consumer
+        issuer:
+            type: string
+            description: The name of the card issuer
+            example: "GOTHAM STATE BANK"
+        issuer_country:
+            type: string
+            maxLength: 2
+            minLength: 2
+            description: The card issuer's country (<a href="https://docs.checkout.com/resources/codes/country-codes" target="blank">two-letter ISO code</a>)
+            example: "US"
+        product_id:
+            type: string
+            description: The issuer/card scheme product identifier
+            example: "F"
+        product_type:
+            type: string
+            description: The issuer/card scheme product type
+            example: CLASSIC
+        customer:
+          $ref: '#/components/schemas/CustomerResponse'
     UpdateBankInstrumentRequest:
       type: object
       description: Update bank account details
@@ -9158,7 +10057,7 @@ components:
       properties:
         country_code: 
           type: string
-          description: The international <a href="https://docs.checkout.com/four/resources/codes/country-codes" target="_blank">country calling code</a>. Required for some risk checks
+          description: The international <a href="https://docs.checkout.com/four/resources/codes/country-codes" target="_blank">country calling code</a>
           minLength: 1
           maxLength: 7
           example: "+1"

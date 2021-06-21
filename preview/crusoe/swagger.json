@@ -209,6 +209,221 @@
         }
       ]
     },
+    "/customers": {
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Create a customer",
+        "description": "Create a customer which can be linked to one or more payment instruments, and can be passed as a source when making a payment, using the customer’s default instrument.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StoreCustomerRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Customer created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StoreCustomerResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Invalid data was sent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Error"
+          }
+        },
+        "security": [
+          {
+            "OAuth": [
+              "vault",
+              "vault:customers"
+            ]
+          }
+        ]
+      }
+    },
+    "/customers/{id}": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Get customer details",
+        "description": "Returns the details of a customer and their payment instruments.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The customer's ID. Required if `email` is not provided.",
+            "schema": {
+              "pattern": "^(cus)_(\\w{26})$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "path",
+            "description": "The customer's email address. Required if `id` is not provided.",
+            "schema": {
+              "maxLength": 255,
+              "type": "string",
+              "format": "email"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Customer retrieved successfully",
+            "headers": {
+              "Cko-Request-Id": {
+                "$ref": "#/components/headers/Cko-Request-Id"
+              },
+              "Cko-Version": {
+                "$ref": "#/components/headers/Cko-Version"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveCustomerResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Customer not found"
+          }
+        },
+        "security": [
+          {
+            "OAuth": [
+              "vault",
+              "vault:customers"
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Update customer details",
+        "description": "Update the details of a customer and link payment instruments to them.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The customer ID",
+            "required": true,
+            "schema": {
+              "pattern": "^(cus)_(\\w{26})$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerDetailsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Customer updated successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Invalid data was sent",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Customer not found"
+          }
+        },
+        "security": [
+          {
+            "OAuth": [
+              "vault",
+              "vault:customers"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Delete a customer",
+        "description": "Delete a customer and all of their linked payment instruments.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The customer ID",
+            "required": true,
+            "schema": {
+              "pattern": "^(cus)_(\\w{26})$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Customer deleted successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Customer not found or not associated with client"
+          }
+        },
+        "security": [
+          {
+            "OAuth": [
+              "vault",
+              "vault:customers"
+            ]
+          }
+        ]
+      }
+    },
     "/disputes": {
       "get": {
         "tags": [
@@ -1963,7 +2178,7 @@
           "Instruments"
         ],
         "summary": "Create an instrument",
-        "description": "Create a bank account payment instrument that you can later use as the destination for one or more payouts. <br><br>The parameters you need to provide depend on the destination country and currency. See <a href=\"https://docs.checkout.com/pay-to-bank/payout-formatting\" target=\"_blank\">our docs</a> and the <a href=\"#tag/Instruments/paths/~1validation~1bank-accounts~1{country}~1{currency}/get\">GET endpoint below</a>.\n",
+        "description": "Create a card or bank account payment instrument to use for future payments and payouts. <br><br>The parameters you need to provide when creating a bank account payment instrument depend on the account's country and currency. See <a href=\"https://docs.checkout.com/four/bank-payouts/payout-formatting\" target=\"_blank\">our docs</a> and the <a href=\"#tag/Instruments/paths/~1validation~1bank-accounts~1{country}~1{currency}/get\">GET endpoint below</a>.\n",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2022,17 +2237,71 @@
       }
     },
     "/instruments/{id}": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "Get instrument details",
+        "description": "Retrieve the details of a payment instrument.",
+        "operationId": "getInstrumentDetails",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The instrument ID",
+            "required": true,
+            "schema": {
+              "pattern": "^(src)_(\\w{26})$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instrument retrieved successfully",
+            "headers": {
+              "Cko-Request-Id": {
+                "$ref": "#/components/headers/Cko-Request-Id"
+              },
+              "Cko-Version": {
+                "$ref": "#/components/headers/Cko-Version"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveInstrumentResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Instrument not found"
+          }
+        },
+        "security": [
+          {
+            "OAuth": [
+              "vault",
+              "vault:instruments"
+            ]
+          }
+        ]
+      },
       "patch": {
         "tags": [
           "Instruments"
         ],
         "summary": "Update an instrument",
-        "description": "Update a bank account payment instrument that you can later use as the destination for one or more payouts.\n",
+        "description": "Update the details of a payment instrument.\n",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "The instrument identifier",
+            "description": "The instrument ID",
             "required": true,
             "schema": {
               "type": "string"
@@ -2111,7 +2380,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The payment instrument to be deleted",
+            "description": "The ID of the payment instrument to be deleted",
             "required": true,
             "schema": {
               "type": "string"
@@ -2922,7 +3191,7 @@
                     "failure_url": "http://example.com/payments/fail",
                     "payment_ip": "90.197.169.245",
                     "recipient": {
-                      "dob": "1985-05-15T00:00:00.0000000+00:00",
+                      "dob": "1985-05-15T00:00:00.0000000+01:00",
                       "account_number": 5555554444,
                       "zip": "W1T",
                       "last_name": "Jones"
@@ -4461,6 +4730,419 @@
           }
         },
         "description": "Stored customer details"
+      },
+      "RetrieveCustomerBankAccountInstrumentResponse": {
+        "required": [
+          "id",
+          "type",
+          "fingerprint",
+          "currency",
+          "country"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RetrieveCustomerInstrumentResponse"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of instrument"
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the payment source or destination that can be used later for payments",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
+          },
+          "fingerprint": {
+            "pattern": "^([a-z0-9]{26})$",
+            "type": "string",
+            "description": "A token that can uniquely identify this instrument across all customers",
+            "example": "vnsdrvikkvre3dtrjjvlm5du4q"
+          },
+          "account_type": {
+            "enum": [
+              "savings",
+              "current",
+              "cash"
+            ],
+            "type": "string",
+            "description": "The type of account",
+            "example": "savings"
+          },
+          "account_number": {
+            "type": "string",
+            "description": "Number (which can contain letters) that identifies the account",
+            "example": "13654567455"
+          },
+          "bank_code": {
+            "type": "string",
+            "description": "Code that identifies the bank",
+            "example": "123-456"
+          },
+          "branch_code": {
+            "type": "string",
+            "description": "Code that identifies the bank branch",
+            "example": "6443"
+          },
+          "iban": {
+            "type": "string",
+            "description": "Internationally agreed standard for identifying bank account",
+            "example": "HU93116000060000000012345676"
+          },
+          "bban": {
+            "type": "string",
+            "description": "The combination of bank code and/or branch code and account number",
+            "example": "3704 0044 0532 0130 00"
+          },
+          "swift_bic": {
+            "type": "string",
+            "description": "8 or 11 character code which identifies the bank or bank branch",
+            "example": "37040044"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The three-letter <a href=\"https://docs.checkout.com/four/resources/codes/currency-codes\" target=\"_blank\">ISO currency code</a> of the account's currency",
+            "example": "GBP"
+          },
+          "country": {
+            "type": "string",
+            "description": "The two-letter <a href=\"https://docs.checkout.com/four/resources/codes/country-codes\" target=\"_blank\">ISO country code</a> of where the account is based",
+            "example": "GB"
+          },
+          "account_holder": {
+            "$ref": "#/components/schemas/AccountHolder"
+          },
+          "bank": {
+            "$ref": "#/components/schemas/BankDetails"
+          }
+        },
+        "description": "Bank account details"
+      },
+      "RetrieveCustomerCardInstrumentResponse": {
+        "required": [
+          "id",
+          "fingerprint",
+          "expiry_month",
+          "expiry_year",
+          "last4",
+          "bin"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RetrieveCustomerInstrumentResponse"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized).",
+            "example": "card"
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the payment source or destination that can be used later for payments",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
+          },
+          "fingerprint": {
+            "pattern": "^([a-z0-9]{26})$",
+            "type": "string",
+            "description": "A token that can uniquely identify this instrument across all customers",
+            "example": "vnsdrvikkvre3dtrjjvlm5du4q"
+          },
+          "expiry_month": {
+            "minimum": 1,
+            "maxLength": 2,
+            "type": "integer",
+            "description": "The expiry month",
+            "example": 6
+          },
+          "expiry_year": {
+            "maxLength": 4,
+            "minLength": 4,
+            "type": "integer",
+            "description": "The expiry year",
+            "example": 2025
+          },
+          "scheme": {
+            "type": "string",
+            "description": "The card scheme",
+            "example": "VISA"
+          },
+          "last4": {
+            "maxLength": 4,
+            "minLength": 4,
+            "type": "string",
+            "description": "The last four digits of the card number",
+            "example": "9996"
+          },
+          "bin": {
+            "type": "string",
+            "description": "The card issuer's bank identification number (BIN)",
+            "example": "454347"
+          },
+          "card_type": {
+            "enum": [
+              "Credit",
+              "Debit",
+              "Prepaid",
+              "Charge"
+            ],
+            "type": "string",
+            "description": "The card type",
+            "example": "Credit"
+          },
+          "card_category": {
+            "enum": [
+              "Consumer",
+              "Commercial"
+            ],
+            "type": "string",
+            "description": "The card category",
+            "example": "Consumer"
+          },
+          "issuer": {
+            "type": "string",
+            "description": "The name of the card issuer",
+            "example": "GOTHAM STATE BANK"
+          },
+          "issuer_country": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "The card issuer's country (<a href=\"https://docs.checkout.com/resources/codes/country-codes\" target=\"blank\">two-letter ISO code</a>)",
+            "example": "US"
+          },
+          "product_id": {
+            "type": "string",
+            "description": "The issuer/card scheme product identifier",
+            "example": "F"
+          },
+          "product_type": {
+            "type": "string",
+            "description": "The issuer/card scheme product type",
+            "example": "CLASSIC"
+          },
+          "account_holder": {
+            "type": "object",
+            "properties": {
+              "first_name": {
+                "type": "string",
+                "description": "The first name of the account holder",
+                "example": "John"
+              },
+              "last_name": {
+                "type": "string",
+                "description": "The last name of the account holder",
+                "example": "Smith"
+              },
+              "billing_address": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Address"
+                  }
+                ],
+                "description": "The billing address of the account holder"
+              },
+              "phone": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PhoneNumber"
+                  }
+                ],
+                "description": "The phone number of the account holder"
+              }
+            },
+            "description": "The account holder details"
+          }
+        },
+        "description": "card instrument response"
+      },
+      "RetrieveCustomerInstrumentResponse": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The instrument type",
+            "example": "card"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "bank_account": "#/components/schemas/RetrieveCustomerBankAccountInstrumentResponse",
+            "card": "#/components/schemas/RetrieveCustomerCardInstrumentResponse"
+          }
+        }
+      },
+      "RetrieveCustomerResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The customer's unique identifier",
+            "example": "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+          },
+          "email": {
+            "type": "string",
+            "description": "The customer's email address",
+            "format": "email",
+            "example": "jokershere@gmail.com"
+          },
+          "default": {
+            "type": "string",
+            "description": "The ID for this customer's default instrument",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
+          },
+          "name": {
+            "type": "string",
+            "description": "The customer's name",
+            "example": "Jack Napier"
+          },
+          "phone": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PhoneNumber"
+              }
+            ],
+            "description": "The customer's phone number"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "A set of key-value pairs that is attached to a customer",
+            "example": {
+              "coupon_code": "NY2018",
+              "partner_id": 123989
+            }
+          },
+          "instruments": {
+            "title": "Instrument",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RetrieveCustomerInstrumentResponse"
+            },
+            "description": "The details of the instruments linked to this customer"
+          }
+        },
+        "description": "Customer retrieved successfully"
+      },
+      "StoreCustomerRequest": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "The customer's email address",
+            "format": "email",
+            "example": "jokershere@gmail.com"
+          },
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "The customer's name",
+            "example": "Jack Napier"
+          },
+          "phone": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PhoneNumber"
+              }
+            ],
+            "description": "The customer's phone number"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Allows you to store additional information about a customer. You can include a maximum of 10 key-value pairs. Each key and value can be up to 100 characters long.",
+            "example": {
+              "coupon_code": "NY2018",
+              "partner_id": 123989
+            }
+          },
+          "default": {
+            "type": "string",
+            "description": "The ID of the instrument you want to set as this customer's default instrument",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
+          },
+          "instruments": {
+            "type": "array",
+            "description": "The IDs of the instruments you want to link to this customer",
+            "example": [
+              "src_y3oqhf46pyzuxjbcn2giaqnb44",
+              "src_wmlfc3zyhqzehihu7giusaaawu"
+            ]
+          }
+        },
+        "description": "Create a customer"
+      },
+      "StoreCustomerResponse": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The customer's unique identifier",
+            "example": "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+          }
+        },
+        "description": "Customer created successfully"
+      },
+      "UpdateCustomerDetailsRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "The email address of the customer",
+            "format": "email",
+            "example": "jokershere@gmail.com"
+          },
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "The name of the customer",
+            "example": "Jack Napier"
+          },
+          "phone": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PhoneNumber"
+              }
+            ],
+            "description": "The customer's phone number"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Allows you to store additional information about a customer. You can include a maximum of 10 key-value pairs. Each key and value can be up to 100 characters long. Providing metadata in this request will replace any existing stored for this customer.",
+            "example": {
+              "coupon_code": "NY2018",
+              "partner_id": 123989
+            }
+          },
+          "default": {
+            "type": "string",
+            "description": "The ID of this customer's default instrument",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
+          },
+          "instruments": {
+            "type": "array",
+            "description": "The IDs of the instruments you want to link to this customer",
+            "example": [
+              "src_y3oqhf46pyzuxjbcn2giaqnb44",
+              "src_wmlfc3zyhqzehihu7giusaaawu"
+            ]
+          }
+        },
+        "description": "The customer's details"
       },
       "Dispute": {
         "type": "object",
@@ -7169,12 +7851,12 @@
           },
           "first_name": {
             "type": "string",
-            "description": "The account holder's first name \n",
+            "description": "The first name of the account holder \n",
             "example": "John"
           },
           "last_name": {
             "type": "string",
-            "description": "The account holder's last name\n",
+            "description": "The last name of the account holder\n",
             "example": "Smith"
           },
           "company_name": {
@@ -7287,17 +7969,47 @@
         },
         "description": "Details of the bank"
       },
-      "UpdateCardAccountHolder": {
+      "RetrieveInstrumentCustomerResponse": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^(cus)_(\\w{26})$",
+            "type": "string",
+            "description": "The customer's unique identifier. This can be passed as a source when making a payment.",
+            "example": "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+          },
+          "email": {
+            "type": "string",
+            "description": "The customer's email address",
+            "example": "jokershere@gmail.com"
+          },
+          "name": {
+            "type": "string",
+            "description": "The customer's name",
+            "example": "Jack Napier"
+          },
+          "default": {
+            "type": "boolean",
+            "description": "This will be true if this instrument is set as the default for the customer",
+            "example": true
+          }
+        },
+        "description": "Stored customer details"
+      },
+      "StoreAccountHolderTokenRequest": {
         "type": "object",
         "properties": {
           "first_name": {
             "type": "string",
-            "description": "First name of the instrument owner \n",
+            "description": "The first name of the account holder\n",
             "example": "John"
           },
           "last_name": {
             "type": "string",
-            "description": "Last name of the instrument owner.\n",
+            "description": "The last name of the account holder\n",
             "example": "Smith"
           },
           "billing_address": {
@@ -7318,6 +8030,298 @@
           }
         },
         "description": "The account holder details"
+      },
+      "UpdateCardAccountHolder": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "description": "The first name of the account holder \n",
+            "example": "John"
+          },
+          "last_name": {
+            "type": "string",
+            "description": "The last name of the account holder\n",
+            "example": "Smith"
+          },
+          "billing_address": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ],
+            "description": "The billing address of the account holder"
+          },
+          "phone": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PhoneNumber"
+              }
+            ],
+            "description": "The phone number of the account holder"
+          }
+        },
+        "description": "The account holder details"
+      },
+      "RetrieveBankAccountInstrumentResponse": {
+        "required": [
+          "type",
+          "id",
+          "fingerprint",
+          "country",
+          "currency"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of instrument"
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the payment source or destination that can be used later for payments",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
+          },
+          "fingerprint": {
+            "pattern": "^([a-z0-9]{26})$",
+            "type": "string",
+            "description": "A token that can uniquely identify this instrument across all customers",
+            "example": "vnsdrvikkvre3dtrjjvlm5du4q"
+          },
+          "account_type": {
+            "enum": [
+              "savings",
+              "current",
+              "cash"
+            ],
+            "type": "string",
+            "description": "The type of account",
+            "example": "savings"
+          },
+          "account_number": {
+            "type": "string",
+            "description": "Number (which can contain letters) that identifies the account",
+            "example": "13654567455"
+          },
+          "bank_code": {
+            "type": "string",
+            "description": "Code that identifies the bank",
+            "example": "123-456"
+          },
+          "branch_code": {
+            "type": "string",
+            "description": "Code that identifies the bank branch",
+            "example": "6443"
+          },
+          "iban": {
+            "type": "string",
+            "description": "Internationally agreed standard for identifying bank account",
+            "example": "HU93116000060000000012345676"
+          },
+          "bban": {
+            "type": "string",
+            "description": "The combination of bank code and/or branch code and account number",
+            "example": "3704 0044 0532 0130 00"
+          },
+          "swift_bic": {
+            "type": "string",
+            "description": "8 or 11 character code which identifies the bank or bank branch",
+            "example": "37040044"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The three-letter <a href=\"https://docs.checkout.com/four/resources/codes/currency-codes\" target=\"_blank\">ISO currency code</a> of the account's currency",
+            "example": "GBP"
+          },
+          "country": {
+            "type": "string",
+            "description": "The two-letter <a href=\"https://docs.checkout.com/four/resources/codes/country-codes\" target=\"_blank\">ISO country code</a> of where the account is based",
+            "example": "GB"
+          },
+          "account_holder": {
+            "$ref": "#/components/schemas/AccountHolder"
+          },
+          "bank": {
+            "$ref": "#/components/schemas/BankDetails"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/RetrieveInstrumentCustomerResponse"
+          }
+        },
+        "description": "Bank account details"
+      },
+      "RetrieveCardInstrumentResponse": {
+        "required": [
+          "fingerprint",
+          "expiry_month",
+          "expiry_year",
+          "last4",
+          "bin"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RetrieveInstrumentResponse"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized).",
+            "example": "card"
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the payment source or destination that can be used later for payments",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
+          },
+          "fingerprint": {
+            "pattern": "^([a-z0-9]{26})$",
+            "type": "string",
+            "description": "A token that can uniquely identify this instrument across all customers",
+            "example": "vnsdrvikkvre3dtrjjvlm5du4q"
+          },
+          "expiry_month": {
+            "minimum": 1,
+            "maxLength": 2,
+            "type": "integer",
+            "description": "The expiry month",
+            "example": 6
+          },
+          "expiry_year": {
+            "maxLength": 4,
+            "minLength": 4,
+            "type": "integer",
+            "description": "The expiry year",
+            "example": 2025
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the cardholder",
+            "example": "John Test"
+          },
+          "scheme": {
+            "type": "string",
+            "description": "The card scheme",
+            "example": "VISA"
+          },
+          "last4": {
+            "maxLength": 4,
+            "minLength": 4,
+            "type": "string",
+            "description": "The last four digits of the card number",
+            "example": "9996"
+          },
+          "bin": {
+            "type": "string",
+            "description": "The card issuer's bank identification number (BIN)",
+            "example": "454347"
+          },
+          "card_type": {
+            "enum": [
+              "Credit",
+              "Debit",
+              "Prepaid",
+              "Charge"
+            ],
+            "type": "string",
+            "description": "The card type",
+            "example": "Credit"
+          },
+          "card_category": {
+            "enum": [
+              "Consumer",
+              "Commercial"
+            ],
+            "type": "string",
+            "description": "The card category",
+            "example": "Consumer"
+          },
+          "issuer": {
+            "type": "string",
+            "description": "The name of the card issuer",
+            "example": "GOTHAM STATE BANK"
+          },
+          "issuer_country": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "The card issuer's country (<a href=\"https://docs.checkout.com/resources/codes/country-codes\" target=\"blank\">two-letter ISO code</a>)",
+            "example": "US"
+          },
+          "product_id": {
+            "type": "string",
+            "description": "The issuer/card scheme product identifier",
+            "example": "F"
+          },
+          "product_type": {
+            "type": "string",
+            "description": "The issuer/card scheme product type",
+            "example": "CLASSIC"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/RetrieveInstrumentCustomerResponse"
+          },
+          "account_holder": {
+            "type": "object",
+            "properties": {
+              "first_name": {
+                "type": "string",
+                "description": "The first name of the account holder",
+                "example": "John"
+              },
+              "last_name": {
+                "type": "string",
+                "description": "The last name of the account holder",
+                "example": "Smith"
+              },
+              "billing_address": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Address"
+                  }
+                ],
+                "description": "The billing address of the account holder"
+              },
+              "phone": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PhoneNumber"
+                  }
+                ],
+                "description": "The phone number of the account holder"
+              }
+            },
+            "description": "The account holder details"
+          }
+        },
+        "description": "card instrument response"
+      },
+      "RetrieveInstrumentResponse": {
+        "required": [
+          "type",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The underlying instrument type"
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the payment source or destination that can be used later for payments",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
+          }
+        },
+        "description": "The response for type of instrument stored",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "bank_account": "#/components/schemas/RetrieveBankAccountInstrumentResponse",
+            "card": "#/components/schemas/RetrieveCardInstrumentResponse"
+          }
+        }
       },
       "StoreBankAccountInstrumentRequest": {
         "required": [
@@ -7395,7 +8399,7 @@
             "$ref": "#/components/schemas/BankDetails"
           },
           "customer": {
-            "$ref": "#/components/schemas/CustomerRequest"
+            "$ref": "#/components/schemas/StoreCustomerInstrumentRequest"
           }
         },
         "description": "Store bank account details"
@@ -7413,8 +8417,13 @@
         "properties": {
           "type": {
             "type": "string",
-            "description": "The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized)",
+            "description": "The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized).",
             "example": "card"
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the payment source or destination that can be used later for payments",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
           },
           "fingerprint": {
             "pattern": "^([a-z0-9]{26})$",
@@ -7451,6 +8460,44 @@
         },
         "description": "Store bank account instrument response"
       },
+      "StoreCustomerInstrumentRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^(cus)_(\\w{26})$",
+            "type": "string",
+            "description": "The identifier of an existing customer",
+            "example": "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+          },
+          "email": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "An optional email address to associate with the customer",
+            "format": "email",
+            "example": "jokershere@gmail.com"
+          },
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "The customer's name. This will only set the name for *new* customers.",
+            "example": "Jack Napier"
+          },
+          "phone": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PhoneNumber"
+              }
+            ],
+            "description": "The customer's phone number. This will only set the phone number for *new* customers."
+          },
+          "default": {
+            "type": "boolean",
+            "description": "If true, this instrument will become the default for the customer. If a *new* customer is created as a result of this request, the instrument will automatically be the default.",
+            "example": true
+          }
+        },
+        "description": "The customer's details"
+      },
       "StoreInstrumentRequest": {
         "required": [
           "type"
@@ -7466,7 +8513,8 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "bank_account": "#/components/schemas/StoreBankAccountInstrumentRequest"
+            "bank_account": "#/components/schemas/StoreBankAccountInstrumentRequest",
+            "token": "#/components/schemas/StoreTokenInstrumentRequest"
           }
         }
       },
@@ -7491,9 +8539,153 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "bank_account": "#/components/schemas/StoreBankAccountInstrumentResponse"
+            "bank_account": "#/components/schemas/StoreBankAccountInstrumentResponse",
+            "card": "#/components/schemas/StoreTokenInstrumentResponse"
           }
         }
+      },
+      "StoreTokenInstrumentRequest": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StoreInstrumentRequest"
+          },
+          {
+            "type": "object"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of instrument"
+          },
+          "token": {
+            "pattern": "^(tok)_(\\w{26})$ | ^(card_tok)_(\\w{12})$",
+            "type": "string",
+            "description": "The Checkout.com token",
+            "example": "tok_asoto22g2fsu7prwomy12sgfsa"
+          },
+          "account_holder": {
+            "$ref": "#/components/schemas/StoreAccountHolderTokenRequest"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/StoreCustomerInstrumentRequest"
+          }
+        },
+        "description": "Store token details"
+      },
+      "StoreTokenInstrumentResponse": {
+        "required": [
+          "fingerprint",
+          "expiry_month",
+          "expiry_year",
+          "last4",
+          "bin"
+        ],
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StoreInstrumentResponse"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The underlying instrument type (for instruments created from Checkout.com tokens, this will reflect the type of instrument that was tokenized).",
+            "example": "card"
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the payment source or destination that can be used later for payments",
+            "example": "src_wmlfc3zyhqzehihu7giusaaawu"
+          },
+          "fingerprint": {
+            "pattern": "^([a-z0-9]{26})$",
+            "type": "string",
+            "description": "A token that can uniquely identify this instrument across all customers",
+            "example": "vnsdrvikkvre3dtrjjvlm5du4q"
+          },
+          "expiry_month": {
+            "minimum": 1,
+            "maxLength": 2,
+            "type": "integer",
+            "description": "The expiry month",
+            "example": 6
+          },
+          "expiry_year": {
+            "maxLength": 4,
+            "minLength": 4,
+            "type": "integer",
+            "description": "The expiry year",
+            "example": 2025
+          },
+          "scheme": {
+            "type": "string",
+            "description": "The card scheme",
+            "example": "VISA"
+          },
+          "last4": {
+            "maxLength": 4,
+            "minLength": 4,
+            "type": "string",
+            "description": "The last four digits of the card number",
+            "example": "9996"
+          },
+          "bin": {
+            "type": "string",
+            "description": "The card issuer's bank identification number (BIN)",
+            "example": "454347"
+          },
+          "card_type": {
+            "enum": [
+              "Credit",
+              "Debit",
+              "Prepaid",
+              "Charge"
+            ],
+            "type": "string",
+            "description": "The card type",
+            "example": "Credit"
+          },
+          "card_category": {
+            "enum": [
+              "Consumer",
+              "Commercial"
+            ],
+            "type": "string",
+            "description": "The card category",
+            "example": "Consumer"
+          },
+          "issuer": {
+            "type": "string",
+            "description": "The name of the card issuer",
+            "example": "GOTHAM STATE BANK"
+          },
+          "issuer_country": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "The card issuer's country (<a href=\"https://docs.checkout.com/resources/codes/country-codes\" target=\"blank\">two-letter ISO code</a>)",
+            "example": "US"
+          },
+          "product_id": {
+            "type": "string",
+            "description": "The issuer/card scheme product identifier",
+            "example": "F"
+          },
+          "product_type": {
+            "type": "string",
+            "description": "The issuer/card scheme product type",
+            "example": "CLASSIC"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/CustomerResponse"
+          }
+        },
+        "description": "card instrument response"
       },
       "UpdateBankInstrumentRequest": {
         "type": "object",
@@ -12705,7 +13897,7 @@
             "maxLength": 7,
             "minLength": 1,
             "type": "string",
-            "description": "The international <a href=\"https://docs.checkout.com/four/resources/codes/country-codes\" target=\"_blank\">country calling code</a>. Required for some risk checks",
+            "description": "The international <a href=\"https://docs.checkout.com/four/resources/codes/country-codes\" target=\"_blank\">country calling code</a>",
             "example": "+1"
           },
           "number": {
@@ -15588,7 +16780,7 @@
     },
     {
       "name": "Instruments",
-      "description": "Capture your customers’ bank account information and securely store it in the Vault to use for future payouts."
+      "description": "Create and manage your card and bank account payment instruments."
     },
     {
       "name": "Forex",
@@ -15629,7 +16821,8 @@
       "name": "Stored payment details",
       "tags": [
         "Tokens",
-        "Instruments"
+        "Instruments",
+        "Customers"
       ]
     },
     {
