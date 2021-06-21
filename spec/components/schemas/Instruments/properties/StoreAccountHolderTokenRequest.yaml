@@ -1,9 +1,10 @@
 type: object
 description: The account holder details
 properties:
+
   first_name:
     description: |
-      The first name of the account holder 
+      The first name of the account holder
     type: string
     example: "John"
 

@@ -50,7 +50,7 @@ tags:
   - name: Tokens
     description: Create a token that represents a card's details that you can later use to request a payment, without you having to process or store any sensitive information.
   - name: Instruments
-    description: Capture your customers’ bank account information and securely store it in the Vault to use for future payouts.
+    description: Create and manage your card and bank account payment instruments.
   - name: Forex
     description: Checkout.com Foreign Exchange services
   - name: Disputes
@@ -77,6 +77,7 @@ x-tagGroups:
     tags:
       - Tokens
       - Instruments
+      - Customers
   - name: Risk management
     tags:
       - Sessions

@@ -6,11 +6,11 @@ required:
 discriminator:
   propertyName: type
   mapping:
-    bank_account: '#/components/schemas/StoreBankAccountInstrumentResponse'
-    card: '#/components/schemas/StoreTokenInstrumentResponse'
+    bank_account: '#/components/schemas/RetrieveBankAccountInstrumentResponse'
+    card: '#/components/schemas/RetrieveCardInstrumentResponse'
 properties:
   type:
-    description: The type of instrument
+    description: The underlying instrument type
     type: string
   id:
     description: The unique identifier of the payment source or destination that can be used later for payments

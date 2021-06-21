@@ -4,6 +4,7 @@ discriminator:
   propertyName: type
   mapping:
     bank_account: '#/components/schemas/StoreBankAccountInstrumentRequest'
+    token: '#/components/schemas/StoreTokenInstrumentRequest'
 required:
   - type
 properties:

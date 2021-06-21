@@ -12,13 +12,13 @@ properties:
 
   first_name:
     description: |
-      The account holder's first name 
+      The first name of the account holder 
     type: string
     example: "John"
 
   last_name:
     description: | 
-      The account holder's last name
+      The last name of the account holder
     type: string
     example: "Smith"
 

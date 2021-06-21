@@ -1,3 +1,38 @@
+get:
+  security: 
+    - OAuth: 
+      - vault
+      - vault:instruments
+  tags:
+    - Instruments
+  summary: Get instrument details
+  operationId: getInstrumentDetails
+  description: Retrieve the details of a payment instrument.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+        pattern: "^(src)_(\\w{26})$"
+      required: true
+      description: The instrument ID
+  responses:
+    '200':
+      description: Instrument retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RetrieveInstrumentResponse'
+      headers:
+        Cko-Request-Id:
+          $ref: "#/components/headers/Cko-Request-Id"
+        Cko-Version:
+          $ref: "#/components/headers/Cko-Version"
+    '401':
+      description: Unauthorized
+    '404':
+      description: Instrument not found
+
 patch:
   tags:
     - Instruments
@@ -8,7 +43,7 @@ patch:
     - ApiSecretKey: []
   summary: Update an instrument
   description: |
-    Update a bank account payment instrument that you can later use as the destination for one or more payouts.
+    Update the details of a payment instrument.
   parameters:
     - in: path
       name: id
@@ -17,7 +52,7 @@ patch:
         type: string
       example: src_ubfj2q76miwundwlk72vxt2i7q
       pattern: "^(src_)[[a-z0-9]]{{26}}$)"
-      description: The instrument identifier
+      description: The instrument ID
   requestBody:
     required: true
     content:
@@ -49,7 +84,6 @@ patch:
     '500':
       description: Internal Error
 
-
 delete:
   tags:
     - Instruments
@@ -69,7 +103,7 @@ delete:
         type: string
       example: src_ubfj2q76miwundwlk72vxt2i7q
       pattern: "^(src_)[[a-z0-9]]{{26}}$)"
-      description: The payment instrument to be deleted
+      description: The ID of the payment instrument to be deleted
   responses:
     '204':
       description: Instrument deleted successfully

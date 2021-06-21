@@ -1,20 +1,30 @@
 type: object
-description: Store bank account details
-allOf:
-  - $ref: "#/components/schemas/StoreInstrumentRequest"
-  - type: object
+description: Bank account details
 required:
-  - currency
+  - type
+  - id
+  - fingerprint
   - country
+  - currency
 properties:
   type:
     description: The type of instrument
+    type: string    
+  id:
+    description: The unique identifier of the payment source or destination that can be used later for payments
     type: string
+    example: "src_wmlfc3zyhqzehihu7giusaaawu" 
+
+  fingerprint:
+    type: string
+    description: A token that can uniquely identify this instrument across all customers
+    pattern: ^([a-z0-9]{26})$
+    example: vnsdrvikkvre3dtrjjvlm5du4q
 
   account_type:
     description: The type of account
     type: string
-    enum: 
+    enum:
       - savings
       - current
       - cash
@@ -23,7 +33,7 @@ properties:
   account_number:
     description: Number (which can contain letters) that identifies the account
     type: string
-    example: '13654567455'
+    example: "13654567455"
 
   bank_code:
     description: Code that identifies the bank
@@ -33,7 +43,7 @@ properties:
   branch_code:
     description: Code that identifies the bank branch
     type: string
-    example: '6443'
+    example: "6443"
 
   iban:
     description: Internationally agreed standard for identifying bank account
@@ -48,7 +58,7 @@ properties:
   swift_bic:
     description: 8 or 11 character code which identifies the bank or bank branch
     type: string
-    example: '37040044'
+    example: "37040044"
 
   currency:
     description: The three-letter <a href="https://docs.checkout.com/four/resources/codes/currency-codes" target="_blank">ISO currency code</a> of the account's currency
@@ -66,11 +76,5 @@ properties:
   bank:
     $ref: "#/components/schemas/BankDetails"
 
-  # intermediary_bank:
-  #   $ref: "#/components/schemas/bank_account_intermediary_bank"
-  #   description: Details of the intermediary bank
-
   customer:
-    $ref: "#/components/schemas/StoreCustomerInstrumentRequest"
-
-
+    $ref: "#/components/schemas/RetrieveInstrumentCustomerResponse"
