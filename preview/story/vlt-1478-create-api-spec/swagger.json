@@ -270,7 +270,7 @@
           "Customers"
         ],
         "summary": "Get customer details",
-        "description": "Returns details of a customer and their instruments",
+        "description": "Returns the details of a customer and their payment instruments.",
         "parameters": [
           {
             "name": "id",
@@ -332,7 +332,7 @@
           "Customers"
         ],
         "summary": "Update customer details",
-        "description": "Update details of a customer and link payment instruments to them",
+        "description": "Update the details of a customer and link payment instruments to them.",
         "parameters": [
           {
             "name": "id",
@@ -390,7 +390,7 @@
           "Customers"
         ],
         "summary": "Delete a customer",
-        "description": "Delete a customer and all of their linked payment instruments",
+        "description": "Delete a customer and all of their linked payment instruments.",
         "parameters": [
           {
             "name": "id",
@@ -2178,7 +2178,7 @@
           "Instruments"
         ],
         "summary": "Create an instrument",
-        "description": "Create a bank account payment instrument that you can later use as the destination for one or more payouts. <br><br>The parameters you need to provide depend on the destination country and currency. See <a href=\"https://docs.checkout.com/pay-to-bank/payout-formatting\" target=\"_blank\">our docs</a> and the <a href=\"#tag/Instruments/paths/~1validation~1bank-accounts~1{country}~1{currency}/get\">GET endpoint below</a>.\n",
+        "description": "Create a card or bank account payment instrument to use for future payments and payouts. <br><br>The parameters you need to provide when creating a bank account payment instrument depend on the account's country and currency. See <a href=\"https://docs.checkout.com/four/bank-payouts/payout-formatting\" target=\"_blank\">our docs</a> and the <a href=\"#tag/Instruments/paths/~1validation~1bank-accounts~1{country}~1{currency}/get\">GET endpoint below</a>.\n",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3191,7 +3191,7 @@
                     "failure_url": "http://example.com/payments/fail",
                     "payment_ip": "90.197.169.245",
                     "recipient": {
-                      "dob": "1985-05-15T00:00:00.0000000+00:00",
+                      "dob": "1985-05-15T00:00:00.0000000+01:00",
                       "account_number": 5555554444,
                       "zip": "W1T",
                       "last_name": "Jones"
@@ -16780,7 +16780,7 @@
     },
     {
       "name": "Instruments",
-      "description": "Capture your customers’ bank account information and securely store it in the Vault to use for future payouts."
+      "description": "Create and manage your card and bank account payment instruments."
     },
     {
       "name": "Forex",
@@ -16821,7 +16821,8 @@
       "name": "Stored payment details",
       "tags": [
         "Tokens",
-        "Instruments"
+        "Instruments",
+        "Customers"
       ]
     },
     {
