@@ -20,6 +20,6 @@ example:
   subject:
     href: 'https://api.checkout.com/workflows/events/subject/pay_wlu3wxc26jounofs5iez75qaqa'
   payment:
-    href: 'https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44'
+    href: 'https://api.checkout.com/payments/pay_wlu3wxc26jounofs5iez75qaqa'
   dispute:
     href: 'https://api.checkout.com/disputes/dsp_jfh5iqceqau0qw3ccf3p'
