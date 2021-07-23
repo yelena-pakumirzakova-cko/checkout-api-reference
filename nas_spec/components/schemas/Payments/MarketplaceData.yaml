@@ -5,3 +5,57 @@ properties:
     type: string
     description: The sub-entity that the payment is being processed on behalf of
     example: 'ent_rgyzti4x74xubmu72m6r3pvksa'
+  sub_entities:
+    type: array
+    description: The sub-entities that the payment is being processed on behalf of - use for split payments.
+    minItems: 1
+    maxItems: 5
+    items:
+      type: object
+      required:
+        - id
+        - amount
+      title: SubEntities
+      properties:
+        id:
+          type: string
+          description: 'The id of the sub-entity.'
+          example: 'ent_w4jelhppmfiufdnatam37wrfc4'
+        amount:
+          type: integer
+          description: |
+            The split amount. The sum of all split amounts must be equal to the payment amount.      
+
+            The amount must be provided in the <a href="https://docs.checkout.com/four/resources/calculating-the-amount" target="blank">minor currency unit</a>.
+          minimum: 0
+          example: 1000
+        reference:
+          type: string
+          description: A reference you can later use to identify this split, such as an order number.
+          maxLength: 50
+          example: 'ORD-5023-4E89'
+        description:
+          type: string
+          description: A description of the split.
+          maxLength: 100
+          example: 'Set of 3 masks'
+        fee:
+          type: object
+          title: Fee
+          description: The fee you'd like to apply to this split - this will be credited to your currency account.
+          properties:
+            type:
+              type: number
+              description: The fee type.
+              enum:
+                - Fixed
+                - Variable
+              example: Fixed
+            amount:
+              type: integer
+              description: |
+                The fee amount. The fee amount cannot exceed the split amount if type is `Fixed` or 100 if type is `Variable`.      
+
+                The amount must be provided in the <a href="https://docs.checkout.com/four/resources/calculating-the-amount" target="blank">minor currency unit</a> if the type is `Fixed`.
+              minimum: 1
+              example: 1000
