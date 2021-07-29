@@ -52,10 +52,10 @@ properties:
                 - Variable
               example: Fixed
             amount:
-              type: integer
+              type: number
               description: |
-                The fee amount. The fee amount cannot exceed the split amount if type is `Fixed` or 100 if type is `Variable`.      
+                The fee amount.
 
-                The amount must be provided in the <a href="https://docs.checkout.com/four/resources/calculating-the-amount" target="blank">minor currency unit</a> if the type is `Fixed`.
-              minimum: 1
+                If the fee type is `Fixed` The amount must be provided in the <a href="https://docs.checkout.com/four/resources/calculating-the-amount" target="blank">minor currency unit</a> and cannot exceed the split amount. If the fee type is `Variable` the amount cannot exceed 100.
+              minimum: 0
               example: 1000

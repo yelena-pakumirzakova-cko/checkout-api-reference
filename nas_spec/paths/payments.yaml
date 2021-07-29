@@ -25,52 +25,76 @@ post:
               source:
                 type: token
                 token: tok_4gzeau5o2uqubbk6fufs3m7p54
-              amount: 6540
+              amount: 9999
               currency: USD
-              payment_type: Recurring
+              # payment_type: Recurring
               reference: 'ORD-5023-4E89'
-              description: 'Set of 3 masks'
-              capture: true
-              capture_on: '2019-09-10T10:11:12Z'
-              customer:
-                id: 'cus_udst2tfldj6upmye2reztkmm4i'
-                email: 'jokershere@gmail.com'
-                name: 'Jack Napier'
-              billing_descriptor:
-                name: SUPERHEROES.COM
-                city: GOTHAM
-              shipping:
-                address:
-                  address_line1: Checkout.com
-                  address_line2: 90 Tottenham Court Road
-                  city: London
-                  state: London
-                  zip: W1T 4TJ
-                  country: GB
-                phone:
-                  country_code: '+1'
-                  number: 415 555 2671
-              3ds:
-                enabled: true
-                attempt_n3d: true
-                eci: '05'
-                cryptogram: AgAAAAAAAIR8CQrXcIhbQAAAAAA=
-                xid: MDAwMDAwMDAwMDAwMDAwMzIyNzY=
-                version: '2.0.1'
-              previous_payment_id: 'pay_fun26akvvjjerahhctaq2uzhu4'
-              risk:
-                enabled: false
-              success_url: 'http://example.com/payments/success'
-              failure_url: 'http://example.com/payments/fail'
-              payment_ip: '90.197.169.245'
-              recipient:
-                dob: '1985-05-15'
-                account_number: '5555554444'
-                zip: W1T
-                last_name: Jones
-              metadata:
-                coupon_code: 'NY2018'
-                partner_id: 123989
+              description: 'Multi-seller basket'
+              processing_channel_id: 'pc_hpswyyx23geezflc2ocz3exn4y'
+              # capture: true
+              # capture_on: '2019-09-10T10:11:12Z'
+              # customer:
+              #   id: 'cus_udst2tfldj6upmye2reztkmm4i'
+              #   email: 'jokershere@gmail.com'
+              #   name: 'Jack Napier'
+              # billing_descriptor:
+              #   name: SUPERHEROES.COM
+              #   city: GOTHAM
+              # shipping:
+              #   address:
+              #     address_line1: Checkout.com
+              #     address_line2: 90 Tottenham Court Road
+              #     city: London
+              #     state: London
+              #     zip: W1T 4TJ
+              #     country: GB
+              #   phone:
+              #     country_code: '+1'
+              #     number: 415 555 2671
+              # 3ds:
+              #   enabled: true
+              #   attempt_n3d: true
+              #   eci: '05'
+              #   cryptogram: AgAAAAAAAIR8CQrXcIhbQAAAAAA=
+              #   xid: MDAwMDAwMDAwMDAwMDAwMzIyNzY=
+              #   version: '2.0.1'
+              # previous_payment_id: 'pay_fun26akvvjjerahhctaq2uzhu4'
+              # risk:
+              #   enabled: false
+              # success_url: 'http://example.com/payments/success'
+              # failure_url: 'http://example.com/payments/fail'
+              # payment_ip: '90.197.169.245'
+              # recipient:
+              #   dob: '1985-05-15'
+              #   account_number: '5555554444'
+              #   zip: W1T
+              #   last_name: Jones
+              marketplace:
+                sub_entities:
+                  - id: 'ent_pj6fv2w2wchfedchjjyobb4bni'
+                    amount: 2999
+                    reference: 'SALE-7627-8389'
+                    description: 'Nike T-Shirt'
+                    fee:
+                      type: 'Fixed'
+                      amount: 100
+                  - id: 'ent_kjx3tob2sxtl44wb7q7alwdu2m'
+                    amount: 5000
+                    reference: 'SALE-1729-3782'
+                    description: 'NVIDIA Graphics Card'
+                    fee:
+                      type: 'Variable'
+                      amount: 0.5
+                  - id: 'ent_kklowryxmczwyoqe4z7yvcbwvy'
+                    amount: 2000
+                    reference: 'SALE-2127-9735'
+                    description: 'Flowers | Greeting Card'
+                    fee:
+                      type: 'Fixed'
+                      amount: 100
+              # metadata:
+              #   coupon_code: 'NY2018'
+              #   partner_id: 123989
           Payout:
             value:
               source:
@@ -103,7 +127,7 @@ post:
           example:
             id: 'pay_mbabizu24mvu3mela5njyhpit4'
             action_id: 'act_mbabizu24mvu3mela5njyhpit4'
-            amount: 6540
+            amount: 9999
             currency: 'USD'
             approved: true
             status: 'Authorized'
