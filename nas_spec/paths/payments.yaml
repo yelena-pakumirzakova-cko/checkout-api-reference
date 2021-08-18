@@ -74,23 +74,24 @@ post:
                   - id: 'ent_pj6fv2w2wchfedchjjyobb4bni'
                     amount: 2999
                     reference: 'SALE-7627-8389'
-                    description: 'Nike T-Shirt'
-                    fee:
-                      type: 'Fixed'
+                    # description: 'Nike T-Shirt'
+                    commission:
+                      # type: 'Fixed'
                       amount: 100
                   - id: 'ent_kjx3tob2sxtl44wb7q7alwdu2m'
                     amount: 5000
                     reference: 'SALE-1729-3782'
-                    description: 'NVIDIA Graphics Card'
-                    fee:
-                      type: 'Variable'
-                      amount: 0.5
+                    # description: 'NVIDIA Graphics Card'
+                    commission:
+                      # type: 'Variable'
+                      amount: 100
+                      percentage: 1.5
                   - id: 'ent_kklowryxmczwyoqe4z7yvcbwvy'
                     amount: 2000
                     reference: 'SALE-2127-9735'
-                    description: 'Flowers | Greeting Card'
-                    fee:
-                      type: 'Fixed'
+                    # description: 'Flowers | Greeting Card'
+                    commission:
+                      # type: 'Fixed'
                       amount: 100
               # metadata:
               #   coupon_code: 'NY2018'
