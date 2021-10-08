@@ -1,0 +1,33 @@
+post:
+  servers:
+    - url: https://api.checkout.com/issuing
+      description: Live API
+    - url: https://api.sandbox.checkout.com/issuing
+      description: Sandbox API
+  tags:
+    - Cardholders
+  summary: Add a cardholder
+  description: Add a new cardholder
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/add-cardholder-request'
+  responses:
+    '201':
+      description: Cardholder added successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/add-cardholder-response'
+    '401':
+      description: Unauthorized
+    '422':
+      description: Invalid data was sent
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+    '500':
+      description: Internal Server Error

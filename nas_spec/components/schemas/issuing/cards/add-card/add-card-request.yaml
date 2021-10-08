@@ -1,0 +1,21 @@
+type: object
+description: The card to add
+discriminator:
+  propertyName: type
+  mapping:
+    physical: '#/components/schemas/add-physical-card-request'
+    virtual: '#/components/schemas/add-virtual-card-request'
+required:
+  - type
+  - cardholder_id
+properties:
+  type:
+    type: string
+    description: The card type.
+    example: virtual
+  cardholder_id:
+    $ref: '#/components/schemas/CardholderId'
+  card_lifetime:
+    $ref: '#/components/schemas/CardLifetime'
+  reference:
+    $ref: '#/components/schemas/Reference'

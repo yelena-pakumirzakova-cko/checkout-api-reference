@@ -1,0 +1,64 @@
+type: object
+required:
+  - id
+  - type
+  - first_name
+  - last_name
+  - billing_address
+properties:
+  id:
+    $ref: '#/components/schemas/CardholderId'
+  type:
+    type: string
+    description: The cardholder type. Currently `individual` is the only supported value.
+    example: individual
+  first_name:
+    type: string
+    description: The cardholder first name.
+    example: John
+    pattern: ^[a-zA-Z'- ]{1,40}$
+    minLength: 1
+    maxLength: 40
+  middle_name:
+    type: string
+    description: The cardholder middle name.
+    example: Fitzgerald
+    pattern: ^[a-zA-Z'- ]{1,40}$
+    minLength: 1
+    maxLength: 40
+  last_name:
+    type: string
+    description: The cardholder last name.
+    example: Kennedy
+    pattern: ^[a-zA-Z'- ]{1,40}$
+    minLength: 1
+    maxLength: 40
+  email:
+    description: The cardholder's email.
+    $ref: '#/components/schemas/Email'
+  phone_number:
+    description: The cardholder's phone number. This information will be used for authorisations requiring a 3DS challenge.
+    $ref: '#/components/schemas/PhoneNumber'
+  date_of_birth:
+    type: string
+    format: date
+    description: The cardholder date of birth in the YYYY-MM-DD format.
+    example: "1985-05-28"
+  billing_address:
+    description: The  cardholder's billing address.
+    $ref: '#/components/schemas/Address'
+  residency_address:
+    description: The cardholder's residency address. If not passed the billing address will be used.
+    $ref: '#/components/schemas/Address'
+  reference:
+    $ref: '#/components/schemas/Reference'
+  created_date:
+    type: string
+    format: datetime
+    example: "2019-09-10T10:11:12Z"
+  last_modified_date:
+    type: string
+    format: datetime
+    example: "2019-09-11T10:11:12Z"
+  _links:
+    $ref: '#/components/schemas/CardholderLinks'

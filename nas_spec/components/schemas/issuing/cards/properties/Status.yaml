@@ -1,0 +1,8 @@
+description: The current card status.
+type: string
+enum:
+  - active
+  - inactive
+  - revoked
+  - suspended
+example: active

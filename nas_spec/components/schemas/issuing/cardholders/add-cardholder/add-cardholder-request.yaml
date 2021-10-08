@@ -1,0 +1,15 @@
+type: object
+description: The cardholder to add.
+discriminator:
+  propertyName: type
+  mapping:
+    individual: '#/components/schemas/add-individual-cardholder-request'
+required:
+  - type
+properties:
+  type:
+    type: string
+    description: The cardholder type.
+    example: individual
+  reference:
+    $ref: '#/components/schemas/Reference'

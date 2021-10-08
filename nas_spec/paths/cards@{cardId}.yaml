@@ -1,0 +1,29 @@
+get:
+  servers:
+    - url: https://api.checkout.com/issuing
+      description: Live API
+    - url: https://api.sandbox.checkout.com/issuing
+      description: Sandbox API
+  tags:
+    - Cards
+  summary: Retrieve a card
+  description: Retrieve an existing card. This endpoint will not returned sensitive information such as the PAN or CVC.
+  parameters:
+    - in: path
+      name: cardId
+      required: true
+      schema:
+        $ref: '#/components/schemas/CardId'
+  responses:
+    '200':
+      description: Card retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/get-card-response'   
+    '401':
+      description: Unauthorized
+    '404':
+      description: Card Not Found
+    '500':
+      description: Internal Server Error
