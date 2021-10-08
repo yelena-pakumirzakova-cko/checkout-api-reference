@@ -65,6 +65,8 @@ tags:
     description: Evaluate the risk of a transaction at the pre-authentication and pre-capture stages of the payment process.
   - name: Apple Pay
     description: Manage your Apple Pay certificates in order to process payments via Apple Pay.  
+  - name: issuing
+    description: Create and manage cards and cardholders for Issuing 
   # - name: Files
   #   description: |
   #     Upload files to be used as input to other APIs
