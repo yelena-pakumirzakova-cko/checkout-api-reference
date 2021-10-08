@@ -96,3 +96,6 @@ x-tagGroups:
   - name: Marketplace
     tags:
       - Marketplace
+  - name: Issuing
+    tags:
+      - issuing
