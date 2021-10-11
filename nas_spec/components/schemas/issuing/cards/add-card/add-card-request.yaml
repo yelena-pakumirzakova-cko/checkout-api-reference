@@ -18,4 +18,4 @@ properties:
   card_lifetime:
     $ref: '#/components/schemas/CardLifetime'
   reference:
-    $ref: '#/components/schemas/Reference'
+    $ref: '#/components/schemas/IssuingReference'

@@ -12,7 +12,7 @@ properties:
     enum:
       - individual
   reference:
-    $ref: '#/components/schemas/Reference'
+    $ref: '#/components/schemas/IssuingReference'
   created_date:
     type: string
     format: datetime

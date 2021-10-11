@@ -7,11 +7,11 @@ properties:
   self:
     type: object
     description: The URI to retrieve the current cardholder
-    $ref: '#/components/schemas/Link'
+    $ref: '#/components/schemas/IssuingLink'
   cards:
     type: object
     description: The URI to add or retrieve cards for this cardholder
-    $ref: '#/components/schemas/Link'
+    $ref: '#/components/schemas/IssuingLink'
 example:
   self:
     href: "https://api.checkout.com/issuing/cardholders/crh_d3ozhf43pcq2xbldn2g45qnb44"

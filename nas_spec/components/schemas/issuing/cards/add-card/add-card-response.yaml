@@ -21,7 +21,7 @@ properties:
   expiry_year:
     $ref: '#/components/schemas/ExpiryYear'
   billing_currency:
-    $ref: '#/components/schemas/Currency'
+    $ref: '#/components/schemas/IssuingCurrency'
   issuing_country:
     type: string
     description: The two-letter <a href="https://docs.checkout.com/docs/country-codes" target="blank">ISO country code</a> of the issuing country
@@ -29,7 +29,7 @@ properties:
     maxLength: 2
     minLength: 2
   reference:
-    $ref: '#/components/schemas/Reference'
+    $ref: '#/components/schemas/IssuingReference'
   created_date:
     type: string
     format: datetime

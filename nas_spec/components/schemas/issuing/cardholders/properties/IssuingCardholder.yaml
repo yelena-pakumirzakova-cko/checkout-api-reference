@@ -38,7 +38,7 @@ properties:
     $ref: '#/components/schemas/Email'
   phone_number:
     description: The cardholder's phone number. This information will be used for authorisations requiring a 3DS challenge.
-    $ref: '#/components/schemas/PhoneNumber'
+    $ref: '#/components/schemas/IssuingPhoneNumber'
   date_of_birth:
     type: string
     format: date
@@ -46,12 +46,12 @@ properties:
     example: "1985-05-28"
   billing_address:
     description: The  cardholder's billing address.
-    $ref: '#/components/schemas/Address'
+    $ref: '#/components/schemas/IssuingAddress'
   residency_address:
     description: The cardholder's residency address. If not passed the billing address will be used.
-    $ref: '#/components/schemas/Address'
+    $ref: '#/components/schemas/IssuingAddress'
   reference:
-    $ref: '#/components/schemas/Reference'
+    $ref: '#/components/schemas/IssuingReference'
   created_date:
     type: string
     format: datetime

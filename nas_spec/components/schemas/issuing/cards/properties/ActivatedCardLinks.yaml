@@ -8,15 +8,15 @@ required:
 properties:
   self:
     type: object
-    $ref: '#/components/schemas/Link'
+    $ref: '#/components/schemas/IssuingLink'
     description: The URI to retrieve the card details.
   revoke:
     type: object
-    $ref: '#/components/schemas/Link'
+    $ref: '#/components/schemas/IssuingLink'
     description: The URI to revoke the card.
   suspend:
     type: object
-    $ref: '#/components/schemas/Link'
+    $ref: '#/components/schemas/IssuingLink'
     description: The URI to suspend the card.
 example:
   self:

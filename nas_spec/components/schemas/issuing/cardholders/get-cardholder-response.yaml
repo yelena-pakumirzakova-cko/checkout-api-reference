@@ -1,2 +1,2 @@
 type: object
-$ref: '#/components/schemas/Cardholder'
+$ref: '#/components/schemas/IssuingCardholder'

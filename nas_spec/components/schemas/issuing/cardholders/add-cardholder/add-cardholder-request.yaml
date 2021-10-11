@@ -12,4 +12,4 @@ properties:
     description: The cardholder type.
     example: individual
   reference:
-    $ref: '#/components/schemas/Reference'
+    $ref: '#/components/schemas/IssuingReference'

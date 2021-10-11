@@ -8,15 +8,15 @@ required:
 properties:
   self:
     type: object
-    $ref: '#/components/schemas/Link'
+    $ref: '#/components/schemas/IssuingLink'
     description: The URI to retrieve the card details.
   credentials:
     type: object
-    $ref: '#/components/schemas/Link'
+    $ref: '#/components/schemas/IssuingLink'
     description: The URI to retrieve the card credentials.
   revoke:
     type: object
-    $ref: '#/components/schemas/Link'
+    $ref: '#/components/schemas/IssuingLink'
     description: The URI to revoke the card.
 example:
   self:

@@ -33,7 +33,7 @@ allOf:
         $ref: '#/components/schemas/Email'
       phone_number:
         description: The cardholder's phonenumber. This information will be used at part of the 3DS challenge.
-        $ref: '#/components/schemas/PhoneNumber'
+        $ref: '#/components/schemas/IssuingPhoneNumber'
       date_of_birth:
         type: string
         format: date
@@ -41,7 +41,7 @@ allOf:
         example: "1985-05-15"
       billing_address:
         description: The  cardholder's billing address.
-        $ref: '#/components/schemas/Address'
+        $ref: '#/components/schemas/IssuingAddress'
       residency_address:
         description: The cardholder's residency address. If not passed the billing address will be used.
-        $ref: '#/components/schemas/Address'
+        $ref: '#/components/schemas/IssuingAddress'
