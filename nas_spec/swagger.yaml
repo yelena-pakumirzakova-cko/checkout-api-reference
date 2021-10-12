@@ -65,6 +65,10 @@ tags:
     description: Evaluate the risk of a transaction at the pre-authentication and pre-capture stages of the payment process.
   - name: Apple Pay
     description: Manage your Apple Pay certificates in order to process payments via Apple Pay.  
+  - name: Cards
+    description: Create and manage cards for Issuing
+  - name: Cardholders
+    description: Create and manage cardholders for Issuing  
   # - name: Files
   #   description: |
   #     Upload files to be used as input to other APIs
@@ -94,3 +98,7 @@ x-tagGroups:
   - name: Marketplace
     tags:
       - Marketplace
+  - name: Issuing
+    tags:
+      - Cards
+      - Cardholders

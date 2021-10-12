@@ -1,0 +1,16 @@
+type: object
+allOf:
+  - $ref: '#/components/schemas/add-card-request'
+  - type: object
+    properties:
+      display_name:
+        $ref: '#/components/schemas/DisplayName'
+        description: The display name shown on the virtual card. When not specified and if the cardholder name is compliant to requirements, then the cardholder name will be used as the display name.
+      is_single_use:
+        type: bool
+        description: Indicates whether the virtual card can be used only one time.
+        default: false
+      activate_card:
+        type: bool
+        default: true
+        description: Choose whether you want to activate the newly created card. By default virtual cards are created as active. Inactive cards do not accept transactions.
