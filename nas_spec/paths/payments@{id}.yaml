@@ -26,13 +26,12 @@
         description: The payment or payment session identifier
     responses:
       '200':
-        description: Retrieved successfully
+        description: Payment retrieved successfully
         content:
           application/json:
             schema:
               oneOf:
                 - $ref: '#/components/schemas/PaymentDetails'
-                - $ref: '#/components/schemas/CardPayouts_GetPaymentAcceptedResponse'
         headers:
           Cko-Request-Id:
             $ref: '#/components/headers/Cko-Request-Id'
