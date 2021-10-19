@@ -74,102 +74,78 @@
                   partner_id: 123989
             PTC:
               value:
-                payment_id: "pay_l45ga4nr37cevghk5jkvki34my"
                 source:
-                  id: "ca_q7ypx45iejtu3hustadeuipegy"
-                  amount: 100
+                  type: currency_account
+                  id: ca_00000000000000000000000000
+                  amount: 20000
                 destination:
-                  amount": 100,
-                  currency: "GBP"
-                  card_number: "4444333322221111"
-                  card_expiry_year: 2031
-                  card_expiry_month: 12
-                  type: "individual"
-                  first_name: "Frodo"
-                  last_name: "Baggins"
-                  middle_name: ""
-                  company_name": ""
-                  dob: "1902-02-12"
-                  country_of_birth: "NZ"
-                  billing_address_line_1: "1 Bag End"
-                  billing_address_line_2: "The Shire"
-                  billing_address_city: "Hobbiton"
-                  billing_address_state: ""
-                  billing_address_country: "NZ"
-                  billing_address_zip_code: "1R LOTR"
-                  phone_country_code: "64"
-                  phone_number: "07777 123456"
-                  identification_type: "passport"
-                  identification_number: "NZ1234567890"
-                  identification_country_of_issue: "NZ"
-                  identification_expiry_date: "2025-12-01"
-                  email: "frodo.baggins@elf.net"
-                  reference: "merchant_ref_123"
-                  billing_descriptor: "The One Ring"
-                  card_metadata:
-                    fingerprint: "7f2h7238f8798"
-                    scheme": "visa"
-                    last_4": "4552"
-                    bin": "46667"
-                    card_type": "debit"
-                    card_category": "consumer"
-                    issuer": "CitiBank"
-                    issuer_country": "UK"
-                    product_id": "1"
-                    product_type": "a_product_type"
-                    billing_currency": "GBP"
-                    card_sub_type": "reloadable"
-                    lac_combo": "debit + prepaid"
-                    non_mt_oct_domestic": false
-                    ff_non_mt_oct_domestic: false
-                    non_mt_oct_cross_border: false
-                    ff_non_mt_oct_cross_border: false
-                    mt_oct_domestic: false
-                    ff_mt_oct_domestic: false
-                    mt_oct_cross_border: false
-                    ff_mt_oct_cross_border: false
-                    gambling_oct_domestic: false
-                    ff_gambling_oct_domestic: false
-                    gambling_oct_cross_border: false
-                    ff_gambling_oct_cross_border: false
-                    oct_eligible: "Y"
-                    ff_eligible: "Y"
-                    account_range_min: "45660"
-                    account_range_max: "45699"
-                    country_code: 1
-                    region: "a_region"
+                  type: token|id|card
+                  token: tok_00000000000000000000000000
+                  id: PAYMENT_INSTRUMENT_ID
+                  number: '4200000000000000'
+                  expiry_month: 2
+                  expiry_year: 2024
+                  account_holder:
+                    type: individual|corporate|government
+                    first_name: Clark
+                    last_name: Kent
+                    middle_name: Joseph
+                    company_name: Daily Planet
+                    date_of_birth: '1938-04-18'
+                    country_of_birth: US
+                    billing_address:
+                      address_line_1: Apt. 3D
+                      address_line_2: 344 Clinton St
+                      city: Metropolis
+                      state: NY
+                      zip: '33866'
+                      country: US
+                    phone:
+                      country_code: '1'
+                      number: 202-555-0000
+                    identification:
+                      type: passport|driving_license|national_id|company_registration|tax_id
+                      number: D55422213
+                      issuing_country: US
+                      date_of_expiry: '2028-11-20'
+                    email: clark.kent@dailyplanet.net
+                amount: 30000
+                currency: USD
+                reference: EXAMPLE-MERCHANT-REFERENCE
+                billing_descriptor:
+                  reference: DESCRIPTION-ON-ACCOUNT-STATEMENT
                 sender:
-                  type: "individual"
-                  first_name: "Jake"
-                  last_name: "Peralta"
-                  middle_name: ""
-                  company_name: ""
-                  address_line_1: "99th Precinct"
-                  address_line_2: "Brooklyn"
-                  city: "New York"
-                  state: "NY"
-                  zip: "10099"
-                  country: "US"
-                  dob: "1985-12-12"
-                  country_of_birth: "US"
-                  reference: "sender_ref_123"
-                  reference_type: "social_network_id"
-                  source_of_funds: "credit"
-                  identification_type: "driving_license"
-                  identification_number: "US1234599"
-                  identification_country_of_issue: "US"
-                  identification_expiry_date: "2029-12-01"
-                  identification_nationality: "US"
+                  type: individual|corporate|government
+                  first_name: Bruce
+                  last_name: Wayne
+                  middle_name: Thomas
+                  company_name: Wayne Enterprises
+                  address:
+                    address_line_1: Wayne Manor
+                    address_line_2: 1007 Mountain Drive
+                    city: Gotham
+                    state: NJ
+                    zip: '77701'
+                    country: US
+                  reference: bruce@waynecorp.com
+                  reference_type: rtn_and_ban|iban|card_account|email|phone_number|ban_and_bic|wallet_id|social_network_id|other
+                  date_of_birth: '1939-05-27'
+                  country_of_birth: US
+                  nationality: US
+                  source_of_funds: credit|debit|prepaid|deposit_account|mobile_money_account_cash
+                  identification:
+                    type: passport|driving_license|national_id|company_registration|tax_id
+                    number: '55511199'
+                    issuing_country: US
+                    date_of_expiry: '2031-01-13'
                 instruction:
-                  action_id: "act_bc7z4hrgswnuxbjjov6z5mk4za"
-                  transaction_id: "109745d3-259b-4612-a87a-916c1b2c4214"
-                  processing_channel_id: "pc_ybhb2bmz5cvexgqrqi2dzgarju"
-                  fx_quote_id: "qte_76kewxu3ayfezhf2xxkjacieda"
-                  fund_transfer_type: "C07"
-                  mvv: "1234"
-                  purpose: "travel_and_tourism"
-                client:
-                  entity_id: "ent_l4ez4j32ouaefkl77yoade65va"
+                  purpose: pension|...
+                  funds_transfer_type: AA
+                  mvv: 4441223
+                  quote_id: qte_00000000000000000000000000
+                  skip_expiry: false
+                processing_channel_id: pc_00000000000000000000000000
+
     responses:
       '202':
         description: Payment asynchronous or further action required
