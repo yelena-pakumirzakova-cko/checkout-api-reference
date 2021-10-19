@@ -85,7 +85,7 @@ properties:
       - cash
   country_of_birth:
     type: string
-    description: The sender's country of birth
+    description: The [two-letter ISO country code](https://docs.checkout.com/resources/codes/country-codes) of the sender's country of birth
     maxLength: 2
     minLength: 2
   nationality:

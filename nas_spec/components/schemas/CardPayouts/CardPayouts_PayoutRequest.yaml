@@ -110,8 +110,3 @@ properties:
         description: The quote ID of the transaction if obtained before making payout
       processing_channel_id:
         type: string
-  client:
-    type: object
-    properties:
-      entity_id:
-        type: string

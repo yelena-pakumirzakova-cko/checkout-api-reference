@@ -69,7 +69,7 @@ properties:
         maxLength: 25
       issuing_country:
         type: string
-        description: The payout destination owner's ID country of issue
+        description: The [two-letter ISO country code](https://docs.checkout.com/resources/codes/country-codes) of the payout destination owner's ID country of issue
         maxLength: 2
         minLength: 2
       date_of_expiry:
