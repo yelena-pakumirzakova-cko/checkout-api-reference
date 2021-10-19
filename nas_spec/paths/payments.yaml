@@ -19,7 +19,7 @@
           schema:
             oneOf:
               - $ref: '#/components/schemas/PaymentRequest'
-              - $ref: '#/components/schemas/PTC_PayoutRequest'
+              - $ref: '#/components/schemas/CardPayouts_PayoutRequest'
           examples:
             Payment:
               value:
@@ -72,25 +72,23 @@
                 metadata:
                   coupon_code: 'NY2018'
                   partner_id: 123989
-            PTC:
+
+            Card_Payouts_Money_Transfer_Individual:
               value:
                 source:
                   type: currency_account
                   id: ca_00000000000000000000000000
                   amount: 20000
                 destination:
-                  type: token|id|card
-                  token: tok_00000000000000000000000000
-                  id: PAYMENT_INSTRUMENT_ID
+                  type: card
                   number: '4200000000000000'
                   expiry_month: 2
                   expiry_year: 2024
                   account_holder:
-                    type: individual|corporate|government
+                    type: individual
                     first_name: Clark
                     last_name: Kent
                     middle_name: Joseph
-                    company_name: Daily Planet
                     date_of_birth: '1938-04-18'
                     country_of_birth: US
                     billing_address:
@@ -104,7 +102,7 @@
                       country_code: '1'
                       number: 202-555-0000
                     identification:
-                      type: passport|driving_license|national_id|company_registration|tax_id
+                      type: driving_license
                       number: D55422213
                       issuing_country: US
                       date_of_expiry: '2028-11-20'
@@ -115,11 +113,10 @@
                 billing_descriptor:
                   reference: DESCRIPTION-ON-ACCOUNT-STATEMENT
                 sender:
-                  type: individual|corporate|government
+                  type: individual
                   first_name: Bruce
                   last_name: Wayne
                   middle_name: Thomas
-                  company_name: Wayne Enterprises
                   address:
                     address_line_1: Wayne Manor
                     address_line_2: 1007 Mountain Drive
@@ -128,21 +125,115 @@
                     zip: '77701'
                     country: US
                   reference: bruce@waynecorp.com
-                  reference_type: rtn_and_ban|iban|card_account|email|phone_number|ban_and_bic|wallet_id|social_network_id|other
+                  reference_type: email
                   date_of_birth: '1939-05-27'
                   country_of_birth: US
                   nationality: US
-                  source_of_funds: credit|debit|prepaid|deposit_account|mobile_money_account_cash
+                  source_of_funds: credit
                   identification:
-                    type: passport|driving_license|national_id|company_registration|tax_id
+                    type: passport
                     number: '55511199'
                     issuing_country: US
                     date_of_expiry: '2031-01-13'
                 instruction:
-                  purpose: pension|...
+                  purpose: pension
                   funds_transfer_type: AA
                   mvv: 4441223
-                  quote_id: qte_00000000000000000000000000
+                  skip_expiry: false
+                processing_channel_id: pc_00000000000000000000000000
+
+            Card_Payouts_Payment_Facilitator_Corporate:
+              value:
+                source:
+                  type: currency_account
+                  id: ca_00000000000000000000000000
+                  amount: 20000
+                destination:
+                  type: card
+                  number: '4200000000000000'
+                  expiry_month: 2
+                  expiry_year: 2024
+                  account_holder:
+                    type: corporate
+                    company_name: Daily Planet
+                    billing_address:
+                      address_line_1: 355-100 Broadway
+                      city: Metropolis
+                      state: NY
+                      zip: '33888'
+                      country: US
+                amount: 30000
+                currency: USD
+                reference: EXAMPLE-MERCHANT-REFERENCE
+                billing_descriptor:
+                  reference: DESCRIPTION-ON-ACCOUNT-STATEMENT
+                sender:
+                  type: corporate
+                  company_name: Wayne Enterprises
+                  address:
+                    address_line_1: Wayne Tower
+                    address_line_2: 150-180 8th Avenue
+                    city: Gotham
+                    state: NJ
+                    zip: '72101'
+                    country: US
+                  reference: 18834442:1933455
+                  reference_type: ban_and_bic
+                  source_of_funds: credit
+                  identification:
+                    type: tax_id
+                    number: '888445761'
+                    issuing_country: US
+                instruction:
+                  purpose: investments
+                  funds_transfer_type: AA
+                  mvv: 4441223
+                  skip_expiry: false
+                processing_channel_id: pc_00000000000000000000000000
+
+            Card Payouts_Funds_Disbursement_Corporate:
+              value:
+                source:
+                  type: currency_account
+                  id: ca_00000000000000000000000000
+                  amount: 20000
+                destination:
+                  type: card
+                  number: '4200000000000000'
+                  expiry_month: 2
+                  expiry_year: 2024
+                  account_holder:
+                    type: individual
+                    first_name: Clark
+                    last_name: Kent
+                    middle_name: Joseph
+                    date_of_birth: '1938-04-18'
+                    country_of_birth: US
+                    billing_address:
+                      address_line_1: Apt. 3D
+                      address_line_2: 344 Clinton St
+                      city: Metropolis
+                      state: NY
+                      zip: '33866'
+                      country: US
+                    phone:
+                      country_code: '1'
+                      number: 202-555-0000
+                    identification:
+                      type: driving_license
+                      number: D55422213
+                      issuing_country: US
+                      date_of_expiry: '2028-11-20'
+                    email: clark.kent@dailyplanet.net
+                amount: 30000
+                currency: USD
+                reference: EXAMPLE-MERCHANT-REFERENCE
+                billing_descriptor:
+                  reference: DESCRIPTION-ON-ACCOUNT-STATEMENT
+                instruction:
+                  purpose: pension
+                  funds_transfer_type: FD
+                  mvv: 4441223
                   skip_expiry: false
                 processing_channel_id: pc_00000000000000000000000000
 
@@ -154,7 +245,7 @@
             schema:
               oneOf:
                 - $ref: '#/components/schemas/PaymentAcceptedResponse'
-                - $ref: '#/components/schemas/PTC_PayoutRequestAcceptedResponse'
+                - $ref: '#/components/schemas/CardPayouts_PayoutRequestAcceptedResponse'
         headers:
           Cko-Request-Id:
             $ref: '#/components/headers/Cko-Request-Id'

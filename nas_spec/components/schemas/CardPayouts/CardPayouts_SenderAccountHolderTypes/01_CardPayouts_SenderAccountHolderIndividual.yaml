@@ -3,6 +3,10 @@ description: A token payment source
 required:
   - first_name
   - last_name
+  - address
+  - reference
+  - reference_type
+  - source_of_funds
 properties:
   type:
     type: string
@@ -84,10 +88,12 @@ properties:
     description: The sender's country of birth
     maxLength: 2
     minLength: 2
+  nationality:
+    description: The [two-letter ISO country code](https://docs.checkout.com/resources/codes/country-codes) of the sender's nationality
+    maxLength: 2
+    minLength: 2
   identification:
     type: object
-    required:
-      - nationality
     properties:
       type:
         type: string
@@ -101,17 +107,13 @@ properties:
       number:
         type: string
         description: The sender's ID number. Mandatory when sending cross-border transactions from AU
-      country_of_issue:
+      issuing_country:
         type: string
         description: The [two-letter ISO country code](https://docs.checkout.com/resources/codes/country-codes) of the sender's country of issue. Mandatory when sending cross-border transactions from AU
         minLength: 2
         maxLength: 2
-      expiry_date:
+      date_of_expiry:
         type: string
         description: The sender's ID expiry date
         maxLength: 10
         minLength: 10
-      nationality:
-        description: The [two-letter ISO country code](https://docs.checkout.com/resources/codes/country-codes) of the sender's nationality
-        maxLength: 2
-        minLength: 2

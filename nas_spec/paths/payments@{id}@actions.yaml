@@ -24,7 +24,9 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PTC_GetPaymentActionsResponse'
+              oneOf:
+                - $ref: '#/components/schemas/PaymentActionsResponse'
+                - $ref: '#/components/schemas/CardPayouts_GetPaymentActionsResponse'
         headers:
           Cko-Request-Id:
             $ref: '#/components/headers/Cko-Request-Id'

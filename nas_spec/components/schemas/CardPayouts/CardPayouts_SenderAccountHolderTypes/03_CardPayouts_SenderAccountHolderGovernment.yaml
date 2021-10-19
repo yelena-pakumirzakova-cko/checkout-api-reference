@@ -10,7 +10,6 @@ properties:
   company_name:
     type: string
     description: The sender's company name
-    maxLength: 35
   address:
     type: object
     properties:
@@ -90,12 +89,12 @@ properties:
       number:
         type: string
         description: The sender's ID number. Mandatory when sending cross-border transactions from AU
-      country_of_issue:
+      issuing_country:
         type: string
         description: The [two-letter ISO country code](https://docs.checkout.com/resources/codes/country-codes) of the sender's country of issue. Mandatory when sending cross-border transactions from AU
         minLength: 2
         maxLength: 2
-      expiry_date:
+      date_of_expiry:
         type: string
         description: The sender's ID expiry date
         maxLength: 10

@@ -2,6 +2,7 @@ type: object
 description: A token payment source
 required:
   - type
+  - token
 properties:
   type:
     type: string
@@ -17,9 +18,9 @@ properties:
     discriminator:
       propertyName: type
       mapping:
-        individual: '#/components/schemas/01_PTCDestinationAccountHolderIndividual'
-        corporate: '#/components/schemas/02_PTCDestinationAccountHolderCorporate'
-        government: '#/components/schemas/03_PTCDestinationAccountHolderGovernment'
+        individual: '#/components/schemas/01_CardPayouts_DestinationAccountHolderIndividual'
+        corporate: '#/components/schemas/02_CardPayouts_DestinationAccountHolderCorporate'
+        government: '#/components/schemas/03_CardPayouts_DestinationAccountHolderGovernment'
     properties:
       type:
         type: string

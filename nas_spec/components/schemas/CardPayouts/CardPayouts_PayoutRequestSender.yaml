@@ -1,0 +1,13 @@
+type: object
+description: The type of sender
+discriminator:
+  propertyName: type
+  mapping:
+    individual: '#/components/schemas/01_CardPayouts_SenderAccountHolderIndividual'
+    corporate: '#/components/schemas/02_CardPayouts_SenderAccountHolderCorporate'
+    government: '#/components/schemas/03_CardPayouts_SenderAccountHolderGovernment'
+properties:
+  type:
+    type: string
+    description: The type of card holder
+    example: 'individual'

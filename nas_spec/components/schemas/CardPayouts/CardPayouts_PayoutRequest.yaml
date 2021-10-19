@@ -21,12 +21,12 @@ properties:
         type: integer
         description: Amount to be paid out from currency account. One of `source.amount` or `amount` must be provided
   destination:
-    $ref: '#/components/schemas/PTC_PayoutRequestDestination'
+    $ref: '#/components/schemas/CardPayouts_PayoutRequestDestination'
   amount:
     type: integer
     description: The payout destination amount. The exact format [depends on the currency](https://docs.checkout.com/resources/calculating-the-value). One of `source.amount` or `amount` must be provided
   sender:
-    $ref: '#/components/schemas/PTC_PayoutRequestSender'
+    $ref: '#/components/schemas/CardPayouts_PayoutRequestSender'
   currency:
     type: string
     description: The [three-letter currency code](https://docs.checkout.com/resources/codes/currency-codes)
@@ -35,16 +35,23 @@ properties:
     description: A reference you can later use to identify this payout, such as an order number
     maxLength: 50
   billing_descriptor:
-    type: string
-    description: A billing descriptor displayed on the account owner's statement
-    maxLength: 14
+    type: object
+    description: The dynamic billing descriptor displayed on the account owner's statement
+    properties:
+      reference:
+        type: string
+        description: The reference that should be shown on the statement
   instruction:
     type: object
+    required:
+      - funds_transfer_type
+      - processing_channel_id
     properties:
       skip_expiry:
         type: boolean
       purpose:
         type: string
+        description: Mandatory when `destination.issuing_country` is Argentina, Bangladesh, Egypt, or India.
         enum:
           - family_support
           - expatriation
@@ -98,7 +105,7 @@ properties:
         type: integer
         description: The Merchant Verification Value
         maxLength: 10
-      fx_quote_id:
+      quote_id:
         type: string
         description: The quote ID of the transaction if obtained before making payout
       processing_channel_id:
