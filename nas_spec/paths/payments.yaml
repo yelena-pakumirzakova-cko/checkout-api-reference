@@ -239,7 +239,7 @@
 
     responses:
       '201':
-        description: Payment processed successfully
+        description: Payment request processed successfully
         content:
           application/json:
             schema:
@@ -302,7 +302,7 @@
           Cko-Version:
             $ref: '#/components/headers/Cko-Version'
       '202':
-        description: Payment asynchronous or further action required
+        description: Payment asynchronous or further action required, or card payout processed successfully
         content:
           application/json:
             schema:
