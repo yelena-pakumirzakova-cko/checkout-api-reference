@@ -100,7 +100,7 @@ properties:
         description: Mandatory when sending cross-border transactions from AU for any `sender.type`
         enum:
           - passport
-          - driving_licence
+          - driving_license
           - national_id
           - company_registration
           - tax_id

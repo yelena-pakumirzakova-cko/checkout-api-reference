@@ -59,7 +59,7 @@ properties:
         description: The payout destination owner's ID type
         enum:
           - passport
-          - driving_licence
+          - driving_license
           - national_id
           - company_registration
           - tax_id
