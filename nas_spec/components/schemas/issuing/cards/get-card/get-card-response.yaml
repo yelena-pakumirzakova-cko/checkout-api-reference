@@ -18,7 +18,7 @@ required:
   - issuing_country
 properties:
   id:
-    $ref: '#/components/schemas/CardId'
+    $ref: '#/components/schemas/IssuingCardId'
   last_four:
     $ref: '#/components/schemas/LastFour'
   expiry_month:

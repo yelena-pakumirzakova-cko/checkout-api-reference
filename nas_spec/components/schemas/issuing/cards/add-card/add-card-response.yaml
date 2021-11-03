@@ -11,7 +11,7 @@ required:
   - created_date
 properties:
   id:
-    $ref: '#/components/schemas/CardId'
+    $ref: '#/components/schemas/IssuingCardId'
   display_name:
     $ref: '#/components/schemas/DisplayName'
   last_four:

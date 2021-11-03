@@ -7,7 +7,7 @@ allOf:
         $ref: '#/components/schemas/DisplayName'
         description: The display name shown on the virtual card. When not specified and if the cardholder name is compliant to requirements, then the cardholder name will be used as the display name.
       shipping_instructions:
-        $ref: '#/components/schemas/ShippingInstruction'
+        $ref: '#/components/schemas/IssuingShippingInstruction'
       activate_card:
         type: bool
         default: false
