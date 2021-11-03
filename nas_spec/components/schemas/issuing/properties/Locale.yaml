@@ -1,0 +1,8 @@
+type: string
+enum: [en-US, fr-FR]
+description: Combination of language and country code used to display amounts, dates, text etc.
+format: language-COUNTRY
+example: en-US
+pattern: ^[a-z]{2}-[A-Z]{2}$
+maxLength: 5
+minLength: 5

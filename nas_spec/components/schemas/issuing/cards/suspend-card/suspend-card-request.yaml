@@ -1,0 +1,8 @@
+type: object
+properties:
+  reason:
+    type: string
+    enum:
+      - suspected_lost
+      - suspected_stolen
+    example: suspected_lost
