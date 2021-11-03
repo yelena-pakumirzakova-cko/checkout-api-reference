@@ -1,0 +1,6 @@
+type: integer
+format: int32
+description: The four-digit expiry year of the card
+example: 2025
+maxLength: 4
+minLength: 4

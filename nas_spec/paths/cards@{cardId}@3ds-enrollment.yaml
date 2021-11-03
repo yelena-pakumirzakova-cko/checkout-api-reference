@@ -1,0 +1,107 @@
+/cards/{3ds-enrollment}:
+  servers:
+    - url: https://api.checkout.com/issuing
+      description: Live API
+    - url: https://api.sandbox.checkout.com/issuing
+      description: Sandbox API
+  post:
+    tags:
+      - Cards
+    summary: Enroll a card into 3DS
+    description: <b>3D secure</b> provides an additional layer of security to your cardholders for online payments and therefore reduces fraud and chargeback requests.<br><br>In order to <b>enable 3DS</b> on your issued cards, you will need to provide specific authentication data for the cards. We have to request the cardholder for this information through a challenge screen when making a payment online. To comply with the new <b>PSD2 regulation</b>, we support two-factor authentication. We propose a combination of <b>one-time password sent via SMS</b> + a choice of either <b>password</b> or <b>question & answer</b>.<br><br>Please provide the information related to <b>the combination during your company’s onboarding</b>. Only one choice is allowed. If the information sent is invalid for the option, then you will get an error message.
+
+    parameters:
+      - in: path
+        name: cardId
+        required: true
+        schema:
+          $ref: '#/components/schemas/IssuingCardId'
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+              oneOf:
+                - $ref: '#/components/schemas/security_question'
+                - $ref: '#/components/schemas/Password'
+    responses:
+      '202':
+        description: Enroll a card into 3DS request accepted successfully
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/3ds-enrollment-post-response'
+      '401':
+        description: Unauthorized
+      '404':
+        description: Card not found
+      '422':
+        description: Invalid data was sent
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssuingValidationError'
+      '500':
+        description: Internal Server Error
+
+  patch:
+    tags:
+      - Cards
+    summary: Update already 3DS enrolled card
+    description:
+    parameters:
+      - in: path
+        name: cardId
+        required: true
+        schema:
+          $ref: '#/components/schemas/IssuingCardId'
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/3ds-enrollment-patch-request'
+    responses:
+      '202':
+        description: Update already enrolled card request accepted successfully
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/3ds-enrollment-patch-response'
+      '401':
+        description: Unauthorized
+      '404':
+        description: card not found
+      '422':
+        description: Invalid data was sent
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssuingValidationError'
+      '500':
+        description: Internal Server Error
+
+  get:
+    tags:
+      - Cards
+    summary: Get 3DS enrollment details
+    description:
+    parameters:
+      - in: path
+        name: cardId
+        required: true
+        schema:
+          $ref: '#/components/schemas/IssuingCardId'
+    responses:
+      '200':
+        description: Retrieved 3DS Enrollment details successfully
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/3ds-enrollment-get-response'
+      '401':
+        description: Unauthorized
+      '404':
+        description: card not found
+      '500':
+        description: Internal Server Error
