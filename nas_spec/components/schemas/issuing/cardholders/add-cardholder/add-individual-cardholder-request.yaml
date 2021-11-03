@@ -30,7 +30,7 @@ allOf:
         maxLength: 40
       email:
         description: The cardholder's email.
-        $ref: '#/components/schemas/Email'
+        $ref: '#/components/schemas/IssuingEmail'
       phone_number:
         description: The cardholder's phonenumber. This information will be used at part of the 3DS challenge.
         $ref: '#/components/schemas/IssuingPhoneNumber'

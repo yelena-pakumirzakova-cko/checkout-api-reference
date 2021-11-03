@@ -6,7 +6,7 @@ required:
 properties:
   self:
     type: object
-    $ref: '#/components/schemas/Link'
+    $ref: '#/components/schemas/IssuingLink'
     description: The URI to retrieve the 3ds enrollment details.
 example:
   self:

@@ -14,7 +14,7 @@
         name: cardholder_id
         required: true
         schema:
-          $ref: '#/components/schemas/CardholderId'
+          $ref: '#/components/schemas/IssuingCardholderId'
     responses:
       '200':
         description: Card holder retrieved successfully

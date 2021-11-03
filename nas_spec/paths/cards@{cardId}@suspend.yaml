@@ -14,7 +14,7 @@
         name: cardId
         required: true
         schema:
-          $ref: '#/components/schemas/CardId'
+          $ref: '#/components/schemas/IssuingCardId'
     requestBody:
       required: true
       content:
@@ -37,4 +37,4 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ValidationError'
+              $ref: '#/components/schemas/IssuingValidationError'

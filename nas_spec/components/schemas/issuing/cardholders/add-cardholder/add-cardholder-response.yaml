@@ -5,7 +5,7 @@ required:
   - _links
 properties:
   id:
-    $ref: '#/components/schemas/CardholderId'
+    $ref: '#/components/schemas/IssuingCardholderId'
   type:
     type: string
     description: The cardholder type.

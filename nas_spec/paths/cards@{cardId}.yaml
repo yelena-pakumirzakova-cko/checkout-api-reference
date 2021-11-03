@@ -14,7 +14,7 @@
         name: cardId
         required: true
         schema:
-          $ref: '#/components/schemas/CardId'
+          $ref: '#/components/schemas/IssuingCardId'
     responses:
       '200':
         description: Card retrieved successfully

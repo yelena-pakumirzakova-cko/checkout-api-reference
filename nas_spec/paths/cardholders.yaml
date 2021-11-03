@@ -29,6 +29,6 @@
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ValidationError'
+              $ref: '#/components/schemas/IssuingValidationError'
       '500':
         description: Internal Server Error
