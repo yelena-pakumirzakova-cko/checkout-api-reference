@@ -1,0 +1,11 @@
+type: object
+required:
+  - is_single_use
+allOf:
+  - $ref: '#/components/schemas/get-cards-data'
+  - type: object
+    properties:
+      is_single_use:
+        type: bool
+        description: Indicates whether the virtual card can be used only one time.
+        default: false

@@ -1,0 +1,5 @@
+type: string
+pattern: ^[a-zA-Z'- ]{1,28}$
+minLength: 1
+maxLength: 28
+example: JOHN KENNEDY

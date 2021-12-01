@@ -1,0 +1,6 @@
+type: integer
+description: The numbers of results to return.
+default: 50
+minimum: 1
+maximum: 250
+example: 100

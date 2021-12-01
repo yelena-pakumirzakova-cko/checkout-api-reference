@@ -1,0 +1,18 @@
+type: object
+description: Card details
+required:
+  - limit
+  - skip
+  - total_count
+  - data
+properties:
+  limit:
+    $ref: '#/components/schemas/limit'
+  skip:
+    $ref: '#/components/schemas/skip'
+  total_count:
+    type: integer
+    description: Number of items found.
+    example: 1000
+  data:
+    $ref: '#/components/schemas/get-cards-array-data'

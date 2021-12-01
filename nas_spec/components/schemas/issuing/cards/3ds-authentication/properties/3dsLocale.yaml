@@ -1,0 +1,8 @@
+type: string
+enum: [en-US, fr-FR]
+description: A combination of language code and country code to specify the language used to prompt text in a specific language and format amounts, dates etc. This will be reflected in the Challenge screen and text messages.
+format: language-COUNTRY
+example: en-US
+pattern: ^[a-z]{2}-[A-Z]{2}$
+maxLength: 5
+minLength: 5
