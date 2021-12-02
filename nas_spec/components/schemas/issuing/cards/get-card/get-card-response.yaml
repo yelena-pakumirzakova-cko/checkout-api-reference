@@ -30,12 +30,7 @@ properties:
   display_name:
     $ref: '#/components/schemas/DisplayName'
   type:
-    type: string
-    description: The card type
-    enum:
-      - virtual
-      - physical
-    example: virtual
+    $ref: '#/components/schemas/IssuingType'
   billing_currency:
     $ref: '#/components/schemas/IssuingCurrency'
   issuing_country:
@@ -47,13 +42,10 @@ properties:
   reference:
     $ref: '#/components/schemas/IssuingReference'
   created_date:
-    type: string
-    format: datetime
-    example: "2019-09-10T10:11:12Z"
+    $ref: '#/components/schemas/Datetime'
   last_modified_date:
-    type: string
-    format: datetime
-    example: "2019-09-11T10:11:12Z"
+    $ref: '#/components/schemas/Datetime'
   _links:
     allOf:
+      - $ref: '#/components/schemas/CardLinks'
       - $ref: '#/components/schemas/CardLinks'
