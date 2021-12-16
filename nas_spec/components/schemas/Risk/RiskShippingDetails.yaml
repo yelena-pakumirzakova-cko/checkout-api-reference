@@ -5,3 +5,7 @@ properties:
     description: The shipping address
     allOf:
       - $ref: '#/components/schemas/Address'
+  phone:
+    description: The phone number associated with the shipping address
+    allOf:
+      - $ref: '#/components/schemas/PhoneNumber'
