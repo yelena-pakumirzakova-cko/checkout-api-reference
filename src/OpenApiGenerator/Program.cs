@@ -204,7 +204,7 @@ namespace OpenApiGenerator
         {
           Language = new DirectoryInfo(fileInfo.FullName).Parent.Parent.Name,
           SampleString = $"\"{string.Join("\\n", File.ReadAllLines(fileInfo.FullName).Select(x => x.Replace("\"", "\\\"")))}\"",
-          Path = new DirectoryInfo(fileInfo.FullName).Parent.Name.Replace("@", "/"),
+          Path = new DirectoryInfo(fileInfo.FullName).Parent.Name.Replace("@", "/").Replace("__", " "),
           HttpVerb = filename
         });
       }
