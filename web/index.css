@@ -643,10 +643,6 @@ div.CodeMirror span.CodeMirror-matchingbracket,
 	border-left: 1px solid var(--border);
 }
 
-.dzBcKB {
-	background-color: var(--primary-dark-blue) !important;
-}
-
 .ksvBCj span {
 	color: var(--primary-text) !important;
 }
@@ -1143,49 +1139,6 @@ code {
 	color: var(--primary-text) !important;
 }
 
-/* Search box */
-
-div[role='search'] {
-	margin: 20px !important;
-	border: 1px solid var(--background-contrast) !important;
-	border-radius: 8px;
-	background: var(--background-contrast) !important;
-}
-
-.search-input {
-	border: 0 !important;
-	color: var(--secondary-text) !important;
-}
-
-input.search-input {
-	font-weight: 400;
-	color: var(--primary-text);
-}
-
-.search-icon {
-	left: 30px !important;
-}
-
-i.k4h4y9-4.jGkewb {
-	right: 30px;
-	top: 13px;
-}
-
-.eJUTHL {
-	border-bottom: 0 !important;
-	padding-bottom: 0 !important;
-	background: var(--secondary-text) !important;
-}
-
-i.sc-gqPbQI.hQYSSu {
-	margin-right: 5px !important;
-}
-
-.sc-cLQEGU.kYDFzp {
-	background-color: var(--cko-white) !important;
-	border-bottom: none !important;
-}
-
 /* Navigation */
 
 label.active,
@@ -1638,4 +1591,75 @@ body.light div.iFDKZT.iFDKZT {
 /*Changing the endpoint drop down to navy*/
 button.sc-qQmou.hnIgFW {
 	background-color: var(--url-area) !important;
+}
+
+/* Redocly v2 */
+
+.OJJCp {
+	margin-top: 24px;
+}
+
+.gBNvUC {
+	margin: 20px !important;
+	background-color: white !important;
+	border-radius: 8px !important;
+}
+
+.ijjBkY {
+	margin: 0px !important;
+	padding: 12.5px 20px !important;
+	font-size: 0.929em !important;
+}
+
+.lomGeO {
+	margin: 0px !important;
+	padding: 12.5px 20px !important;
+	font-size: 0.929em !important;
+}
+
+.hQHtrW {
+	margin: 0px !important;
+	padding: 12.5px 20px 2px !important;
+	text-transform: uppercase !important;
+	font-size: 0.8em !important;
+	font-weight: 400 !important;
+	line-height: 1.5em !important;
+	color: var(--primary-text) !important;
+}
+
+.kVpILk,
+.hNqVWz {
+	padding: 12.5px 20px !important;
+	margin: 0px !important;
+	font-size: 12px !important;
+	justify-content: space-between;
+	flex-direction: row-reverse;
+}
+
+.dzBcKB {
+	margin: 0px !important;
+	padding: 12.5px 20px !important;
+	font-size: 0.929em !important;
+}
+
+.lmyjLH {
+	line-height: 21px !important;
+}
+
+.dtRYKV {
+	margin: 0px !important;
+}
+
+.iwudJs {
+	border-radius: 3px !important;
+	font-size: 7px !important;
+	height: 13px !important;
+	width: 9ex !important;
+	margin-top: 2px;
+	margin-right: 6px;
+}
+
+.koBGyb {
+	font-size: 0.929em !important;
+	margin-left: 2px;
 }
