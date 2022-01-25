@@ -11,21 +11,18 @@ allOf:
         type: string
         description: The cardholder first name.
         example: John
-        pattern: ^[a-zA-Z'- ]{1,40}$
         minLength: 1
         maxLength: 40
       middle_name:
         type: string
         description: The cardholder middle name.
         example: Fitzgerald
-        pattern: ^[a-zA-Z'- ]{1,40}$
         minLength: 1
         maxLength: 40
       last_name:
         type: string
         description: The cardholder last name.
         example: Kennedy
-        pattern: ^[a-zA-Z'- ]{1,40}$
         minLength: 1
         maxLength: 40
       email:

@@ -5,7 +5,7 @@ allOf:
     properties:
       display_name:
         $ref: '#/components/schemas/DisplayName'
-        description: The display name shown on the virtual card. When not specified and if the cardholder name is compliant to requirements, then the cardholder name will be used as the display name.
+        description: The display name shown on the card.
       is_single_use:
         type: bool
         description: Indicates whether the virtual card can be used only one time.

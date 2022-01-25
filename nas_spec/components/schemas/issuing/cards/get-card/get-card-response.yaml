@@ -48,4 +48,3 @@ properties:
   _links:
     allOf:
       - $ref: '#/components/schemas/CardLinks'
-      - $ref: '#/components/schemas/CardLinks'
