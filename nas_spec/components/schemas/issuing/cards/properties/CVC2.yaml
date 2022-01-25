@@ -1,0 +1,6 @@
+type: string
+minimum: 3
+maximum: 3
+pattern: ^[0-9]{3}$
+description: The card verification code (CVC2) often referred to as the card verification value (CVV).
+example: 604

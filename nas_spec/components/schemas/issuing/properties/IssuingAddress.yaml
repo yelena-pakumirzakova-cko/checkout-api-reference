@@ -1,0 +1,43 @@
+type: object
+required:
+  - address_line1
+  - city
+  - zip
+  - country
+properties:
+  address_line1: 
+    type: string
+    description: The first line of the address
+    example: Checkout.com
+    maxLength: 256
+    minLength: 1
+  address_line2:
+    type: string
+    description: The second line of the address
+    example: 90 Tottenham Court Road
+    maxLength: 256
+    minLength: 1
+  city:
+    type: string
+    description: The address city
+    example: London
+    maxLength: 256
+    minLength: 1
+  state:
+    type: string
+    description: The address state
+    example: London
+    maxLength: 256
+    minLength: 1
+  zip:
+    type: string
+    description: The address zip/postal code
+    example: W1T 4TJ
+    maxLength: 256
+    minLength: 1
+  country:
+    type: string
+    description: The two-letter <a href="https://docs.checkout.com/docs/country-codes" target="blank">ISO country code</a> of the address
+    example: GB
+    maxLength: 2
+    minLength: 2

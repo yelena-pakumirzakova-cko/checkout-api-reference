@@ -1,0 +1,17 @@
+type: object
+allOf:
+  - $ref: '#/components/schemas/add-card-request'
+  - type: object
+    properties:
+      display_name:
+        $ref: '#/components/schemas/DisplayName'
+        description: The display name shown on the card.
+      shipping_instructions:
+        $ref: '#/components/schemas/IssuingShippingInstruction'
+      activate_card:
+        type: bool
+        default: false
+        description: Choose whether you want to activate the newly created card. By default physical cards are created as inactive. Inactive cards do not accept transactions.   
+required:
+  - shipping_instructions
+  - display_name

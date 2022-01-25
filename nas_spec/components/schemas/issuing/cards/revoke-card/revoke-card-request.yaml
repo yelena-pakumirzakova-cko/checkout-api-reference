@@ -1,0 +1,9 @@
+type: object
+properties:
+  reason:
+    type: string
+    enum:
+      - expired
+      - reported_lost
+      - reported_stolen
+    example: reported_lost
