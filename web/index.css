@@ -537,10 +537,6 @@ small {
 	font-weight: 500;
 }
 
-.cm-s-material.CodeMirror {
-	background-color: transparent !important;
-}
-
 .cm-s-material .cm-string {
 	color: var(--token-string) !important;
 }
@@ -986,13 +982,12 @@ li {
 	color: var(--secondary-text) !important;
 }
 
-.react-tabs__tab-list .react-tabs__tab--selected {
+.react-tabs .react-tabs__tab--selected {
 	background-color: var(--secondary-button) !important;
 	color: var(--primary-button-color) !important;
 	border-color: var(--secondary-button) !important;
 	border-radius: 4px !important;
 	font-weight: 500 !important;
-	margin-bottom: 8px !important;
 }
 
 .dropdown-arrow {
@@ -1327,24 +1322,36 @@ code {
 	border: none !important;
 }
 
-span.property.token.string {
-	color: var(--code-param) !important;
-}
-
 span.token.string {
 	color: var(--code-string) !important;
 }
 
-span.token .number {
+span.token.number {
 	color: var(--code-value-number) !important;
 }
 
-span.token .keyword {
+span.token.keyword {
 	color: var(--code-value-link) !important;
 }
 
 span.token.boolean {
 	color: var(--code-value-bool) !important;
+}
+
+span.token.class-name {
+	color: var(--S1000) !important;
+}
+
+span.token.punctuation {
+	color: var(--S1000) !important;
+}
+
+span.token.function {
+	color: var(--S1000) !important;
+}
+
+span.token.property {
+	color: var(--S1000) !important;
 }
 
 .egwcPy,
@@ -1595,6 +1602,8 @@ button.sc-qQmou.hnIgFW {
 
 /* Redocly v2 */
 
+/* left hand nav */
+
 .OJJCp {
 	margin-top: 24px;
 }
@@ -1662,4 +1671,167 @@ button.sc-qQmou.hnIgFW {
 .koBGyb {
 	font-size: 0.929em !important;
 	margin-left: 2px;
+}
+
+/* request sample */
+
+.uOrRn.uOrRn .sc-ckTSus {
+	background-color: var(--S10) !important;
+}
+
+.uOrRn > .sc-eirqVv {
+	background-color: var(--primary-dark-blue) !important;
+}
+
+button.gqkoN {
+	background-color: var(--secondary-button) !important;
+	color: var(--primary-dark-blue) !important;
+}
+
+.gxdqsh {
+	border-bottom: none !important;
+	gap: 8px !important;
+}
+
+.elJWFT {
+	border-radius: 4px !important;
+	font-size: 12px !important;
+	background-color: var(--Y80) !important;
+}
+
+.tXBLy {
+	border-bottom: none !important;
+	border-radius: 4px !important;
+	font-size: 12px !important;
+}
+
+.elJWFT.react-tabs__tab--selected {
+	border-bottom: none !important;
+	margin-bottom: 0px !important;
+	color: var(--Y80) !important;
+	background-color: var(--primary-dark-blue) !important;
+}
+
+.jOrdbS[open],
+.jOrdbS:focus-within,
+.jOrdbS:hover {
+	background: transparent !important;
+}
+
+.jOrdbS .dropdown-arrow {
+	color: var(--primary-dark-blue) !important;
+}
+
+.kViwVs {
+	background-color: var(--secondary-button) !important;
+	color: var(--primary-dark-blue) !important;
+}
+
+.gFNKQG {
+	color: var(--primary-dark-blue) !important;
+}
+
+/* try it now box */
+
+.bvDTNP {
+	background-color: var(--primary-dark-blue) !important;
+}
+
+.fFlQZJ {
+	background-color: var(--primary-dark-blue) !important;
+}
+
+.kklaQe {
+	background-color: var(--S10) !important;
+	color: var(--primary-dark-blue) !important;
+}
+
+.gWoFlk {
+	color: var(--primary-dark-blue) !important;
+}
+
+.hUOzMx .sc-eirqVv {
+	background-color: var(--primary-dark-blue) !important;
+}
+
+.hUOzMx .sc-ckTSus {
+	background-color: var(--S10) !important;
+}
+
+.fFlQZJ .sc-ckTSus {
+	background-color: var(--S10) !important;
+}
+
+.cTKnlj {
+	background-color: var(--S00) !important;
+	color: var(--primary-dark-blue) !important;
+}
+.gQMcpJ {
+	color: var(--primary-dark-blue) !important;
+}
+
+.dMUmYf {
+	background-color: var(--primary-dark-blue) !important;
+}
+
+.cm-s-material.CodeMirror {
+	background-color: var(--sidebar-background) !important;
+}
+
+.flPzTW {
+	background-color: var(--sidebar-background) !important;
+}
+
+.esFdau {
+	background-color: var(--S00) !important;
+	color: var(--primary-dark-blue) !important;
+}
+
+.cqMIfY {
+	background-color: var(--sidebar-background) !important;
+}
+
+button.collapser {
+	color: var(--primary-dark-blue) !important;
+}
+
+.boBkwr {
+	background-color: var(--sidebar-background) !important;
+	color: var(--primary-dark-blue) !important;
+}
+
+.jJMzfw {
+	background-color: var(--secondary-button) !important;
+	color: var(--primary-dark-blue) !important;
+}
+
+.lmxzaH {
+	top: 48px !important;
+}
+
+/* main body */
+
+@media screen and (min-width: 85rem) {
+	.hasNAH {
+		padding-top: 48px !important;
+	}
+}
+
+/* dark mode */
+
+.blWcoH code {
+	background-color: var(--code-label-background) !important;
+}
+
+.blWcoH table th {
+	background-color: var(--code-label-background) !important;
+}
+
+.hmgMjk {
+	background-color: var(--code-label-background) !important;
+	padding-top: 16px;
+}
+
+.MjCCe {
+	background-color: var(--secondary-background) !important;
 }
