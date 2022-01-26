@@ -81,7 +81,7 @@
 	--background: var(--cko-dark-blue);
 	--sidebar-background: var(--cko-dark-blue);
 	--secondary-background: var(--S300);
-	--table-background: var(--cko-dark-blue);
+	--table-background: var(--S800);
 	--toggle-bg: var(--S500);
 	--primary-text: var(--cko-white);
 	--secondary-text: var(--S10);
@@ -332,7 +332,7 @@ img.sc-kafWEX.hZCbNs {
 
 /* Overwrite swagger logo with own logo file */
 
-.kyCarw {
+.eLwpnt {
 	content: var(--logo) !important;
 }
 
@@ -1339,19 +1339,19 @@ span.token.boolean {
 }
 
 span.token.class-name {
-	color: var(--S1000) !important;
+	color: var(--primary-text) !important;
 }
 
 span.token.punctuation {
-	color: var(--S1000) !important;
+	color: var(--primary-text) !important;
 }
 
 span.token.function {
-	color: var(--S1000) !important;
+	color: var(--primary-text) !important;
 }
 
 span.token.property {
-	color: var(--S1000) !important;
+	color: var(--primary-text) !important;
 }
 
 .egwcPy,
@@ -1609,9 +1609,22 @@ button.sc-qQmou.hnIgFW {
 }
 
 .gBNvUC {
+	display: flex !important;
+	justify-content: space-between !important;
+	padding: 10px 24px 8px 16px !important;
+	color: var(--S300) !important;
 	margin: 20px !important;
 	background-color: white !important;
 	border-radius: 8px !important;
+}
+
+.gBNvUC .search-icon {
+	top: 0px !important;
+}
+
+.search-popup,
+.search-popup > .svg.search-icon {
+	color: var(--primary-text) !important;
 }
 
 .ijjBkY {
@@ -1673,6 +1686,14 @@ button.sc-qQmou.hnIgFW {
 	margin-left: 2px;
 }
 
+.lmyjLH {
+	font-size: 12px !important;
+}
+
+.dtRYKV {
+	padding: 12.5px 20px !important;
+}
+
 /* request sample */
 
 .uOrRn.uOrRn .sc-ckTSus {
@@ -1697,12 +1718,14 @@ button.gqkoN {
 	border-radius: 4px !important;
 	font-size: 12px !important;
 	background-color: var(--Y80) !important;
+	color: var(--S1000) !important;
 }
 
 .tXBLy {
 	border-bottom: none !important;
 	border-radius: 4px !important;
 	font-size: 12px !important;
+	color: var(--S1000) !important;
 }
 
 .elJWFT.react-tabs__tab--selected {
@@ -1797,41 +1820,30 @@ button.collapser {
 
 .boBkwr {
 	background-color: var(--sidebar-background) !important;
-	color: var(--primary-dark-blue) !important;
+	color: var(--primary-text) !important;
 }
 
 .jJMzfw {
 	background-color: var(--secondary-button) !important;
-	color: var(--primary-dark-blue) !important;
+	color: var(--primary-text) !important;
 }
 
 .lmxzaH {
 	top: 48px !important;
 }
 
-/* main body */
-
-@media screen and (min-width: 85rem) {
-	.hasNAH {
-		padding-top: 48px !important;
-	}
+.cKuJKn {
+	background-color: var(--S10) !important;
+	border: 1px solid var(--border);
 }
 
-/* dark mode */
-
-.blWcoH code {
-	background-color: var(--code-label-background) !important;
+.doLrSr {
+	border: none !important;
+	background-color: var(--S10) !important;
+	color: var(--primary-dark-blue) !important;
+	font-weight: 600 !important;
 }
 
-.blWcoH table th {
-	background-color: var(--code-label-background) !important;
-}
-
-.hmgMjk {
-	background-color: var(--code-label-background) !important;
-	padding-top: 16px;
-}
-
-.MjCCe {
-	background-color: var(--secondary-background) !important;
+.cm-s-material.CodeMirror {
+	background: var(--sidebar-background) !important;
 }
