@@ -34,6 +34,7 @@ info:
     - <b>Server-to-server authentication</b>. Use your [secret key](#section/Authentication/ApiSecretKey) or [client credentials](#section/Authentication/OAuth) for server-to-server communication. Support for API keys depends on the endpoint.
 
     Never share your client credentials, API keys, or access tokens. Keep them guarded and secure.
+
 servers:
   - url: https://api.checkout.com
     description: Live API
