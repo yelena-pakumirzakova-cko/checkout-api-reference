@@ -1,0 +1,41 @@
+type: object
+discriminator:
+  propertyName: type
+  mapping:
+    physical: '#/components/schemas/get-cards-physical-data'
+    virtual: '#/components/schemas/get-cards-virtual-data'
+required:
+  - id
+  - cardholder_id
+  - display_name
+  - expiry_month
+  - expiry_year
+  - last_four
+  - status
+  - reference
+  - type
+  - created_on
+  - last_modified_on
+properties:
+  id:
+    $ref: '#/components/schemas/IssuingCardId'
+  cardholder_id:
+    $ref: '#/components/schemas/IssuingCardholderId'
+  display_name:
+    $ref: '#/components/schemas/DisplayName'
+  expiry_month:
+    $ref: '#/components/schemas/ExpiryMonth'
+  expiry_year:
+    $ref: '#/components/schemas/ExpiryYear'
+  last_four:
+    $ref: '#/components/schemas/LastFour'
+  status:
+    $ref: '#/components/schemas/IssuingStatus'
+  reference:
+    $ref: '#/components/schemas/IssuingReference'
+  type:
+    $ref: '#/components/schemas/IssuingType'
+  created_on:
+    $ref: '#/components/schemas/Datetime'
+  last_modified_on:
+    $ref: '#/components/schemas/Datetime'

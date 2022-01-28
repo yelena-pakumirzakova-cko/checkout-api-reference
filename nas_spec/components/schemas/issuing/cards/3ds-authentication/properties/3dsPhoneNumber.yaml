@@ -1,0 +1,15 @@
+type: object
+description: Phone number used to receive the SMS containing the OTP to support 3DS authentication. It has to be a valid mobile phone number.<br><br><i>To note that the phone number added to a cardholder is independent of this phone number used for 3DS.</i>
+properties:
+  country_code: 
+    type: string
+    description: The international <a href="https://docs.checkout.com/resources/codes/country-codes" target="blank">country calling code</a>
+    minLength: 1
+    maxLength: 7
+    example: "+1"
+  number:
+    type: string
+    description: The phone number
+    minLength: 6
+    maxLength: 25
+    example: 415 555 2671

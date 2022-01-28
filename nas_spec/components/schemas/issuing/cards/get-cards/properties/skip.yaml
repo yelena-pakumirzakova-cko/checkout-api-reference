@@ -1,0 +1,5 @@
+type: integer
+description: The number of results to skip.
+default: 0
+minimum: 0
+example: 150

@@ -1,0 +1,15 @@
+type: object
+description: The card lifetime during which it accepts authorisations. The selected lifetime will determine the expiry date.
+required:
+  - value
+properties:
+  unit:
+    type: string
+    enum: [Months, Years]
+    description: The card lifetime unit
+    example: Months
+    default: Years
+  value:
+    type: integer
+    description: The card lifetime value in the selected unit
+    example: 6
