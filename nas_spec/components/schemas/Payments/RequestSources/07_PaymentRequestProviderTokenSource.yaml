@@ -1,0 +1,17 @@
+type: object
+description: A Provider Token source
+allOf:
+  - $ref: '#/components/schemas/PaymentRequestSource'
+  - type: object
+    required:
+      - payment_method
+      - token
+    properties:
+      payment_method:
+        type: string
+        description: The payment method to use with the token data in this transaction, e.g. "ACH"
+        example: ACH
+
+      token:
+        type: string
+        description: Provider token for Checkout partner integration
