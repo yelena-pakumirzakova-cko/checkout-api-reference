@@ -18,7 +18,7 @@ properties:
       - "mastercard"
       - "visa"
       - "cartes_bancaires"
-    description: Specifies the preferred scheme for a CoBrand payment.
+    description: The cardholder chosen scheme for cobranded cards. If the authentication is processed prior to the payment, specify the scheme that authenticated the transaction.
   # dlocal:
   #   type: object
   #   description: Processing information required for dLocal payments.
