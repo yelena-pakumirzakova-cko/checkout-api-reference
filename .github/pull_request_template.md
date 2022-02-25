@@ -2,14 +2,9 @@
 
 [//]: # 'Please add your description here'
 
-## Have you added an entry to the changelog table?
+## Checklist
 
-[//]: # 'This can be found in the description of each `swagger.yaml` file'
+- [ ] Added a changelog entry on the `swagger.yaml` file
+- [ ] Contacted the Tech Docs team about any corresponding guides that need to be updated for www.checkout.com/docs
 
-## Technical Writer
-
-[//]: # 'Tag your Technical Writer'
-
-**Did you create this PR manually?**
-
-Look at our documentation for [creating a GitHub workflow](https://checkout.atlassian.net/wiki/spaces/PD/pages/4844781738/GitHub+Actions+for+API+Ref) to automate the process.
+**Contributing options**: Look at [our documentation](https://checkout.atlassian.net/wiki/spaces/PD/pages/2169506663/API+ref+publication+process) for options to contribute to the API reference.
