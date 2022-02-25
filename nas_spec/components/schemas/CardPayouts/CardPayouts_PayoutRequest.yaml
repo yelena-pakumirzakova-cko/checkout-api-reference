@@ -15,8 +15,8 @@ properties:
         type: string
         description: The currency account ID to fund the payout
         pattern: '^(ca)_(\w{26})$'
-        maxLength: 29
-        minLength: 29
+        maxLength: 92
+        minLength: 92
       amount:
         type: integer
         description: Amount to be paid out from currency account. One of `source.amount` or `amount` must be provided
