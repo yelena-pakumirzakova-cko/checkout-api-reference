@@ -43,4 +43,4 @@ allOf:
         maxLength: 9
         example: '021000021'
       account_holder:
-        $ref: '#/components/schemas/AccountHolder'
+        $ref: '#/components/schemas/AccountHolderAch'

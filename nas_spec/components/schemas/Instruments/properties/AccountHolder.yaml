@@ -1,9 +1,5 @@
 type: object
 description: The account holder details
-required:
-  - first_name
-  - last_name
-  - type
 properties:
   type:
     description: The type of account holder
