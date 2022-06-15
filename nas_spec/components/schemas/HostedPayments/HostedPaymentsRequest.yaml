@@ -147,7 +147,6 @@ properties:
       - alipay_hk
       - alipay_cn
       - gcash
-      - paypal
     example:
       - card
   products:
