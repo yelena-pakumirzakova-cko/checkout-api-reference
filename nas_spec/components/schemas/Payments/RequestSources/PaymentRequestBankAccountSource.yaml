@@ -2,7 +2,7 @@ type: object
 description: A bank account payment source
 required:
   - payment_method
-  - payment_type
+  - account_type
   - account_holder
   - account_number
   - bank_code
@@ -15,7 +15,7 @@ allOf:
         type: string
         description: The payment method
         example: ach
-      payment_type:
+      account_type:
         type: string
         description: The type of Direct Debit account
         example: savings
