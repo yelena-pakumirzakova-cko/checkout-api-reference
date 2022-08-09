@@ -78,7 +78,7 @@ allOf:
         type: array
         items:
           type: string
-        description: "The array could be used to define which of the configured payment options within a payment category (pay_later, pay_over_time, etc.) \nshould be shown for this purchase."
+        description: "The array could be used to define which of the configured payment options within a payment category (pay_later, pay_over_time, etc.) should be shown for this purchase."
         x-klarna-name: custom_payment_method_ids
         x-cko-passthrough: true
         x-klarna-docs: https://developers.klarna.com/api/#payments-api__create-a-new-order__custom_payment_method_ids
