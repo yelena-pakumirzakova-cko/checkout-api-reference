@@ -74,3 +74,9 @@ allOf:
         description: "Additional purchase information required for some industries.  \nThis object is passed directly to Klarna as `attachment`, \nso for the object definition use the [Klarna documentation](https://developers.klarna.com/api/#payments-api__create-a-new-order__attachment)."
         x-cko-passthrough: true
         x-klarna-docs: 'https://developers.klarna.com/api/#payments-api__create-a-new-order__attachment'
+      custom_payment_method_ids:
+        type: array
+        description: "The array could be used to define which of the configured payment options within a payment category (pay_later, pay_over_time, etc.) \nshould be shown for this purchase."
+        x-klarna-name: custom_payment_method_ids
+        x-cko-passthrough: true
+        x-klarna-docs: https://developers.klarna.com/api/#payments-api__create-a-new-order__custom_payment_method_ids
