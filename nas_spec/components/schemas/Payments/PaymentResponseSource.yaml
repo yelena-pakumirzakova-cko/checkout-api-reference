@@ -5,7 +5,7 @@ discriminator:
   propertyName: type
   mapping:
     card: '#/components/schemas/01_PaymentResponseCardSource'
-    wechatpay: '#/components/schemas/02_PaymentResponseWeChatPaySource'
+    wechatpay: '#/components/schemas/03_PaymentResponseWeChatPaySource'
     paypal: '#/components/schemas/PaymentResponsePayPalSource'
     alipay_hk: '#/components/schemas/PaymentResponseAlipayPlusSource'
     alipay_cn: '#/components/schemas/PaymentResponseAlipayPlusSource'
