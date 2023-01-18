@@ -57,11 +57,9 @@ properties:
     type: string
     description: The reason the payment was declined, as given by the payment provider
     example: 'Payment declined due to insuficient funds'
-  partner_error_messages:
-    type: array
-    description: "Error descriptions provided by Partner"
-    items:
-      type: string
+  partner_error_message:
+    type: string
+    description: "Error description provided by Partner"
   partner_authorization_code:
     type: string
     description: "Authorization code provided by Partner"
