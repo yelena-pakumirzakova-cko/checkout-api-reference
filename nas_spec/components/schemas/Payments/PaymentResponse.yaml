@@ -134,6 +134,27 @@ properties:
       partner_client_token:
         type: string
         description: Token to be passed to Klarna JS client.
+      partner_payment_id:
+        type: string
+        description: "Unique identification of a payment provided by Partner"
+      partner_status:
+        type: string
+        description: "Status of a payment provided by Partner"
+      partner_transaction_id:
+        type: string
+        description: "Unique transaction identification provided by Partner"
+      partner_error_codes:
+        type: array
+        description: "Error codes provided by Partner"
+      partner_error_messages:
+        type: array
+        description: "Error descriptions provided by Partner"
+      partner_authorization_code:
+        type: string
+        description: "Authorization code provided by Partner"
+      partner_authorization_response_code:
+        type: string
+        description: "Authorization response code provided by Partner"
   eci:
     type: string
     description: The final Electronic Commerce Indicator (ECI) security level used to authorize the payment.
