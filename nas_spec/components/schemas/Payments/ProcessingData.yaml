@@ -37,7 +37,7 @@ properties:
     minLength: 2
   retrieval_reference_number:
     type: string
-    description: 'A unique identifier for the authorization that is submitted to the card scheme during processing'
+    description: 'A unique identifier for the authorization provided by Partner'
     example: '909913440644'
   partner_order_id:
     type: string
@@ -93,7 +93,3 @@ properties:
     description: An array defining which of the configured payment options within a payment category (for example, `pay_later` or `pay_over_time`) should be displayed for this purchase.
     items:
       type: string
-  partner_reason:
-    type: string
-    description: The reason the payment was declined, as given by the payment provider
-    example: 'Payment declined due to insuficient funds'
